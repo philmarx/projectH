@@ -9,6 +9,7 @@
     background: url("../images/top_bg.png") no-repeat;
     background-size: 100%;
     min-height: 190px;
+    margin-bottom: 10px;
 }
 .yq_user h1{
     font-size: 12px;
