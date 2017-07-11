@@ -39,38 +39,35 @@
     font-size: 15px;
     color: #CCCCCC;
     text-align: center;
-    margin: 0 0 17px;
+    margin: 0 0 15px;
+    line-height: 15px;
 }
 .yq_info h3{
     font-size: 25px;
     color: #333333;
-    margin: 0 0 10px;
+    margin: 0 0 5px;
+    font-weight: 500;
     text-align: center;
+    line-height: 27px;
 }
 .xingbie{
     text-align: center;
-    margin: 0 0 25px;
+    margin: 0 0 18px;
 }
 .nan_clo{
-    font-size: 14px;
+    font-size: 13px;
     color: #03b5e3;
 }
-.nan_clo img{
-    width: 10px;
-}
 .nv_clo{
-    font-size: 14px;
+    font-size: 13px;
     color: #ff8373;
-}
-.nv_clo img{
-
 }
 .xingbie span{
     display: inline-block;
     margin: 0 5px ;
 }
 .xingbie span img{
-    width: 8px;
+    width: 13px;
     position: relative;
     top: 2px;
     margin-right: 2px;
@@ -82,7 +79,7 @@
 .youxi_info h4{
     font-size: 12px;
     color: #808080;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 }
 .game_time{
     font-size: 10px;
@@ -98,7 +95,7 @@
     top: 3px;
 }
 .adduser_tx img{
-    width: 21px;
+    width: 22px;
     margin-right: 3px;
     border-radius: 50%;
 }
@@ -130,7 +127,7 @@
     background: #fff;
     border-radius: 20px;
     padding-bottom: 40px;
-    min-height: 560px;
+    min-height: 520px;
     box-sizing: border-box;
     position: relative;
 }

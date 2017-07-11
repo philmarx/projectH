@@ -6,7 +6,8 @@ body,html{
 	color:#666;
 	overflow-x:hidden;
 }
-body{ overflow:hidden;}	
+*{margin: 0; padding: 0;}
+body{ overflow:hidden; margin: 0; padding: 0;}
 ul{
 	margin:0;
 	padding:0;
