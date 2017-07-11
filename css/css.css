@@ -1,0 +1,183 @@
+.clear{
+    clear: both;
+}
+.room_container{
+    padding: 10px 15px;
+}
+.yq_user{
+    padding: 20px 20px;
+    background: url("../images/top_bg.png") no-repeat;
+    background-size: 100%;
+    min-height: 190px;
+}
+.yq_user h1{
+    font-size: 12px;
+    color: #fff;
+    margin: 0 0 7px;
+}
+.yq_userinfo img{
+    width: 56px;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+    float: left;
+}
+.yq_userinfo span{
+    font-size: 18px;
+    color: #fff;
+    line-height: 56px;
+    float: left;
+}
+.yq_info{
+    padding: 0 20px;
+}
+.yq_info p{
+    font-size: 15px;
+    line-height: 20px;
+    color: #333333;
+}
+.yq_info h2{
+    font-size: 15px;
+    color: #CCCCCC;
+    text-align: center;
+    margin: 0 0 17px;
+}
+.yq_info h3{
+    font-size: 25px;
+    color: #333333;
+    margin: 0 0 10px;
+    text-align: center;
+}
+.xingbie{
+    text-align: center;
+    margin: 0 0 25px;
+}
+.nan_clo{
+    font-size: 14px;
+    color: #03b5e3;
+}
+.nan_clo img{
+    width: 10px;
+}
+.nv_clo{
+    font-size: 14px;
+    color: #ff8373;
+}
+.nv_clo img{
+
+}
+.xingbie span{
+    display: inline-block;
+    margin: 0 5px ;
+}
+.xingbie span img{
+    width: 8px;
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}
+.youxi_info{
+    position: relative;
+    line-height: 20px;
+}
+.youxi_info h4{
+    font-size: 12px;
+    color: #808080;
+    margin: 0 0 10px;
+}
+.game_time{
+    font-size: 10px;
+    color: #333333;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.game_time img{
+    width: 16px;
+    margin-right: 3px;
+    position: relative;
+    top: 3px;
+}
+.adduser_tx img{
+    width: 21px;
+    margin-right: 3px;
+    border-radius: 50%;
+}
+.btn_go{
+    width: 168px;
+    height: 45px;
+    border-radius: 100px;
+    background: #3fcff1;
+    border: none;
+    display: block;
+    font-size: 22px;
+    color: #fff;
+    box-shadow: 0 4px 7px -1px #93e4f7;
+    position: absolute;
+    bottom: 49px;
+    left: 50%;
+    margin-left: -84px;
+}
+.bom_xiazai{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 6px 0;
+    box-sizing: border-box;
+}
+.f_bg{
+    background: #fff;
+    border-radius: 20px;
+    padding-bottom: 40px;
+    min-height: 560px;
+    box-sizing: border-box;
+    position: relative;
+}
+.cha{
+    width: 15px;
+    margin:  9px 15px ;
+    float: left;
+    cursor: pointer;
+}
+.logo_info img{
+    width: 37px;
+    float: left;
+}
+.logo_info span{
+    float: left;
+}
+.logo_info span h3{
+    font-size: 15px;
+    color: #fff;
+    margin: 0 0 5px 5px;
+    line-height: 15px;
+}
+.logo_info span h4{
+    font-size: 12px;
+    color: #cccccc;
+    line-height: 13px;
+    margin: 0 0 0 5px;
+}
+.liji_load{
+    width: 75px;
+    height: 37px;
+    position: absolute;
+    right: 15px;
+    top: 6px;border: none;
+    border-radius: 10px;
+    background: #3fcff1;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+
+@media (max-width:320px){
+    .yq_user{
+        min-height: 140px;
+    }
+    .f_bg{
+        min-height: 450px;
+    }
+}
