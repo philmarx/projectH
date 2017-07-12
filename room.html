@@ -124,8 +124,8 @@
 
                 var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
                 var julinum = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
-                var juli = Math.round( Math.round(julinum)/1000*100)/100
-                return(juli);
+                var juli = Math.round( Math.round(julinum)/1000*100)/100;
+                $(".juli").append(juli);
 
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
@@ -197,11 +197,7 @@
                     });
 
                     //传坐标，到获取位置函数
-                    var juli = loadMap(data.room.longitude,data.room.latitude);
-                    $(".juli").append(juli);//房间女生总人数
-
-
-
+                    loadMap(data.room.longitude,data.room.latitude);
 
                 }else{
                     alert(json.msg);
