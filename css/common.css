@@ -5,6 +5,7 @@ body,html{
 	font-family:"Microsoft YaHei",微软雅黑,STHeiti !important;
 	color:#666;
 	overflow-x:hidden;
+	height: auto;
 }
 *{margin: 0; padding: 0;}
 body{ overflow:hidden; margin: 0; padding: 0;}

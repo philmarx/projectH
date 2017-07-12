@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
     <title>房间邀请</title>
+    <meta name="keywords" content="后会有期"/>
+    <meta name="description" content="后会有期"/>
     <link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/css.css" type="text/css"/>
     <script src="js/jquery-1.10.1.min.js"></script>
@@ -19,7 +23,7 @@
     <!-- 高德地图-->
 
 </head>
-<body style="background: #eff3f6;">
+<body style="background: #eff3f6;height: auto">
 
 <div class="room_container">
     <div class="f_bg">
@@ -91,40 +95,46 @@
     function loadMap(longitude,latitude){
         var xzuobiao = longitude;
         var yzuobiao = latitude;
-        mapObj = new AMap.Map('iCenter');
-        mapObj.plugin('AMap.Geolocation', function () {
-            geolocation = new AMap.Geolocation({
-                enableHighAccuracy: true,//是否使用高精度定位，默认:true
-                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
-                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-                showButton: true,        //显示定位按钮，默认：true
-                buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
-                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
-                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
-                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
-                zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-            });
-            mapObj.addControl(geolocation);
-            geolocation.getCurrentPosition();
-            AMap.event.addListener(geolocation, 'complete', function () {
-                window.position=arguments[0].position;
-                console.log(window.position); //打印当前的坐标
-
-                var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
-                var juli = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
-                console.log(juli);
-
-            });//返回定位信息
-            AMap.event.addListener(geolocation, 'error', function () {
-                console.log("定位失败");
-            });      //返回定位出错信息
-        })
+//        mapObj = new AMap.Map('iCenter');
+//        mapObj.plugin('AMap.Geolocation', function () {
+//            geolocation = new AMap.Geolocation({
+//                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+//                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+//                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+//                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+//                showButton: true,        //显示定位按钮，默认：true
+//                buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+//                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+//                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+//                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+//                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+//                zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+//            });
+//            mapObj.addControl(geolocation);
+//            geolocation.getCurrentPosition();
+//            AMap.event.addListener(geolocation, 'complete', function () {
+//                window.position=arguments[0].position;
+//                console.log(window.position); //打印当前的坐标
+//
+//                var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
+//                var juli = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
+//                alert(juli);
+//
+//            });//返回定位信息
+//            AMap.event.addListener(geolocation, 'error', function () {
+//                console.log("定位失败");
+//            });      //返回定位出错信息
+//        })
     }
 
     //计算距离
     function getjuli(lat1,lng1,lat2,lng2){
+        var EARTH_RADIUS = 6378137.0;    //单位M
+        var PI = Math.PI;
+
+        function getRad(d){
+            return d*PI/180.0;
+        }
         var f = getRad((lat1 + lat2)/2);
         var g = getRad((lat1 - lat2)/2);
         var l = getRad((lng1 - lng2)/2);
