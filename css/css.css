@@ -114,6 +114,8 @@
     bottom: 49px;
     left: 50%;
     margin-left: -84px;
+    line-height: 44px;
+    text-align: center;
 }
 .bom_xiazai{
     width: 100%;
@@ -167,6 +169,8 @@
     background: #3fcff1;
     font-size: 14px;
     color: #fff;
+    line-height: 36px;
+    text-align: center;
 }
 
 
