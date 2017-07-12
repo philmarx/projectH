@@ -75,7 +75,6 @@
                     </span>
                     <div class="clear"></div>
                 </div>
-                <!--<a href="javascript:void(0)" class="liji_load">立即下载</a>-->
                 <input type="button" value="立即下载" class="liji_load"/>
             </div>
         </section>
@@ -88,12 +87,15 @@
     $(function () {
         load();
     })
-    function loadMap(latitude,longitude){
+
+    function loadMap(longitude,latitude){
+        var xzuobiao = longitude;
+        var yzuobiao = latitude;
         mapObj = new AMap.Map('iCenter');
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
                 enableHighAccuracy: true,//是否使用高精度定位，默认:true
-                timeout: 50000,          //超过10秒后停止定位，默认：无穷大
+                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
                 maximumAge: 0,           //定位结果缓存0毫秒，默认：0
                 convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
                 showButton: true,        //显示定位按钮，默认：true
@@ -108,13 +110,49 @@
             geolocation.getCurrentPosition();
             AMap.event.addListener(geolocation, 'complete', function () {
                 window.position=arguments[0].position;
-              //  console.dir(window.position); //打印当前的坐标
+                console.log(window.position); //打印当前的坐标
+
+                var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
+                var juli = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
+                console.log(juli);
+
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
-                alert('定位失败');
+                console.log("定位失败");
             });      //返回定位出错信息
         })
     }
+
+    //计算距离
+    function getjuli(lat1,lng1,lat2,lng2){
+        var f = getRad((lat1 + lat2)/2);
+        var g = getRad((lat1 - lat2)/2);
+        var l = getRad((lng1 - lng2)/2);
+
+        var sg = Math.sin(g);
+        var sl = Math.sin(l);
+        var sf = Math.sin(f);
+
+        var s,c,w,r,d,h1,h2;
+        var a = EARTH_RADIUS;
+        var fl = 1/298.257;
+
+        sg = sg*sg;
+        sl = sl*sl;
+        sf = sf*sf;
+
+        s = sg*(1-sl) + (1-sf)*sl;
+        c = (1-sg)*(1-sl) + sf*sl;
+
+        w = Math.atan(Math.sqrt(s/c));
+        r = Math.sqrt(s*c)/w;
+        d = 2*w*a;
+        h1 = (3*r -1)/2/c;
+        h2 = (3*r +1)/2/s;
+
+        return d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
+    }
+
     function load() {
         //userId和roomId有手机端传过来
         var params={"userId":10000000004,"roomId":1000000000189};
@@ -126,48 +164,26 @@
             success:function(json){
                 if(json.success){
                     //查看对象
-                    console.dir(json.data);
+                    console.log(json.data);
                     var data=json.data;
                     $(".yaoqing_user").append(data.inviter.nickname);//邀请人
                     $(".joinnum").append(data.room.joinMember);//房间总人数
                     $(".man_num").append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
                     $(".woman_num").append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
-                    var beginTime=new Date(data.room.beginTime);
-                    console.dir(beginTime)
 
-                    $(".game_time").append('<img src="images/mi.png" alt=""/>'+
-                            '<img src="images/bao.png" alt=""/>'+data.room.beginTime);//开始时间
+                    var beginTime=new Date(data.room.beginTime);
+                    console.log(beginTime);
+                    $(".game_time").append('<img src="images/mi.png" alt=""/>'+ '<img src="images/bao.png" alt=""/>'+data.room.beginTime);//开始时间
+
                     $.each(data.room.members,function(index,obj){
                         $(".adduser_tx").append('<img src="http://tomeet-app-files.hzease.com/user/'+obj+'/avatar" alt=""/>');//已进入房间用户头像
-                    })
+                    });
 
-                    loadMap(data.longitude,data.latitude);
-                    //获取坐标
-
-
-
-//                    //计算距离
-//                    new AMap.Marker({
-//                        map: map,
-//                        position: [data.room.longitude, data.room.latitude]
-//                    });
-//                    new AMap.Marker({
-//                        map: map,
-//                        position: [116.387271, 39.922501]
-//                    });
-//                    map.setFitView();
-//                    var lnglat = new AMap.LngLat(data.room.longitude, data.room.latitude);
-//
-//                    var juli =  lnglat.distance([116.387271, 39.922501]);
-//                    alert('两点间距离为：'+juli+ '米');
-
-//                    AMap.event.addDomListener(document.getElementById('calc'), 'click', function() {
-//                        var juli =  lnglat.distance([116.387271, 39.922501]);
-//                        alert('两点间距离为：'+juli+ '米');
-//                    });
+                    //传坐标，到获取位置函数
+                    loadMap(data.room.longitude,data.room.latitude);
 
 
-                    //给html中的元素赋值
+
                 }else{
                     alert(json.msg);
                 }
