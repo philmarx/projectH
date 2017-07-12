@@ -2,51 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>房间邀请</title>
     <link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/css.css" type="text/css"/>
     <script src="js/jquery-1.10.1.min.js"></script>
+
+    <!-- 高德地图-->
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
+    <!-- AMAPKEY -->
+    <!--<meta-data android:name="com.amap.api.v2.apikey" android:value="9ec731c426036a64c93d46f920b47d69" />-->
+    <!--<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>-->
+    <!-- 高德地图-->
+
 </head>
 <body style="background: #eff3f6;">
 
 <div class="room_container">
     <div class="f_bg">
         <div class="yq_user">
-            <h1>来自后会有期<span class="yaoqing_user">小棉袄</span>的邀请</h1>
+            <h1>来自后会有期<span class="yaoqing_user"><!--小棉袄--></span>的邀请</h1>
             <div class="yq_userinfo">
                 <img src="images/tx.jpg" alt=""/>
-                <span class="yaoqing_user">小棉袄</span>
+                <span class="yaoqing_user"><!--小棉袄--></span>
                 <div class="clear"></div>
             </div>
         </div>
         <div class="yq_info">
             <h2>邀请你加入房间</h2>
-            <h3>狼人杀10人组</h3>
+            <h3>狼人杀<span class="joinnum"><!--10--></span>人组</h3>
 
             <div class="xingbie">
-                <span class="nan_clo"><img src="images/man_i.png" alt=""/><span class="man_num">2</span>/10</span>
-                <span class="nv_clo"><img src="images/woman_i.png" alt=""/><span>1</span>/10</span>
+                <span class="nan_clo"><img src="images/man_i.png" alt=""/><span class="man_num"><!--2/10--></span></span>
+                <span class="nv_clo"><img src="images/woman_i.png" alt=""/><span class="woman_num"><!--1/10--></span></span>
             </div>
 
             <div class="youxi_info">
                 <h4>狼人杀CLUB · 1.9km</h4>
                 <div class="game_time">
-                    <img src="images/mi.png" alt=""/>
-                    <img src="images/bao.png" alt=""/>
-                    今天18:00
+                    <!--<img src="images/mi.png" alt=""/>-->
+                    <!--<img src="images/bao.png" alt=""/>-->
+                    <!--今天18:00-->
                 </div>
                 <div class="adduser_tx">
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
-                    <img src="images/tx.jpg" alt=""/>
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!--<img src="images/tx.jpg" alt=""/>-->
                 </div>
             </div>
 
@@ -64,9 +75,8 @@
                     </span>
                     <div class="clear"></div>
                 </div>
+                <!--<a href="javascript:void(0)" class="liji_load">立即下载</a>-->
                 <input type="button" value="立即下载" class="liji_load"/>
-
-                
             </div>
         </section>
     </div>
@@ -78,6 +88,33 @@
     $(function () {
         load();
     })
+    function loadMap(latitude,longitude){
+        mapObj = new AMap.Map('iCenter');
+        mapObj.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                timeout: 50000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                showButton: true,        //显示定位按钮，默认：true
+                buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+                zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            });
+            mapObj.addControl(geolocation);
+            geolocation.getCurrentPosition();
+            AMap.event.addListener(geolocation, 'complete', function () {
+                window.position=arguments[0].position;
+              //  console.dir(window.position); //打印当前的坐标
+            });//返回定位信息
+            AMap.event.addListener(geolocation, 'error', function () {
+                alert('定位失败');
+            });      //返回定位出错信息
+        })
+    }
     function load() {
         //userId和roomId有手机端传过来
         var params={"userId":10000000004,"roomId":1000000000189};
@@ -91,12 +128,43 @@
                     //查看对象
                     console.dir(json.data);
                     var data=json.data;
-                    $(".yaoqing_user").empty();
-                    $(".yaoqing_user").append(data.inviter.nickname);
-                    $(".man_num").empty();
-                    $(".man_num").append(data.room.nickname);
+                    $(".yaoqing_user").append(data.inviter.nickname);//邀请人
+                    $(".joinnum").append(data.room.joinMember);//房间总人数
+                    $(".man_num").append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
+                    $(".woman_num").append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
+                    var beginTime=new Date(data.room.beginTime);
+                    console.dir(beginTime)
+
+                    $(".game_time").append('<img src="images/mi.png" alt=""/>'+
+                            '<img src="images/bao.png" alt=""/>'+data.room.beginTime);//开始时间
+                    $.each(data.room.members,function(index,obj){
+                        $(".adduser_tx").append('<img src="http://tomeet-app-files.hzease.com/user/'+obj+'/avatar" alt=""/>');//已进入房间用户头像
+                    })
+
+                    loadMap(data.longitude,data.latitude);
+                    //获取坐标
 
 
+
+//                    //计算距离
+//                    new AMap.Marker({
+//                        map: map,
+//                        position: [data.room.longitude, data.room.latitude]
+//                    });
+//                    new AMap.Marker({
+//                        map: map,
+//                        position: [116.387271, 39.922501]
+//                    });
+//                    map.setFitView();
+//                    var lnglat = new AMap.LngLat(data.room.longitude, data.room.latitude);
+//
+//                    var juli =  lnglat.distance([116.387271, 39.922501]);
+//                    alert('两点间距离为：'+juli+ '米');
+
+//                    AMap.event.addDomListener(document.getElementById('calc'), 'click', function() {
+//                        var juli =  lnglat.distance([116.387271, 39.922501]);
+//                        alert('两点间距离为：'+juli+ '米');
+//                    });
 
 
                     //给html中的元素赋值
