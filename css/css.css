@@ -1,13 +1,15 @@
 .clear{
     clear: both;
 }
+
+/*加入房间，加入圈子*/
 .room_container{
     padding: 10px 15px;
 }
 .yq_user{
     padding: 20px 20px;
     background: url("../images/top_bg.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     min-height: 190px;
     margin-bottom: 10px;
 }
@@ -172,6 +174,316 @@
     line-height: 36px;
     text-align: center;
 }
+/*加入房间，加入圈子---------*/
+
+/*分享邀请*/
+.fenxiang_container>div>img{
+    width: 100%;
+}
+.load_div{
+    padding: 2em 0 18px;
+    width: 100%;
+}
+.one_load{
+    background: #f4fdff;
+    margin-top: -5px;
+}
+.load_div img{
+    width: 15px;
+    display: block;
+    margin: 12px auto 0;
+}
+.fx_upload{
+    display: block;
+    margin: auto;
+    width: 8em;
+    height: 2.5em;
+    border-radius: 5px;
+    background: #00b8e8;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    line-height: 2.5em;
+}
+.gongzhonghao{
+    padding: 14em 0 18em;
+    text-align: center;
+}
+.gongzhonghao img{
+    width: 8em!important;
+}
+.gongzhonghao h3{
+    font-size: 12px;
+    color: #333333;
+    margin: 5px 0 0;
+}
+.fenxiang_container h1{
+    font-size: 17px;
+    color: #333333;
+    text-align: center;
+    line-height: 18px;
+}
+.fenxiang_container h2{
+    font-size: 10px;
+    color: #808080;
+    line-height: 10px;
+    margin: 20px 0 35px;
+    text-align: center;
+}
+/*分享邀请-----------*/
+
+
+/*应用邀请*/
+.yyyq_container{
+    width: 100%;
+    background: url("../images/yyyq_bg.png") no-repeat;
+    background-size: 100%;
+}
+.yyyq_container{
+    padding: 25px 0 50px;
+}
+.top_yyyq{
+    width: 85%;
+    margin: auto;
+    background: url(../images/fff_bg.png) no-repeat;
+    background-size: 100%;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+}
+.yyyq_user{
+    padding: 2.5em 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+.yyyq_user_icon{
+    width: 55px;
+    margin: auto;
+    display: block;
+    border-radius: 50%;
+}
+.yuan{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: none;
+    box-shadow: 0 0 3px #000;
+    position: relative;
+    top: -74px;
+    left: 50%;
+    margin-left: -27px;
+}
+.yyyq_user h1{
+    font-size: 14px;
+    color: #3fcff1;
+    text-align: center;
+    margin: 15px 0 6px;
+    font-weight: 400;
+}
+.yyyq_user h1 span{
+    display: inline-block;
+    margin-right: 15px;
+}
+.yyyq_user h2{
+    font-size: 20px;
+    color: #3fcff1;
+    text-align: center;
+    font-weight: 400;
+}
+.yyyq_user+img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+.lingqu_container{
+    width:85%;
+    margin:auto;
+    position: relative;
+}
+.lingqu_btn{
+    width: 100%;
+    margin: auto;
+    height: 54px;
+    background: #3fcff1;
+    border: none;
+    cursor: pointer;
+}
+.lingqu{
+    display: block;
+    margin: auto;
+    width: 108px;
+}
+.lingqu img{
+    width: 30px;
+    position: relative;
+    top: 5px;
+}
+.lingqu span{
+    font-size: 18px;
+    color: #fff;
+    line-height: 54px;
+}
+.zuo_yy{
+    width: 18px;
+    position: absolute;
+    left: -18px;
+    top: -1.5em;
+}
+.you_yy{
+    width: 18px;
+    position: absolute;
+    right: -18px;
+    top: -1.5em;
+}
+.fujintuijian h1{
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+}
+.fujintuijian h1 img{
+    width: 13px;
+    margin-right: 7px;
+    position: relative;
+    top: 2px;
+}
+.tuijian{
+    width: 90%;
+    margin: 17px auto 0;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px 7px;
+}
+.game_name{
+    font-size: 15px;
+    color: #333;
+    line-height: 16px;
+    margin: 0 0 8px;
+}
+.ts_game_time{
+    top: 24px!important;
+}
+.game_img_div{
+    width: 40px;
+    float: left;
+    padding-right: 15px;
+}
+.game_img{
+    width: 25px;
+}
+.game_info{
+    width: calc(100% - 40px);
+    float: left;
+    position: relative;
+    line-height: 20px;
+}
+.game_info h4{
+    font-size: 12px;
+    color: #808080;
+    margin: 0 0 8px;
+}
+
+.phone_yanzheng_modal{
+    display: none;
+}
+.choose_way_modal{
+    display: none;
+}
+/*登录方式*/
+.login_way{
+    width: 80%;
+    min-width: 300px;
+    height: 214px;
+    margin: auto;
+    padding: 40px 0 60px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+.login_way h1{
+    font-size: 15px;
+    color: #333;
+    line-height: 16px;
+    text-align: center;
+    margin: 0 0 35px;
+}
+.all_way{
+    width: 67%;
+    margin: auto;
+}
+.all_way >div{
+    width: 33.32%;
+    float: left;
+    text-align: center;
+}
+.all_way >div img{
+    width: 40px;
+}
+.all_way >div h5{
+    font-size: 12px;
+    color: #333;
+    margin: 4px 0 0 0;
+}
+.close_modal{
+    width: 30px;
+    position: absolute;
+    right: 0;
+    top: -58.5px;
+}
+/*登录方式----------*/
+
+/*手机验证*/
+.phone_yanzheng{
+    width: 80%;
+    min-width: 300px;
+    height: 214px;
+    margin: auto;
+    padding: 30px 20px 33px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+.get_phonenum{
+    width: 54%;
+    height: 40px;
+    padding-left: 15px;
+    font-size: 15px;
+    color: #a9a9a9;
+    border: solid 1px #d1d1d1;
+    background: #f9f9f9;
+}
+.get_yzm{
+    width: calc(46% - 10px);
+    float: right;
+    height: 40px;
+    font-size: 15px;
+    color: #333333;
+    border: solid 1px #d1d1d1;
+    background: #f9f9f9;
+    cursor: pointer;outline: none;
+}
+.shuru_yzm{
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    font-size: 15px;
+    color: #a9a9a9;
+    margin: 15px 0;
+    background: #f9f9f9;
+    border: solid 1px #d1d1d1;
+}
+.lingqu_libao{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #fff;
+    background: #3fcff1;
+    cursor: pointer;
+
+}
+
+
+
+/*应用邀请-----------*/
 
 
 
