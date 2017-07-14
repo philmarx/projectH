@@ -83,13 +83,6 @@ $(document).ready(function () {
             $(".bom_xiazai").slideUp(500);
         });
 
-        //应用邀请--手机验证、登录方式。模态框开关控制
-        $(".lingqu_btn").click(function () {
-            $(".choose_way_modal").fadeIn(500);
-        });
-        $(".close1").click(function () {
-            $(".choose_way_modal").fadeOut(200)
-        })
     })
 });
 

@@ -33,7 +33,7 @@
         <div class="yq_user">
             <h1>来自后会有期<span class="yaoqing_user"><!--小棉袄--></span>的邀请</h1>
             <div class="yq_userinfo">
-                <img src="images/tx.jpg" alt=""/>
+                <img src="images/tx.jpg" class="room_yaoqing_tx" alt=""/>
                 <span class="yaoqing_user"><!--小棉袄--></span>
                 <div class="clear"></div>
             </div>
@@ -56,15 +56,7 @@
                 </div>
                 <div class="adduser_tx">
                     <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--<img src="images/tx.jpg" alt=""/>-->
+                    <!-- 参加用户的头像-->
                 </div>
             </div>
 
@@ -149,6 +141,7 @@
                     console.log(json.data);
                     var data=json.data;
                     $(".yaoqing_user").append(data.inviter.nickname);//邀请人
+                    $('.room_yaoqing_tx').attr('src','http://tomeet-app-files.hzease.com/user/'+data.inviter.id+'/avatar')//邀请人头像
                     $(".joinnum").append(data.room.joinMember);//房间总人数
                     $(".man_num").append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
                     $(".woman_num").append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
@@ -162,6 +155,7 @@
 
                     //传坐标，到获取位置函数
                     loadMap(data.room.longitude,data.room.latitude);
+
 
                 }else{
                     alert(json.msg);
