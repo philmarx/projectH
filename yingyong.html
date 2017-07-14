@@ -16,13 +16,8 @@
     <!--魔窗-->
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
 
-    <!--高德地图-->
-    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
-    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
-    <script src="http://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
-    <!--<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>-->
-    <!--高德地图-->
 
+    <script src="js/AMap.js"></script>
     <script src="js/key.js" ></script>
     <link rel="stylesheet" href="css/common.css"/>
 </head>
@@ -54,316 +49,7 @@
     <div class="fujintuijian" style="background: #eff3f6;">
         <h1><img src="images/map.png" alt=""/>附近推荐</h1>
         <div id="tuijian_container">
-            <div class="tuijian">
-                <div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">
-                    <div style="display: table;width: 100%; height: 100%;">
-                        <div style="display: table-cell;vertical-align: middle">
-                            <img src="images/tx.jpg" class="game_img" alt=""/>
-                        </div>
-                    </div>
-                </div>
-                <div class="game_info">
-                    <h5 class="game_name">狼人杀萌新娱乐局</h5>
-                    <h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>
-                    <div class="game_time ts_game_time" >
-                        <img src="images/mi.png" alt=""/>
-                        <img src="images/bao.png" alt=""/>
-                        <span class="begintime">今天18:00</span>
-                    </div>
-                    <div class="adduser_tx">
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                        <img src="images/tx.jpg" alt=""/>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
-            <!--<div class="tuijian">-->
-                <!--<div class="game_img_div" style="width: 40px;padding-right: 15px;float: left">-->
-                    <!--<div style="display: table;width: 100%; height: 100%;">-->
-                        <!--<div style="display: table-cell;vertical-align: middle">-->
-                            <!--<img src="images/tx.jpg" class="game_img" alt=""/>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="game_info">-->
-                    <!--<h5 class="game_name">狼人杀萌新娱乐局</h5>-->
-                    <!--<h4>狼人杀CLUB · <span class="juli">1.9</span>km</h4>-->
-                    <!--<div class="game_time ts_game_time" >-->
-                        <!--<img src="images/mi.png" alt=""/>-->
-                        <!--<img src="images/bao.png" alt=""/>-->
-                        <!--<span class="begintime">今天18:00</span>-->
-                    <!--</div>-->
-                    <!--<div class="adduser_tx">-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                        <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
+            <span>定位中</span>
         </div>
 
     </div>
@@ -460,7 +146,9 @@
 <script>
     $(function () {
         load();
+        loadMap();
     });
+
 
     //高德获取位置
     function loadMap(){
@@ -483,7 +171,42 @@
             geolocation.getCurrentPosition();
             AMap.event.addListener(geolocation, 'complete', function () {
                 window.position=arguments[0].position;
-                console.log(window.position); //打印当前的坐标
+                var params={"gameId":0,"longitude":position.M,"latitude":position.O,"page":0,"size":10,"state":0};
+                $.ajax({
+                    type:'post',
+                    dataType:'json',
+                    url:ContextPath+'/room/findRoomsByGameOrder',
+                    data:params,
+                    success:function(json){
+                        if(json.success){
+                            var datas = json.data;
+                            var $tuijianContainer=$('#tuijian_container').html('');
+                            $.each(datas, function (index,obj) {
+                                var $tuijian=$('<div class="tuijian"><div class="game_img_div"><div class="distable"><div class="distabcell"><img src="http://www.hzease.com/game/'+obj.game.id+'.png" class="game_img" alt=""/></div></div></div></div>');
+                                var $gameInfo=$(' <div class="game_info">'+
+                                        '<h5 class="game_name">'+obj.name+'</h5>'+
+                                        '<h4><span class="name2">'+obj.place+'</span> · <span class="juli">'+getjuli(obj.latitude,obj.longitude,position.O,position.M)+'</span>km</h4>'+
+                                        '<div class="game_time ts_game_time" >'+
+                                        '<img src="images/mi.png" alt=""/>'+
+                                        '<img src="images/bao.png" alt=""/>'+
+                                        '<span class="begintime">'+dateTimeFormat(Date.parse(obj.beginTime))+'</span>'+
+                                        '</div></div>');
+                                var $imgContainer=  $('<div class="adduser_tx"></div>');
+                                $.each(obj.joinMembers,function(i,o){
+                                    var $img=$('<img src="'+'http://tomeet-app-files.hzease.com/user/'+ o.id+'/avatar'+'" alt=""/>');
+                                    $imgContainer.append($img);
+                                });
+                                $gameInfo.append($imgContainer);
+                                $tuijian.append($gameInfo);
+                                var $clear=$('<div class="clear"></div>');
+                                $tuijian.append($clear);
+                                $tuijianContainer.append($tuijian);
+                            })
+                        }else{
+                            alert(json.msg);
+                        }
+                    }
+                });
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
                 console.log("定位失败");
@@ -501,60 +224,6 @@
         });
         $(".close1").click(function () {
             $(".choose_way_modal").fadeOut(200)
-        });
-
-//        loadMap();
-
-
-
-        var params={"gameId":0,"longitude":120.12369000000001,"latitude":30.32084,"page":0,"size":10,"state":0};
-        $.ajax({
-            type:'post',
-            dataType:'json',
-            url:ContextPath+'/room/findRoomsByGameOrder',
-            data:params,
-            success:function(json){
-                if(json.success){
-                    console.log(json.data);
-                    var datas = json.data;
-//                    console.log(datas[1].beginTime);
-
-
-                    $.each(datas, function (index,obj) {
-                        var begintime = obj.beginTime;
-                        var canyu_user = obj.joinMembers;
-                        console.dir(canyu_user);
-                        $('#tuijian_container').append(' <div class="tuijian">'+
-                        '<div class="game_img_div">'+
-                                '<div class="distable">'+
-                                '<div class="distabcell">'+
-                                '<img src="images/tx.jpg" class="game_img" alt=""/>'+
-                                '</div></div></div>'+
-                                '<div class="game_info">'+
-                                '<h5 class="game_name">'+obj.name+'</h5>'+
-                                '<h4>'+obj.place+' · <span class="juli">1.9</span>km</h4>'+
-                       '<div class="game_time ts_game_time" >'+
-                                '<img src="images/mi.png" alt=""/><img src="images/bao.png" alt=""/>'+
-                                '<span class="begintime">'+ begintime.substr(5,begintime.length)+'</span>'+
-                        '</div>'+
-                        '<div class="adduser_tx">'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '<img src="images/tx.jpg" alt=""/>'+
-                                '</div></div>'+
-                                '<div class="clear"></div>'+
-                                '</div>');
-                    })
-                }else{
-                    alert(json.msg);
-                }
-            }
         });
 
         //ajax页面上邀请人name与头像加载

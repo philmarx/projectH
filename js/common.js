@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * Created by Administrator on 2017/7/13.
  */
 
 
-//¼ÆËã¾àÀëº¯Êı
+//è®¡ç®—è·ç¦»å‡½æ•°
 function getjuli(lat1,lng1,lat2,lng2){
-    var EARTH_RADIUS = 6378137.0;    //µ¥Î»M
+    var EARTH_RADIUS = 6378137.0;    //å•ä½M
     var PI = Math.PI;
 
     function getRad(d){
@@ -36,10 +36,12 @@ function getjuli(lat1,lng1,lat2,lng2){
     h1 = (3*r -1)/2/c;
     h2 = (3*r +1)/2/s;
 
-    return d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
+    var distance = d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
+    distance=Math.round( Math.round(distance)/1000*100)/100;
+    return distance;
 }
 
-//¼ÆËãÊ±¼äº¯Êı£¬½ñÌì£¬Ã÷Ìì£¬ºóÌì£¬³¬¹ı¾ÍÓÃÈÕÆÚÏÔÊ¾
+//è®¡ç®—æ—¶é—´å‡½æ•°ï¼Œä»Šå¤©ï¼Œæ˜å¤©ï¼Œåå¤©ï¼Œè¶…è¿‡å°±ç”¨æ—¥æœŸæ˜¾ç¤º
 function dateTimeFormat(dateNum){
     function getMinute(minute){
         var str=minute+'';
@@ -55,13 +57,13 @@ function dateTimeFormat(dateNum){
         var diff=date.getDate()-today.getDate();
         switch(diff){
             case 0:
-                dateString='½ñÌì'+(date.getHours()+':'+getMinute(date.getMinutes()));
+                dateString='ä»Šå¤©'+(date.getHours()+':'+getMinute(date.getMinutes()));
                 break;
             case 1:
-                dateString='Ã÷Ìì'+(date.getHours()+':'+getMinute(date.getMinutes()));
+                dateString='æ˜å¤©'+(date.getHours()+':'+getMinute(date.getMinutes()));
                 break;
             case 2:
-                dateString='ºóÌì'+(date.getHours()+':'+getMinute(date.getMinutes()));
+                dateString='åå¤©'+(date.getHours()+':'+getMinute(date.getMinutes()));
                 break;
             default:
                 dateString=date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+getMinute(date.getMinutes());
@@ -78,7 +80,7 @@ function dateTimeFormat(dateNum){
 $(document).ready(function () {
     $(window).load(function () {
 
-        //×îÏÂ·½¸¡¶¯¿éµã»÷¹Ø±Õ°´Å¥Òş²Ø
+        //æœ€ä¸‹æ–¹æµ®åŠ¨å—ç‚¹å‡»å…³é—­æŒ‰é’®éšè—
         $(".cha").click(function () {
             $(".bom_xiazai").slideUp(500);
         });
