@@ -2,6 +2,41 @@
  * Created by Administrator on 2017/7/13.
  */
 
+//手机号正则式表达验证
+function checkMobile(number){
+    if(!(/^1(3|4|5|7|8)\d{9}$/.test(number))){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+//获取url参数
+function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return unescape(r[2]);
+    }
+    return null;
+}
+
+function getUrlParams() {
+    var url = location.href;
+    if (url.indexOf('?')<0){
+        return {};
+    }
+    url = decodeURI(url).split('?')[1];
+    var paramsList = url.split('&');
+    var params = {};
+    for (var i = 0; i < paramsList.length; ++i) {
+        var paramString = paramsList[i].split('=');
+        params[paramString[0]] = paramString[1];
+    }
+    return params;
+}
+
 
 //计算距离函数
 function getjuli(lat1,lng1,lat2,lng2){
@@ -74,8 +109,6 @@ function dateTimeFormat(dateNum){
     }
     return dateString;
 }
-
-
 
 $(document).ready(function () {
     $(window).load(function () {

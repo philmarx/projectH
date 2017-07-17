@@ -85,11 +85,9 @@
     margin: 0 0 8px;
 }
 .game_time{
+    float: right;
     font-size: 10px;
     color: #333333;
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 .game_time img{
     width: 15px;
@@ -240,7 +238,7 @@
     background-size: 100%;
 }
 .yyyq_container{
-    padding: 25px 0 50px;
+    padding: 25px 0 30px;
 }
 .top_yyyq{
     width: 85%;
@@ -486,12 +484,20 @@
 
 
 
-.abc{
-    width: 92%;
-    background: gainsboro;
-    border-radius: 10px;
-    margin: 10px auto 0;
+.place_container{
+    margin-bottom: 10px;
 }
+.place_info{
+    width: 30%;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.distance_info{
+    float: left;
+}
+
 
 
 /*Ó¦ÓÃÑûÇë-----------*/

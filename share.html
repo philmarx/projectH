@@ -21,7 +21,7 @@
     <script src="js/key.js" ></script>
     <link rel="stylesheet" href="css/common.css"/>
 </head>
-<body>
+<body style="background: #eff3f6;">
 
 <div class="yyyq_container">
     <div class="top_yyyq">
@@ -39,17 +39,18 @@
                 <span>点击领取</span>
             </span>
         </div>
-        <!--<button class="lingqu"><img src="images/bling.png" style="width: 30px;height: 30px" alt=""/>点击领取</button>-->
         <img src="images/yy2.png" width="100%;" alt=""/>
         <img src="images/yy4.png" class="zuo_yy" alt=""/>
         <img src="images/yy3.png" class="you_yy" alt=""/>
     </div>
 
 
-    <div class="fujintuijian" style="background: #eff3f6;">
+    <div class="fujintuijian">
         <h1><img src="images/map.png" alt=""/>附近推荐</h1>
         <div id="tuijian_container">
-            <span>定位中</span>
+            <center>
+                定位中...
+            </center>
         </div>
     </div>
 </div>
@@ -108,20 +109,19 @@
             <div class="distable">
                 <div class="distabcell">
                     <div class="phone_yanzheng">
-                        <div>
+                        <form>
                             <input type="text" class="get_phonenum" placeholder="输入手机号" onblur="this.placeholder='输入手机号'" onfocus="this.placeholder=''"/>
                             <input type="button" value="验证码" class="get_yzm"/>
                             <div class="clear"></div>
                             <input type="text" class="shuru_yzm" placeholder="输入验证码" onblur="this.placeholder='输入验证码'" onfocus="this.placeholder=''"/>
                             <input type="button" class="lingqu_libao" value="领取新手大礼包"/>
-                        </div>
+                        </form>
                         <img src="images/close.png" class="close_modal close2" alt=""/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
 
 </body>
@@ -133,16 +133,75 @@
         load();
         loadMap();
     });
-    function getQueryString(name) {
-        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) {
-            return unescape(r[2]);
-        }
-        return null;
+
+    var url_canshu = getUrlParams();
+//    var userId = url_canshu.userId;
+//    var origin = url_canshu.origin;
+//    var roomId = url_canshu.roomId;
+
+    var userId  = getQueryString("userId");
+    var origin  = getQueryString("origin");
+    var roomId  = getQueryString("roomId");
+
+    function load() {
+        //ajax页面上邀请人name与头像加载
+        var params2 = {"userId":userId};
+//        alert("params2"+params2.userId);
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'user/findOtherInfo',
+            data:params2,
+            success:function(json){
+                if(json.success){
+                    var datas = json.data;
+                    $('.yyyq_user_icon').attr('src','http://tomeet-app-files.hzease.com/user/'+datas.id+'/avatar');
+                    $("#yy_user").append(datas.nickname);
+                }else{
+                    alert("失败-未获取到邀请人以及头像");
+                }
+            }
+        });
+
+        $(".game_img_div").height($(".game_info").height());
+        //应用邀请--手机验证、登录方式。模态框开关控制
+        $(".lingqu_btn").click(function () {
+            $(".choose_way_modal").fadeIn(500);
+        });
+        $(".close1").click(function () {
+            $(".choose_way_modal").fadeOut(200)
+        });
+        $(".close2").click(function () {
+            $(".phone_yanzheng_modal").fadeOut(200);
+        });
+
+        $(".way_phone").click(function () {
+            $(".choose_way_modal").fadeOut(1000);
+            $(".phone_yanzheng_modal").fadeIn(500);
+        });
+
+        //验证码获取
+        $(".get_yzm").click(function () {
+            var params3={};
+            var phone=$(".get_phonenum").val();
+            if(!checkMobile(phone)){
+                alert("手机号码不正确");
+            }
+            else{
+                var params3 = {"phone":phone}
+            }
+
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'user/getSmsCode',
+                data:params3,
+                success:(function (json) {
+//                    console.dir(json);
+                })
+            });
+        })
     }
-    var userid = getQueryString("userId");
-    var origin = getQueryString("origin");
 
     //高德获取位置
     function loadMap(){
@@ -169,18 +228,11 @@
                                 var $tuijian=$('<div class="tuijian"><div class="game_img_div"><div class="distable"><div class="distabcell"><img src="http://www.hzease.com/game/'+obj.game.id+'.png" class="game_img" alt=""/></div></div></div></div>');
                                 var $gameInfo=$(' <div class="game_info">'+
                                         '<h5 class="game_name">'+obj.name+'</h5>'+
-
-//                                        '<div class="abc">'+
-//                                        '<div class="a1">暴风下载速度就是大嫁风尚收到了法就是</div>'+
-//                                        '<div class="a2">24.21km</div>'+
-//                                        '<div class="a3">密保2017-7-26 17:00</div></div>'+
-
-                                        '<h4><span class="name2">'+obj.place+'</span> · <span class="juli">'+getjuli(obj.latitude,obj.longitude,position.O,position.M)+'km</span></h4>'+
-                                        '<div class="game_time ts_game_time" >'+
-                                        '<img src="images/mi.png" alt=""/>'+
-                                        '<img src="images/bao.png" alt=""/>'+
-                                        '<span class="begintime">'+dateTimeFormat(Date.parse(obj.beginTime))+'</span>'+
-                                        '</div></div>');
+                                        '<div class="place_container">'+
+                                        '<div class="place_info">'+obj.place+'</div>'+
+                                        '<div class="distance_info">'+getjuli(obj.latitude,obj.longitude,position.O,position.M)+'km</div>'+
+                                        '<div class="game_time"><img src="images/mi.png" alt=""/><img src="images/bao.png" alt=""/>'+
+                                        dateTimeFormat(Date.parse(obj.beginTime))+'</div><div class="clear"></div></div>');
                                 var $imgContainer=  $('<div class="adduser_tx"></div>');
                                 $.each(obj.joinMembers,function(i,o){
                                     var $img=$('<img src="'+'http://tomeet-app-files.hzease.com/user/'+ o.id+'/avatar'+'" alt=""/>');
@@ -193,7 +245,7 @@
                                 $tuijianContainer.append($tuijian);
                             })
                         }else{
-                            alert("失败");
+                            console.dir(datas.message);
                         }
                     }
                 });
@@ -204,38 +256,7 @@
         })
     }
 
-    function load() {
-        //ajax页面上邀请人name与头像加载
-        var params2 = {"userId":userid};
-        $.ajax({
-            type:'post',
-            dataType:'json',
-            url:ContextPath+'/user/findOtherInfo',
-            data:params2,
-            success:function(json){
-                if(json.success){
-                    var datas = json.data;
-                    $('.yyyq_user_icon').attr('src','http://tomeet-app-files.hzease.com/user/'+datas.id+'/avatar');
-                    $("#yy_user").append(datas.nickname);
-                }else{
-                    alert("失败111");
-                }
-            }
-        });
-    }
 
-    $(document).ready(function () {
-        $(window).load(function () {
-            $(".game_img_div").height($(".game_info").height());
-            //应用邀请--手机验证、登录方式。模态框开关控制
-            $(".lingqu_btn").click(function () {
-                $(".choose_way_modal").fadeIn(500);
-            });
-            $(".close1").click(function () {
-                $(".choose_way_modal").fadeOut(200)
-            });
-        })
-    })
 </script>
 
 <!--魔窗-->
@@ -247,7 +268,7 @@
         autoRedirectToDownloadUrl: true,
         downloadWhenUniversalLinkFailed: false,
         inapp : false,
-        params: {action:'share', key1:userid, key2:origin}
+        params: {action:'share', key1:userId, key2:origin}
     });
 </script>
 
