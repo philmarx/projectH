@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>房间邀请</title>
+    <meta name="keywords" content="后会有期"/>
+    <meta name="description" content="后会有期"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/css.css" type="text/css"/>
+    <script src="../js/jquery-1.10.1.min.js"></script>
+
+    <!--魔窗-->
+    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+     <!--高德地图-->
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
+    <!--<script src="js/AMap.js"></script>-->
+     <!--高德地图-->
+
+    <script src="../js/common.js"></script>
+    <script src="../js/key.js"></script>
+
+</head>
+<body style="background: #eff3f6;height: auto">
+
+<div class="room_container">
+    <div class="f_bg">
+        <div class="yq_user">
+            <h1>来自后会有期<span class="yaoqing_user"><!--小棉袄--></span>的邀请</h1>
+            <div class="yq_userinfo">
+                <img src="../images/tx2.jpg" class="room_yaoqing_tx" alt=""/>
+                <span class="yaoqing_user"><!--小棉袄--></span>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="yq_info">
+            <h2>邀请你加入房间</h2>
+            <h3><span class="joinnum"></span></h3>
+
+            <div class="xingbie">
+                <span class="nan_clo"><img src="../images/man_i.png" alt=""/><span class="man_num">0/0</span></span>
+                <span class="nv_clo"><img src="../images/woman_i.png" alt=""/><span class="woman_num">0/0</span></span>
+            </div>
+
+            <div class="youxi_info">
+
+                <div class="place_container">
+                    <div class="place_info">正在获取中</div>
+                    <div class="distance_info"><span> · </span>0.00km</div>
+                    <div class="game_time">
+                        <img src="../images/mi.png" alt=""/>
+                        <img src="../images/bao.png" alt=""/>0000-00-00
+                    </div><div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="adduser_tx">
+                    <img src="../images/tx2.jpg" alt=""/>
+                    <img src="../images/tx2.jpg" alt=""/>
+                </div>
+            </div>
+
+            <a href="" class="btn_go" id="goroom">进入房间</a>
+
+        </div>
+    </div>
+</div>
+
+<!--浮在底部-->
+<section>
+    <div class="bom_xiazai">
+        <img src="../images/cha.png" class="cha" alt=""/>
+        <div class="logo_info">
+            <img src="../images/logo.png" alt=""/>
+                    <span>
+                        <h3>后会有期</h3>
+                        <h4>首个线下即时组队平台</h4>
+                    </span>
+            <div class="clear"></div>
+        </div>
+        <a href="" class="liji_load" id="uploadapp">立即打开</a>
+    </div>
+</section>
+
+</body>
+
+
+<script>
+    $(function () {
+        load();
+        getQueryString();
+    });
+
+    var userId  = getQueryString("userId");
+    var roomId  = getQueryString("roomId");
+
+
+    //ajax调接口
+    function load() {
+        //userId和roomId有手机端传过来
+        var params={"userId":userId,"roomId":roomId};
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'/view/inviteRoom',
+            data:params,
+            success:function(json){
+                if(json.success){
+                    //查看对象
+                    console.dir(json.data);
+                    var data=json.data;
+
+                    $(".yaoqing_user").append(data.inviter.nickname);//邀请人
+                    $('.room_yaoqing_tx').attr('src','http://tomeet-app-files.hzease.com/user/'+data.inviter.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200')//邀请人头像
+                    $(".place_info").empty().append(data.room.place+'<span></span>');//房间地点
+                    $(".yq_info h3").empty().append(data.room.name);//房间总人数
+
+                    $(".man_num").empty().append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
+                    $(".woman_num").empty().append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
+
+                    var beginTime=new Date(data.room.beginTime);
+                    var $game_time = $(".game_time").html('');
+                    if(data.room.locked){
+                        $game_time.append('<img src="../images/mi.png" alt=""/>');
+                    }
+                    if(data.room.money>0){
+                        $game_time.append('<img src="../images/bao.png" alt=""/>');
+                    }
+                    $game_time.append(dateTimeFormat(beginTime));
+                    $(".adduser_tx").html('');
+                    $.each(data.room.members,function(index,obj){
+                        $(".adduser_tx").append('<img src="http://tomeet-app-files.hzease.com/user/'+obj+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100" alt=""/>');//已进入房间用户头像
+                    });
+
+                    //传坐标，到获取位置函数
+                    loadMap(data.room.longitude,data.room.latitude);
+
+                }else{
+                    console.dir(json.msg);
+                }
+            }
+        });
+    }
+
+    //高德获取位置
+    function loadMap(longitude,latitude){
+        var xzuobiao = longitude;
+        var yzuobiao = latitude;
+        mapObj = new AMap.Map('iCenter');
+        mapObj.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 600000,           //定位结果缓存0毫秒，默认：0
+                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+                showButton: true,        //显示定位按钮，默认：true
+                buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+                zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            });
+            mapObj.addControl(geolocation);
+            geolocation.getCurrentPosition();
+            AMap.event.addListener(geolocation, 'complete', function () {
+                window.position=arguments[0].position;
+//                console.log(window.position); //打印当前的坐标
+
+                var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
+                var julinum = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
+                var juli = Math.round( Math.round(julinum)/1000*100)/100;
+                $(".distance_info").empty().append('<span> · </span>'+juli+"km");
+
+            });//返回定位信息
+            AMap.event.addListener(geolocation, 'error', function () {
+                console.log("定位失败");
+            });      //返回定位出错信息
+        })
+    }
+
+</script>
+
+<!--定义魔窗深链接-->
+<script type="text/javascript">
+    new Mlink({
+        mlink:'AcpY',//短链地址
+        button:document.querySelector('a#uploadapp'),
+        autoLaunchApp : false,
+        autoRedirectToDownloadUrl: true,
+        downloadWhenUniversalLinkFailed: false,
+        inapp : false,
+        params: {action:'invited', key1:roomId}
+    });
+    new Mlink({
+        mlink:'AcpY',//短链地址
+        button:document.querySelector('a#goroom'),
+        autoLaunchApp : false,
+        autoRedirectToDownloadUrl: true,
+        downloadWhenUniversalLinkFailed: false,
+        inapp : false,
+        params: {action:'invited', key1:roomId}
+    });
+</script>
+
+
+</html>

@@ -37,6 +37,9 @@
     font-size: 15px;
     line-height: 20px;
     color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .yq_info h2{
     font-size: 15px;
@@ -49,9 +52,12 @@
     font-size: 25px;
     color: #333333;
     margin: 0 0 5px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     line-height: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .xingbie{
     text-align: center;
@@ -90,7 +96,7 @@
     color: #333333;
 }
 .game_time img{
-    width: 15px;
+    width: 14px;
     margin-right: 3px;
     position: relative;
     top: 3px;
@@ -229,19 +235,22 @@
     text-align: center;
 }
 /*分享邀请-----------*/
-
+.adduser_tx{
+    height: 22px;
+}
 
 /*应用邀请*/
 .yyyq_container{
     width: 100%;
-    background: url("../images/yyyq_bg.png") no-repeat;
+    /*background: url("../images/yyyq_bg.png") no-repeat;*/
+    background: url("../images/fxbg.png") no-repeat;
     background-size: 100%;
 }
 .yyyq_container{
     padding: 25px 0 30px;
 }
 .top_yyyq{
-    width: 85%;
+    width: 80%;
     margin: auto;
     background: url(../images/fff_bg.png) no-repeat;
     background-size: 100%;
@@ -275,6 +284,9 @@
     text-align: center;
     margin: 15px 0 6px;
     font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .yyyq_user h1 span{
     display: inline-block;
@@ -285,6 +297,9 @@
     color: #3fcff1;
     text-align: center;
     font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .yyyq_user+img{
     width: 100%;
@@ -292,7 +307,7 @@
     margin: auto;
 }
 .lingqu_container{
-    width:85%;
+    width:80%;
     margin:auto;
     position: relative;
 }
@@ -360,6 +375,7 @@
 }
 .game_img_div{
     width: 40px;
+    height: 79px;
     float: left;
     padding-right: 15px;
 }
@@ -386,6 +402,11 @@
 }
 .choose_way_modal{
     display: none;
+}
+.load_gif{
+    display: block;
+    width: 30%;
+    margin: 10px auto 50px;
 }
 /*登录方式*/
 .login_way{
@@ -488,14 +509,24 @@
     margin-bottom: 10px;
 }
 .place_info{
-    width: 30%;
+    max-width: 30%;
     float: left;
+    font-size: 12px;
+    color: #808080;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.distance_info span{
+    font-size: 14px;
+    color: #808080;
+    display: inline-block;
+    margin: 0 4px;
+}
 .distance_info{
     float: left;
+    font-size: 12px;
+    color: #808080;
 }
 
 
