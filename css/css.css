@@ -79,7 +79,7 @@
     position: relative;
     line-height: 20px;
 }
-.youxi_info h4{
+.gamename2{
     font-size: 12px;
     color: #808080;
     margin: 0 0 8px;
@@ -92,7 +92,7 @@
     top: 0;
 }
 .game_time img{
-    width: 16px;
+    width: 15px;
     margin-right: 3px;
     position: relative;
     top: 3px;
@@ -113,7 +113,7 @@
     color: #fff;
     box-shadow: 0 4px 7px -1px #93e4f7;
     position: absolute;
-    bottom: 49px;
+    bottom: 30px;
     left: 50%;
     margin-left: -84px;
     line-height: 44px;
@@ -132,7 +132,7 @@
     background: #fff;
     border-radius: 25px;
     padding-bottom: 40px;
-    min-height: 520px;
+    min-height: 460px;
     box-sizing: border-box;
     position: relative;
 }
@@ -378,6 +378,9 @@
     font-size: 12px;
     color: #808080;
     margin: 0 0 8px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .phone_yanzheng_modal{
@@ -481,6 +484,14 @@
 
 }
 
+
+
+.abc{
+    width: 92%;
+    background: gainsboro;
+    border-radius: 10px;
+    margin: 10px auto 0;
+}
 
 
 /*Ó¦ÓÃÑûÇë-----------*/

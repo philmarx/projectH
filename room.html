@@ -17,7 +17,8 @@
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
 
      <!--高德地图-->
-    <script src="js/AMap.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
+    <!--<script src="js/AMap.js"></script>-->
      <!--高德地图-->
 
     <script src="js/common.js"></script>
@@ -30,30 +31,32 @@
         <div class="yq_user">
             <h1>来自后会有期<span class="yaoqing_user"><!--小棉袄--></span>的邀请</h1>
             <div class="yq_userinfo">
-                <img src="images/tx.jpg" class="room_yaoqing_tx" alt=""/>
+                <img src="images/tx2.jpg" class="room_yaoqing_tx" alt=""/>
                 <span class="yaoqing_user"><!--小棉袄--></span>
                 <div class="clear"></div>
             </div>
         </div>
         <div class="yq_info">
             <h2>邀请你加入房间</h2>
-            <h3>狼人杀<span class="joinnum"><!--10--></span>人组</h3>
+            <h3>■<span class="joinnum">■</span>■</h3>
 
             <div class="xingbie">
-                <span class="nan_clo"><img src="images/man_i.png" alt=""/><span class="man_num"><!--2/10--></span></span>
-                <span class="nv_clo"><img src="images/woman_i.png" alt=""/><span class="woman_num"><!--1/10--></span></span>
+                <span class="nan_clo"><img src="images/man_i.png" alt=""/><span class="man_num">■/■</span></span>
+                <span class="nv_clo"><img src="images/woman_i.png" alt=""/><span class="woman_num">■/■</span></span>
             </div>
 
             <div class="youxi_info">
-                <h4>狼人杀CLUB · <span class="juli"><!--1.9--></span>km</h4>
+                <h4><span class="gamename2"></span>暂未获取到 · <span class="juli">■</span>km</h4>
                 <div class="game_time">
                     <img src="images/mi.png" alt=""/>
                     <img src="images/bao.png" alt=""/>
-                    <span class="begintime"><!--今天18:00--></span>
+                    <span class="begintime">■■■■</span>
                 </div>
                 <div class="adduser_tx">
-                    <!--<img src="images/tx.jpg" alt=""/>-->
-                    <!-- 参加用户的头像-->
+                    <img src="images/tx2.jpg" alt=""/>
+                    <img src="images/tx2.jpg" alt=""/>
+                    <img src="images/tx2.jpg" alt=""/>
+                    <img src="images/tx2.jpg" alt=""/>
                 </div>
             </div>
 
@@ -75,7 +78,7 @@
                     </span>
             <div class="clear"></div>
         </div>
-        <a href="" class="liji_load" id="uploadapp">立即下载</a>
+        <a href="" class="liji_load" id="uploadapp">打开APP</a>
     </div>
 </section>
 
@@ -86,6 +89,7 @@
     window.ContextPath='http://tomeet-app.hzease.com';
     $(function () {
         load();
+        getQueryString();
     })
     //高德获取位置
     function loadMap(longitude,latitude){
@@ -115,7 +119,7 @@
                 var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
                 var julinum = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
                 var juli = Math.round( Math.round(julinum)/1000*100)/100;
-                $(".juli").append(juli);
+                $(".juli").empty().append(juli);
 
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
@@ -123,10 +127,20 @@
             });      //返回定位出错信息
         })
     }
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
     //ajax调接口
     function load() {
         //userId和roomId有手机端传过来
-        var params={"userId":10000000004,"roomId":1000000000189};
+        var params={"userId":getQueryString("userId"),"roomId":getQueryString("roomId")};
         $.ajax({
             type:'post',
             dataType:'json',
@@ -135,19 +149,22 @@
             success:function(json){
                 if(json.success){
                     //查看对象
-                    console.log(json.data);
+                    console.dir(json.data);
                     var data=json.data;
                     $(".yaoqing_user").append(data.inviter.nickname);//邀请人
-                    $('.room_yaoqing_tx').attr('src','http://tomeet-app-files.hzease.com/user/'+data.inviter.id+'/avatar')//邀请人头像
-                    $(".joinnum").append(data.room.joinMember);//房间总人数
-                    $(".man_num").append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
-                    $(".woman_num").append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
+                    $('.room_yaoqing_tx').attr('src','http://tomeet-app-files.hzease.com/user/'+data.inviter.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200')//邀请人头像
+
+                    $(".yq_info h3").empty().append(data.room.name);//房间总人数
+//                    $(".gamename2").empty().append(data.room.place);
+
+                    $(".man_num").empty().append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
+                    $(".woman_num").empty().append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
 
                     var beginTime=new Date(data.room.beginTime);
-                    $(".begintime").append(dateTimeFormat(beginTime));//开始时间
-
+                    $(".begintime").empty().append(dateTimeFormat(beginTime));//开始时间
+                    $(".adduser_tx").html('');
                     $.each(data.room.members,function(index,obj){
-                        $(".adduser_tx").append('<img src="http://tomeet-app-files.hzease.com/user/'+obj+'/avatar" alt=""/>');//已进入房间用户头像
+                        $(".adduser_tx").append('<img src="http://tomeet-app-files.hzease.com/user/'+obj+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100" alt=""/>');//已进入房间用户头像
                     });
 
                     //传坐标，到获取位置函数
@@ -155,7 +172,7 @@
 
 
                 }else{
-                    alert(json.msg);
+//                    alert(json.msg);
                 }
             }
         });
@@ -171,7 +188,7 @@
         autoRedirectToDownloadUrl: true,
         downloadWhenUniversalLinkFailed: false,
         inapp : false,
-        params: {action:'invited', key1:'roomId'}
+        params: {action:'invited', key1:getQueryString("roomId")}
     });
     new Mlink({
         mlink:'AcpY',//短链地址
@@ -180,7 +197,7 @@
         autoRedirectToDownloadUrl: true,
         downloadWhenUniversalLinkFailed: false,
         inapp : false,
-        params: {action:'invited', key1:'roomId'}
+        params: {action:'invited', key1:getQueryString("roomId")}
     });
 </script>
 
