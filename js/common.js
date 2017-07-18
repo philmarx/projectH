@@ -22,6 +22,7 @@ function getQueryString(name) {
     return null;
 }
 
+//马健原-获取url参数
 function getUrlParams() {
     var url = location.href;
     if (url.indexOf('?')<0){

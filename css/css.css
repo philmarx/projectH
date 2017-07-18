@@ -37,9 +37,6 @@
     font-size: 15px;
     line-height: 20px;
     color: #333333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .yq_info h2{
     font-size: 15px;

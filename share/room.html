@@ -123,6 +123,7 @@
                     $(".woman_num").empty().append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
 
                     var beginTime=new Date(data.room.beginTime);
+
                     var $game_time = $(".game_time").html('');
                     if(data.room.locked){
                         $game_time.append('<img src="../images/mi.png" alt=""/>');
@@ -141,6 +142,9 @@
 
                 }else{
                     console.dir(json.msg);
+                    $("body").css("background","transparent");
+                    $(".room_container").empty().append('<img src="../images/baoqian.jpg"  width="100%" alt=""/>');
+
                 }
             }
         });
@@ -178,6 +182,7 @@
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
                 console.log("定位失败");
+                $(".distance_info").empty().append('<span> · </span>定位失败');
             });      //返回定位出错信息
         })
     }

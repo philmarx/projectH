@@ -9,17 +9,18 @@
     <title>应用邀请</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
-    <link rel="stylesheet" href="../css/css.css" type="text/css"/>
-    <script src="../js/jquery-1.10.1.min.js"></script>
-    <script src="../js/common.js"></script>
 
-    <!--魔窗-->
-    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+    <link rel="stylesheet" href="../css/css.css" type="text/css"/><!--分享--样式-->
+    <script src="../js/jquery-1.10.1.min.js"></script><!--jquery文件-->
+    <script src="../js/common.js"></script><!--公共js方法-->
+    <script src="../js/key.js" ></script><!-- 定义的 接口前缀-->
+    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script><!--魔窗-->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script> <!--高德地图-->
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script><!--微信授权登录-->
 
-    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
-    <!--<script src="js/AMap.js"></script>-->
-    <script src="../js/key.js" ></script>
-    <link rel="stylesheet" href="../css/common.css"/>
+
+
+    <link rel="stylesheet" href="../css/common.css"/>  <!-- 公共样式---要放在高德API的后面----不然有html,body---height:100%的问题-->
 </head>
 <body style="background: #eff3f6;">
 
@@ -131,26 +132,29 @@
         load();
         loadMap();
     });
-     var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=" +window.location.href + "&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect";
 
     var userId  = getQueryString("userId");
     var roomId  = getQueryString("roomId");
     var origin  = getQueryString("origin");
 
-    function set_origin(){
-        if(origin == 'QQ'){
-            origin = "QQ";
-        }
-        if(origin == 'WEIXIN'){
+    var uuu = window.location.href;
+    console.dir("uuu:"+uuu.substring(0,3));
+
+    //set传后app的参数
+    switch (origin) {
+        case 'WEIXIN':
             origin = "微信";
-        }
-        if(origin == 'WEIXIN_CIRCLE'){
+            break;
+        case 'QQ':
+            origin = "QQ";
+            break;
+        case 'WEIXIN_CIRCLE':
             origin = "微信朋友圈";
-        }
+            break;
     }
-    set_origin();
 
 
+    //页面一加载就执行
     function load() {
 
         //应用邀请--手机验证、登录方式。模态框开关控制
@@ -199,18 +203,64 @@
                 url:ContextPath+'user/getSmsCode',
                 data:params3,
                 success:(function (json) {
+
+                    $(".lingqu_libao").click(function () {
+                        var smsCode = $(".shuru_yzm").val();
+                        console.log(smsCode);
+                        var params4 = {"phone":phone,"smsCode":smsCode};
+                        $.ajax({
+                            type:'post',
+                            dataType:'json',
+                            url:ContextPath+'user/loginBySmsCode',
+                            data:params4,
+                            success:(function (json) {
+                                data = json.data;
+                                console.dir(data);
+
+                                localStorage.setItem("login_id",data.id);
+                                localStorage.setItem("login_token",data.token);
+
+
+//                                var abc = localStorage.getItem("login_id");
+//                                console.dir(abc);
+
+
+
+                            })
+                        });
+                    });
+                    //验证码发送成功之后，手机验证码登陆
+
+
 //                    console.dir(json);
                 })
             });
         });
 
+//        var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=" +window.location.href + "&response_type=code&scope=snsapi_login&connect_redirect=1#wechat_redirect";
 
+        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=' +window.location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect ';
         //微信授权登陆
         $(".way_weixin").click(function () {
-
             window.location.href = url;
-            alert(url);
+//            $.get(window.location.href = url,{},function(json){
+//                alert(json.uid);
+//            },'json');
+
         })
+
+
+
+
+//        $(".way_weixin").click(function () {
+//            var href=location.href;
+//            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxc9ba3b479546a874&redirect_uri='+href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+//            $.get(url,{},function(json){
+//                alert(json.uid);
+//            },'json');
+//        })
+
+
     }
 
     //高德获取位置
@@ -234,6 +284,7 @@
                     success:function(json){
                         if(json.success){
                             var datas = json.data;
+//                            console.dir(datas);
                             var $tuijianContainer=$('#tuijian_container').html('');
                             $.each(datas, function (index,obj) {
                                 var $tuijian=$('<div class="tuijian"><div class="game_img_div"><div class="distable"><div class="distabcell"><img src="../images/game/'+obj.game.id+'.png" class="game_img"/></div></div></div></div>');
@@ -242,11 +293,11 @@
                                         '<div class="place_container">'+
                                         '<div class="place_info">'+obj.place+'</div>'+
                                         '<div class="distance_info"><span> · </span>'+getjuli(obj.latitude,obj.longitude,position.O,position.M)+'km</div>'+
-                                        '<div class="game_time"><img src="../images/mi.png" alt=""/><img src="../images/bao.png" alt=""/>'+
+                                        '<div class="game_time">'+(obj.locked?'<img src="../images/mi.png" alt=""/>':'')+(obj.money>0?'<img src="../images/bao.png" alt=""/>':'')+
                                         dateTimeFormat(Date.parse(obj.beginTime))+'</div><div class="clear"></div></div>');
                                 var $imgContainer=  $('<div class="adduser_tx"></div>');
-                                $.each(obj.joinMembers,function(i,o){
-                                    var $img=$('<img src="'+'http://tomeet-app-files.hzease.com/user/'+ o.id+'/avatar'+'" alt=""/>');
+                                $.each(obj.joinMembers,function(index,obj){
+                                    var $img=$('<img src="'+'http://tomeet-app-files.hzease.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
                                     $imgContainer.append($img);
                                 });
                                 $gameInfo.append($imgContainer);
@@ -266,7 +317,6 @@
             });      //返回定位出错信息
         })
     }
-
 
 </script>
 
