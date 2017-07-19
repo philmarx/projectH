@@ -1,23 +1,16 @@
-.clear{
-    clear: both;
-}
+.clear{clear: both;}
 
 /*加入房间，加入圈子*/
-.room_container{
-    padding: 10px 15px;
-}
+.room_container{padding: 10px 15px;}
 .yq_user{
     padding: 20px 20px;
     background: url("../images/top_bg.png") no-repeat;
     background-size: 100% 100%;
     min-height: 190px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
-.yq_user h1{
-    font-size: 12px;
-    color: #fff;
-    margin: 0 0 7px;
-}
+.yq_user h1{font-size: 12px;color: #fff;margin: 0 0 7px;}
 .yq_userinfo img{
     width: 56px;
     border-radius: 50%;
@@ -30,9 +23,7 @@
     line-height: 56px;
     float: left;
 }
-.yq_info{
-    padding: 0 20px;
-}
+.yq_info{padding: 0 20px;}
 .yq_info p{
     font-size: 15px;
     line-height: 20px;
@@ -45,35 +36,60 @@
     margin: 0 0 15px;
     line-height: 15px;
 }
-.yq_info h3{
-    font-size: 25px;
+.room_gamename{
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+.room_gamename img{
+    width: 16px;
+    float: left;
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 2px;
+}
+.room_gamename h3{
+    width: calc(100% - 21px);
+    float: left;
+    font-size: 17px;
     color: #333333;
-    margin: 0 0 5px;
+    margin: 0;
     font-weight: 600;
-    text-align: center;
-    line-height: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 18px;
+}
+.room_xiangqing{
+    font-size: 15px;
+    color: #7f7f7f;
+    line-height: 15px;
+    margin: 15px 0 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .xingbie{
     text-align: center;
-    margin: 0 0 18px;
+    display: inline-block;
+    float: right;
 }
 .nan_clo{
     font-size: 13px;
     color: #03b5e3;
+    display: inline-block;
+    margin: 0 5px ;
 }
 .nv_clo{
     font-size: 13px;
     color: #ff8373;
-}
-.xingbie span{
     display: inline-block;
     margin: 0 5px ;
 }
 .xingbie span img{
-    width: 13px;
+    width: 12px;
     position: relative;
     top: 2px;
     margin-right: 2px;
@@ -405,6 +421,7 @@
     width: 30%;
     margin: 10px auto 50px;
 }
+
 /*登录方式*/
 .login_way{
     width: 80%;
@@ -478,6 +495,10 @@
     background: #f9f9f9;
     cursor: pointer;outline: none;
 }
+.settime{
+    background: #dddddd!important;
+    color: #a9a9a9!important;
+}
 .shuru_yzm{
     width: 100%;
     height: 40px;
@@ -492,13 +513,50 @@
     width: 100%;
     height: 40px;
     border: none;
-    outline: none;
     font-size: 15px;
     color: #fff;
     background: #3fcff1;
     cursor: pointer;
-
 }
+
+/*手机号-验证码登录成功后--提示用户下载APP*/
+.libao_modal{
+    display: none;
+}
+.libao{
+    width: 80%;
+    min-width: 300px;
+    margin: auto;
+    padding: 20px 20px 30px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+.libao p{
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    line-height: 16px;
+    margin: 5px 0 0;
+}
+.libao_img{
+    width: 80px;
+    display: block;
+    margin: 25px auto;
+}
+.libao_loadapp{
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-size: 15px;
+    color: #fff;
+    background: #3fcff1;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    line-height: 38px;
+}
+/*手机号-验证码登录成功后--提示用户下载APP------------------*/
 
 
 

@@ -6,12 +6,19 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
     <title>应用邀请</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
 
     <link rel="stylesheet" href="../css/css.css" type="text/css"/><!--分享--样式-->
     <script src="../js/jquery-1.10.1.min.js"></script><!--jquery文件-->
+    <!--<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>&lt;!&ndash;远程jquery文件&ndash;&gt;-->
+
+
     <script src="../js/common.js"></script><!--公共js方法-->
     <script src="../js/key.js" ></script><!-- 定义的 接口前缀-->
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script><!--魔窗-->
@@ -66,7 +73,7 @@
                     </span>
             <div class="clear"></div>
         </div>
-        <a href="" class="liji_load" id="uploadapp">立即打开</a>
+        <a href="" class="liji_load uploadapp">立即打开</a>
     </div>
 </section>
 
@@ -110,7 +117,7 @@
                     <div class="phone_yanzheng">
                         <form>
                             <input type="number" class="get_phonenum" placeholder="输入手机号" onblur="this.placeholder='输入手机号'" onfocus="this.placeholder=''"/>
-                            <input type="button" value="验证码" class="get_yzm"/>
+                            <input type="button" value="验证码" id="get_yzm" class="get_yzm"/>
                             <div class="clear"></div>
                             <input type="number" class="shuru_yzm" placeholder="输入验证码" onblur="this.placeholder='输入验证码'" onfocus="this.placeholder=''"/>
                             <input type="button" class="lingqu_libao" value="领取新手大礼包"/>
@@ -119,6 +126,25 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!--礼包领取----成功与否，-->
+<section>
+    <div class="libao_modal">
+        <div class="all_black_bg7">
+            <div class="distable">
+                <div class="distabcell">
+                    <div class="libao">
+                        <p>领取成功<br/>请登录APP查看</p>
+                        <img src="../images/libao.png" class="libao_img" alt=""/>
+                        <a href="" class="uploadapp libao_loadapp">去APP查看</a>
+                        <img src="../images/close.png" class="close_modal close3" alt=""/>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -137,8 +163,6 @@
     var roomId  = getQueryString("roomId");
     var origin  = getQueryString("origin");
 
-    var uuu = window.location.href;
-    console.dir("uuu:"+uuu.substring(0,3));
 
     //set传后app的参数
     switch (origin) {
@@ -156,7 +180,6 @@
 
     //页面一加载就执行
     function load() {
-
         //应用邀请--手机验证、登录方式。模态框开关控制
         $(".lingqu_btn").click(function () {
             $(".choose_way_modal").fadeIn(500);
@@ -167,6 +190,9 @@
         $(".close2").click(function () {
             $(".phone_yanzheng_modal").fadeOut(200);
         });
+        $(".close3").click(function () {
+            $(".libao_modal").fadeOut(200);
+        });
         $(".way_phone").click(function () {
             $(".choose_way_modal").fadeOut(1000);
             $(".phone_yanzheng_modal").fadeIn(500);
@@ -174,7 +200,6 @@
 
         //ajax页面上邀请人name与头像加载
         var params2 = {"userId":userId};
-//        alert("params2"+params2.userId);
         $.ajax({
             type:'post',
             dataType:'json',
@@ -191,19 +216,23 @@
             }
         });
 
+
+
+
         //验证码获取
-        $(".get_yzm").click(function () {
+        $("#get_yzm").click(function () {
             var params3={};
             var phone=$(".get_phonenum").val();
-            if(!checkMobile(phone)){ alert("手机号码不正确");}
-            else{ var params3 = {"phone":phone};}
+            if(!checkMobile(phone)) { alert("手机号码不正确"); }
+            else {
+                var params3 = {"phone":phone};
+                invokeSettime("#get_yzm"); }
             $.ajax({
                 type:'post',
                 dataType:'json',
                 url:ContextPath+'user/getSmsCode',
                 data:params3,
                 success:(function (json) {
-
                     $(".lingqu_libao").click(function () {
                         var smsCode = $(".shuru_yzm").val();
                         console.log(smsCode);
@@ -214,32 +243,30 @@
                             url:ContextPath+'user/loginBySmsCode',
                             data:params4,
                             success:(function (json) {
-                                data = json.data;
-                                console.dir(data);
-
-                                localStorage.setItem("login_id",data.id);
-                                localStorage.setItem("login_token",data.token);
-
-
-//                                var abc = localStorage.getItem("login_id");
-//                                console.dir(abc);
-
-
-
+                                var datas = json.data;
+                                console.dir(datas);
+                                var isinit = datas.isInit;
+                                if(isinit == false){
+                                    $(".libao_modal").fadeIn(500);
+                                }
+                                if(isinit == true){
+                                    $(".libao_modal").fadeIn(500);
+                                    console.dir("你已经领取过了，不能重复领取哦");
+                                }
                             })
                         });
                     });
                     //验证码发送成功之后，手机验证码登陆
-
-
 //                    console.dir(json);
                 })
             });
         });
 
-//        var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=" +window.location.href + "&response_type=code&scope=snsapi_login&connect_redirect=1#wechat_redirect";
 
-        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=' +window.location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect ';
+        //微信授权登录
+        var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=" +location.href + "&response_type=code&scope=snsapi_login&connect_redirect=1#wechat_redirect";
+
+        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' +location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect ';
         //微信授权登陆
         $(".way_weixin").click(function () {
             window.location.href = url;
@@ -248,17 +275,6 @@
 //            },'json');
 
         })
-
-
-
-
-//        $(".way_weixin").click(function () {
-//            var href=location.href;
-//            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxc9ba3b479546a874&redirect_uri='+href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-//            $.get(url,{},function(json){
-//                alert(json.uid);
-//            },'json');
-//        })
 
 
     }
@@ -324,7 +340,7 @@
 <script>
     new Mlink({
         mlink:'AcpY',//短链地址
-        button:document.querySelectorAll('a#uploadapp'),
+        button:document.querySelectorAll('a.uploadapp'),
         autoLaunchApp : false,
         autoRedirectToDownloadUrl: true,
         downloadWhenUniversalLinkFailed: false,

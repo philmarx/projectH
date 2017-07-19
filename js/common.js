@@ -2,6 +2,7 @@
  * Created by Administrator on 2017/7/13.
  */
 
+
 //手机号正则式表达验证
 function checkMobile(number){
     if(!(/^1(3|4|5|7|8)\d{9}$/.test(number))){
@@ -9,6 +10,29 @@ function checkMobile(number){
     }
     else{
         return true;
+    }
+}
+
+//倒计时函数
+function invokeSettime(obj){
+    var countdown=60;
+    settime(obj);
+    function settime(obj) {
+        if (countdown == 0) {
+            $(obj).attr("disabled",false);
+            $(obj).removeClass("settime");
+            $(obj).val("验证码");
+            countdown = 60;
+            return;
+        } else {
+            $(obj).attr("disabled",true);
+            $(obj).addClass("settime");
+            $(obj).val("重新发送 "+ countdown + " s");
+            countdown--;
+        }
+        setTimeout(function() {
+                settime(obj) }
+            ,1000)
     }
 }
 
@@ -37,6 +61,7 @@ function getUrlParams() {
     }
     return params;
 }
+
 
 
 //计算距离函数
@@ -121,5 +146,4 @@ $(document).ready(function () {
 
     })
 });
-
 
