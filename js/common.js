@@ -5,7 +5,7 @@
 
 //手机号正则式表达验证
 function checkMobile(number){
-    if(!(/^1(3|4|5|7|8)\d{9}$/.test(number))){
+    if(!(/^1(1|3|4|5|7|8)\d{9}$/.test(number))){
         return false;
     }
     else{
@@ -137,13 +137,11 @@ function dateTimeFormat(dateNum){
 }
 
 $(document).ready(function () {
-    $(window).load(function () {
 
         //最下方浮动块点击关闭按钮隐藏
         $(".cha").click(function () {
             $(".bom_xiazai").slideUp(500);
         });
 
-    })
 });
 

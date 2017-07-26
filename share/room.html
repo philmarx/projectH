@@ -15,17 +15,17 @@
     <meta name="description" content="后会有期"/>
 
     <link rel="stylesheet" href="../css/css.css" type="text/css"/>
-    <script src="../js/jquery-1.10.1.min.js"></script>
 
-    <!--<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>&lt;!&ndash;远程jquery库&ndash;&gt;-->
-
+    <!--jquery-->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!--jquery-->
 
     <!--魔窗-->
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
 
      <!--高德地图-->
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
-    <!--<script src="js/AMap.js"></script>-->
      <!--高德地图-->
 
     <script src="../js/key.js"></script>
@@ -50,7 +50,7 @@
             <h2>邀请你加入房间</h2>
             <div>
                 <div class="room_gamename">
-                    <img src="../images/game/6.png" alt=""/>
+                    <img src="../images/game/6.png" id="room_gameimg" alt=""/>
                     <h3><!--什么鬼活动--></h3>
                     <div class="clear"></div>
                 </div>
@@ -61,7 +61,7 @@
                 <div class="clear"></div>
             </div>
 
-            <h3 class="room_xiangqing">活动详情：交个朋友一起玩狼人杀活动详情活动详情活动详情活动详情活动详情活动详情</h3>
+            <h3 class="room_xiangqing"><!--活动详情--></h3>
 
             <div class="youxi_info">
                 <div class="place_container">
@@ -94,7 +94,7 @@
             <img src="../images/logo.png" alt=""/>
                     <span>
                         <h3>后会有期</h3>
-                        <h4>首个线下即时组队平台</h4>
+                        <h4>线下即时组队平台</h4>
                     </span>
             <div class="clear"></div>
         </div>
@@ -128,12 +128,6 @@
     }
     //ajax调接口
     function load() {
-
-        var cookie = document.cookie;
-        console.dir(cookie);
-        //cookie.setPath(req.getContextPath());
-        //resp.addCookie(cookie);
-
         //userId和roomId有手机端传过来
         var params={"userId":userId,"roomId":roomId};
         $.ajax({
@@ -149,10 +143,12 @@
                     var data=json.data;
 
                     $(".yaoqing_user").append(data.inviter.nickname);//邀请人
-                    $('.room_yaoqing_tx').attr('src','http://tomeet-app-files.hzease.com/user/'+data.inviter.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200')//邀请人头像
+                    $('.room_yaoqing_tx').attr('src','//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+data.inviter.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200')//邀请人头像
                     $(".place_info").empty().append(data.room.place+'<span></span>');//房间地点
                     $(".room_gamename h3").empty().append(data.room.name);//房间名字
-
+//                <img src="../images/game/'+obj.game.id+'.png" class="game_img"/>
+                    $("#room_gameimg").attr('src','../images/game/'+data.room.gameId+'.png');
+                    $(".room_xiangqing").append(data.room.description);//活动详情
                     $(".man_num").empty().append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
                     $(".woman_num").empty().append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
 
@@ -168,7 +164,7 @@
                     $game_time.append(dateTimeFormat(beginTime));
                     $(".adduser_tx").html('');
                     $.each(data.room.members,function(index,obj){
-                        $(".adduser_tx").append('<img src="http://tomeet-app-files.hzease.com/user/'+obj+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100" alt=""/>');//已进入房间用户头像
+                        $(".adduser_tx").append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100" alt=""/>');//已进入房间用户头像
                     });
 
                     //传坐标，到获取位置函数
@@ -189,28 +185,22 @@
         var xzuobiao = longitude;
         var yzuobiao = latitude;
         mapObj = new AMap.Map('iCenter');
+
+//        mapObj point1 = MAMapPointForCoordinate(CLLocationCoordinate2DMake(39.989612,116.480972));
+
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
                 timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 600000,           //定位结果缓存0毫秒，默认：0
-                convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-                showButton: true,        //显示定位按钮，默认：true
-                buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
-                buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-                showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
-                showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
-                panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
-                zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+                maximumAge: 600000,
             });
             mapObj.addControl(geolocation);
             geolocation.getCurrentPosition();
             AMap.event.addListener(geolocation, 'complete', function () {
                 window.position=arguments[0].position;
-//                console.log(window.position); //打印当前的坐标
+                console.log(window.position); //打印当前的坐标
 
                 var getzuobiao  = {"longitude":120.071363,"latitude":30.318983};
-                var julinum = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
-                var juli = Math.round( Math.round(julinum)/1000*100)/100;
+                var juli = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
                 $(".distance_info").empty().append('<span> · </span>'+juli+"km");
 
             });//返回定位信息

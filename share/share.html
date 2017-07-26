@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
-    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
@@ -15,16 +15,15 @@
     <meta name="description" content="后会有期"/>
 
     <link rel="stylesheet" href="../css/css.css" type="text/css"/><!--分享--样式-->
-    <script src="../js/jquery-1.10.1.min.js"></script><!--jquery文件-->
-    <!--<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>&lt;!&ndash;远程jquery文件&ndash;&gt;-->
-
+    <!--<script src="../js/jquery-1.10.1.min.js"></script>&lt;!&ndash;jquery文件&ndash;&gt;-->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="../js/common.js"></script><!--公共js方法-->
     <script src="../js/key.js" ></script><!-- 定义的 接口前缀-->
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script><!--魔窗-->
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script> <!--高德地图-->
-    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script><!--微信授权登录-->
-
+    <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script><!--微信授权登录-->
 
 
     <link rel="stylesheet" href="../css/common.css"/>  <!-- 公共样式---要放在高德API的后面----不然有html,body---height:100%的问题-->
@@ -69,7 +68,7 @@
             <img src="../images/logo.png" alt=""/>
                     <span>
                         <h3>后会有期</h3>
-                        <h4>首个线下即时组队平台</h4>
+                        <h4>线下即时组队平台</h4>
                     </span>
             <div class="clear"></div>
         </div>
@@ -137,7 +136,7 @@
             <div class="distable">
                 <div class="distabcell">
                     <div class="libao">
-                        <p>领取成功<br/>请登录APP查看</p>
+                        <p><!--领取成功<br/>请登录APP查看--></p>
                         <img src="../images/libao.png" class="libao_img" alt=""/>
                         <a href="" class="uploadapp libao_loadapp">去APP查看</a>
                         <img src="../images/close.png" class="close_modal close3" alt=""/>
@@ -154,14 +153,53 @@
 
 
 <script>
-    $(function () {
-        load();
-        loadMap();
-    });
-
+    var code;
     var userId  = getQueryString("userId");
     var roomId  = getQueryString("roomId");
     var origin  = getQueryString("origin");
+
+    $(function () {
+        load();
+        loadMap();
+        //微信登录获取到code后重定向会刷新页面，所以获取code要放在页面一加载就执行的函数里面
+        code=getQueryString("code");
+
+        console.dir(params4);
+        if(code){
+            // code 传到后台，拿到用户信息，包括抽奖次数
+
+            var params4={};
+            if(userId){
+                params4 = ({"code":code,"recommenderId":userId})
+            }
+            else{
+                params4 = ({"code":code})
+            }
+
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'view/login',
+                data: params4,
+                success:function(json){
+
+                    //领取成功
+                    $(".phone_yanzheng_modal").fadeOut();
+                    $(".libao_modal").fadeIn(500);
+                    $(".libao_modal p").append("1111领取成功<br/>请登录APP查看");
+                },
+                error: function (json) {
+
+                    //领取失败
+                    $(".phone_yanzheng_modal").fadeOut(500);
+                    $(".libao_modal").fadeIn(500);
+                    $(".libao_modal p").append("您已经领取过啦<br/>不能重复领取哦")
+                }
+            });
+
+        }
+    });
+
 
 
     //set传后app的参数
@@ -174,6 +212,9 @@
             break;
         case 'WEIXIN_CIRCLE':
             origin = "微信朋友圈";
+            break;
+        default:
+            origin = "";
             break;
     }
 
@@ -208,7 +249,7 @@
             success:function(json){
                 if(json.success){
                     var datas = json.data;
-                    $('.yyyq_user_icon').attr('src','http://tomeet-app-files.hzease.com/user/'+datas.id+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100');
+                    $('.yyyq_user_icon').attr('src','//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+datas.id+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100');
                     $("#yy_user").append(datas.nickname);
                 }else{
                     alert("失败-未获取到邀请人以及头像");
@@ -219,7 +260,7 @@
 
 
 
-        //验证码获取
+        //------------验证码获取  登陆------------
         $("#get_yzm").click(function () {
             var params3={};
             var phone=$(".get_phonenum").val();
@@ -230,52 +271,57 @@
             $.ajax({
                 type:'post',
                 dataType:'json',
-                url:ContextPath+'user/getSmsCode',
+                url:ContextPath+'/view/getSmsCode',
                 data:params3,
                 success:(function (json) {
-                    $(".lingqu_libao").click(function () {
-                        var smsCode = $(".shuru_yzm").val();
-                        console.log(smsCode);
-                        var params4 = {"phone":phone,"smsCode":smsCode};
-                        $.ajax({
-                            type:'post',
-                            dataType:'json',
-                            url:ContextPath+'user/loginBySmsCode',
-                            data:params4,
-                            success:(function (json) {
-                                var datas = json.data;
-                                console.dir(datas);
-                                var isinit = datas.isInit;
-                                if(isinit == false){
+                    var success = json.success;
+                    var error = json.msg;
+                    //如果手机号发送成功
+                    if(success){
+                        $(".lingqu_libao").click(function () {
+                            $.ajax({
+                                type: 'post',
+                                dataType: 'json',
+                                url: ContextPath + 'user/loginBySmsCode',
+                                data: {"phone": $('.get_phonenum').val(), "smsCode": $(".shuru_yzm").val()},
+                                success: (function (json) {
+                                    console.dir(json);
+                                    $(".phone_yanzheng_modal").fadeOut();
                                     $(".libao_modal").fadeIn(500);
-                                }
-                                if(isinit == true){
-                                    $(".libao_modal").fadeIn(500);
-                                    console.dir("你已经领取过了，不能重复领取哦");
-                                }
-                            })
+                                    $(".libao_modal p").append("领取成功<br/>请登录APP查看");
+                                    if(json.msg == '验证码错误'){
+                                        alert("验证码错误，请重试");
+                                    }
+                                })
+                            });
                         });
-                    });
-                    //验证码发送成功之后，手机验证码登陆
-//                    console.dir(json);
+                    }
+                    //如果验证码发送失败或者此人已经注册过
+                    if(error == '发送失败'){
+                        alert("验证码发送失败，请稍后重试")
+                    }
+                    if(error == '您已注册过'){
+                        console.dir("这个人已经注册过");
+                        $(".phone_yanzheng_modal").fadeOut(500);
+                        $(".libao_modal").fadeIn(500);
+                        $(".libao_modal p").append("您已经领取过啦<br/>不能重复领取哦")
+                    }
                 })
             });
         });
+        //------------验证码获取  登陆------------
 
 
-        //微信授权登录
-        var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc9ba3b479546a874&redirect_uri=" +location.href + "&response_type=code&scope=snsapi_login&connect_redirect=1#wechat_redirect";
+        //------------微信登录------------
+        //只有微信内置的浏览器才能打开--
+        var url_1 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
 
-        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' +location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect ';
-        //微信授权登陆
+        //所有浏览器都能打开--微信打开扫描后会跳到公众平台
+       // var url_1 = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
         $(".way_weixin").click(function () {
-            window.location.href = url;
-//            $.get(window.location.href = url,{},function(json){
-//                alert(json.uid);
-//            },'json');
-
-        })
-
+            location.href = url_1;
+        });
+        //------------微信登录------------
 
     }
 
@@ -284,8 +330,8 @@
         mapObj = new AMap.Map('iCenter');
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
-                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 600000,
+                timeout: 100000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 600000
             });
             mapObj.addControl(geolocation);
             geolocation.getCurrentPosition();
@@ -300,20 +346,22 @@
                     success:function(json){
                         if(json.success){
                             var datas = json.data;
-//                            console.dir(datas);
                             var $tuijianContainer=$('#tuijian_container').html('');
+
                             $.each(datas, function (index,obj) {
+
                                 var $tuijian=$('<div class="tuijian"><div class="game_img_div"><div class="distable"><div class="distabcell"><img src="../images/game/'+obj.game.id+'.png" class="game_img"/></div></div></div></div>');
+
                                 var $gameInfo=$(' <div class="game_info">'+
                                         '<h5 class="game_name">'+obj.name+'</h5>'+
                                         '<div class="place_container">'+
                                         '<div class="place_info">'+obj.place+'</div>'+
                                         '<div class="distance_info"><span> · </span>'+getjuli(obj.latitude,obj.longitude,position.O,position.M)+'km</div>'+
                                         '<div class="game_time">'+(obj.locked?'<img src="../images/mi.png" alt=""/>':'')+(obj.money>0?'<img src="../images/bao.png" alt=""/>':'')+
-                                        dateTimeFormat(Date.parse(obj.beginTime))+'</div><div class="clear"></div></div>');
+                                        obj.beginTime+'</div><div class="clear"></div></div>');
                                 var $imgContainer=  $('<div class="adduser_tx"></div>');
                                 $.each(obj.joinMembers,function(index,obj){
-                                    var $img=$('<img src="'+'http://tomeet-app-files.hzease.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
+                                    var $img=$('<img src="'+'//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
                                     $imgContainer.append($img);
                                 });
                                 $gameInfo.append($imgContainer);

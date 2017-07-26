@@ -1,25 +1,657 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="shortcut icon" href="images/logo.ico" />
 
     <title>活动</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
-    <link rel="stylesheet" href="../css/common.css"/>
-    <link rel="stylesheet" href="../css/css.css" type="text/css"/>
-    <script src="../js/jquery-1.10.1.min.js"></script>
 
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--微信JSsdk-->
+    <!--魔窗-->
+    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+    <!-- 接口前缀-->
+    <script src="js/key.js"></script>
+    <script src="js/common.js"></script>
+
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/zp.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
 </head>
 <body>
 
+<!--card轮播-->
+<div class="swiper-container swiper1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="card_container" style="background: transparent!important;">
+            </div>
+        </div>
+
+
+        <!-- card1  -------->
+        <div class="swiper-slide">
+            <div class="card_container card_container1">
+                <div class="card1_title">
+                    <img src="images/applogo.png" alt=""/>
+                    <h1>后会有期</h1>
+                </div>
+                <img src="images/activity_title.png" class="activity_title" alt=""/>
+                <img src="images/ewm.png" class="appewm" alt=""/>
+                <a href="" class="activity_upload" id="activity_upload">下载APP</a>
+            </div>
+        </div>
+        <!-- card1  -->
+
+
+        <!-- card2 ----转盘抽奖---->
+        <div class="swiper-slide">
+            <div class="card_container card_container2">
+                <img src="images/zp_title.png" alt=""/>
+                <div class="zp_top">
+                    <h1><!--奖池剩余金额：0.00元--></h1>
+                    <h2><!--参与人数：85人--></h2>
+                    <div class="clear"></div>
+                </div>
+                <div id="zp" class="zp">
+                    <div class="outer KinerLottery KinerLotteryContent"><img src="images/zzsc.png"></div>
+                    <div class="inner KinerLotteryBtn start"></div>
+                    <div id="is_login"></div>
+                </div>
+                <button class="acivity_xiangqing">活动详情</button>
+                <div class="zp_bom">
+                    <div class="shengyu_cishu">
+                        剩余抽奖次数<span>3</span>次
+                    </div>
+                    <input type="button" class="jilu_btn" value="我的中奖记录"/>
+                    <input type="button" class="zhuli_btn" value="邀请好友助力"/>
+                </div>
+            </div>
+        </div>
+        <!-- card2 --------转盘抽奖-->
+
+
+        <!-- card3----人气女神---->
+        <div class="swiper-slide">
+            <div class="card_container card_container3">
+                <img src="images/renqinvshen_toptitle.png" class="nvshen_paihang_titleimg" alt=""/>
+                <div class="nvshen_paihang_title">
+                    <ul>
+                        <li style="width: 25%;text-align: center;">排名</li>
+                        <li style="width: 45%;padding-left: 35px;">昵称</li>
+                        <li style="width: 30%;text-align: center;">分数</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="nvshen_paihang_container">
+
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <img src="images/paixu1.png" alt=""/>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <img src="images/paixu2.png" alt=""/>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <img src="images/paixu3.png" alt=""/>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>4</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>5</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>6</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>7</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>7</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>8</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>9</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="nvshen_paihang">
+                        <div class="nvshen_paihang_paixu">
+                            <h1>10</h1>
+                        </div>
+                        <div class="nvshen_paihang_user">
+                            <img src="images/tx.jpg" alt=""/>
+                            <h1>小棉袄</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <h3>15620</h3>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="abc">
+                <div class="myself_paihang">
+                    <div class="nvshen_paihang_paixu">
+                        <h1>10</h1>
+                    </div>
+                    <div class="nvshen_paihang_user">
+                        <img src="images/tx.jpg" alt=""/>
+                        <h1>小棉袄</h1>
+                        <div class="clear"></div>
+                    </div>
+                    <h3>15620</h3>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- card3----人气女神---->
+
+
+        <!-- card4 -->
+        <div class="swiper-slide">
+            <div class="card_container" style="background: blue"></div>
+        </div>
+        <!-- card4 -->
+
+
+        <!-- card5 -->
+        <div class="swiper-slide">
+            <div class="card_container" style="background: yellow;"></div>
+        </div>
+        <!-- card5 -->
+
+
+        <div class="swiper-slide">
+            <div class="a1" style="background: transparent!important;"></div>
+        </div>
+    </div>
+</div>
+<!------------card轮播------------->
+
+<!---为TA助力---->
+<section>
+    <div class="help_modal">
+        <div class="all_black_bg7">
+            <div class="distable">
+                <div class="distabcell">
+                    <div class="help">
+                        <div class="help_user">
+                            <h1>为TA助力</h1>
+                            <img src="images/tx.jpg" alt=""/>
+                            <h2>韩梅梅</h2>
+                            <h3>我正在申请【后会有期】APP游戏大礼包，需要你的一臂之力</h3>
+                        </div>
+                        <div class="zhuli_num">
+                            <h2>已有<font color="#00b8e8">9</font>位玩家给TA助力</h2>
+                        </div>
+                        <div class="zhuli_user">
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>凌琳</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>香菱</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>阿芳</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>赵月</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>朱立宇</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>汪蕾</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>李璐</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>张芳</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>李雷</h6>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <input type="button" value="助TA" class="btn_help"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---为TA助力---->
+
+<!---规则---->
+<section>
+    <div class="acivity_guize acivity_guize_modal">
+        <h3>本活动最终解释权归后会有期所有</h3>
+    </div>
+</section>
+<!---规则---->
+
+<!---邀请助力---->
+<section>
+        <div class="all_black_bg7 zhuli_yaoqing_modal">
+            <div class="zhuli_yaoqing">
+                <img src="images/zhuliyaoqing.png" alt=""/>
+            </div>
+        </div>
+</section>
+<!---邀请助力---->
+
+<!---中奖记录-->
+<section>
+    <div class="all_black_bg7 zhongjiangjilu_modal">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="zhongjiangjilu">
+                    <img src="images/zhongjiangjilu_title.png" alt=""/>
+                    <!--<h1>暂无记录</h1>-->
+                    <ul class="zhongjiangjilu_list">
+                        <li>
+                            <div class="zj_jilu">
+                                <div class="zhongjiang_time">2017-07-20 14:24</div>
+                                <div class="zhongjiang_jine">中奖100元</div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zj_jilu">
+                                <div class="zhongjiang_time">2017-07-20 14:24</div>
+                                <div class="zhongjiang_jine">中奖50元</div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---中奖记录 -->
+
+<!---中奖奖品--modal---->
+<section>
+    <div class="all_black_bg7 zhongjiang_modal">
+        <div class="distable zhongjiangla_bg">
+            <div class="distabcell">
+                <div class="zhongjiang">
+                    <img src="images/zhongjiangtitleimg.png" alt=""/>
+                    <div class="jiangxiang">
+                        <h1>恭喜获得</h1>
+                        <h2><!--5元现金奖励，请至后会有期APP进行体现，邀请10位好友助力可再获得一次抽奖机会--></h2>
+                    </div>
+                    <input type="button" value="邀请好友" class="yaoqing_haoyou"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---中奖奖品--modal---->
+
+<!---不能抽奖---->
+<section>
+    <div class="tishi">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="tishi_val">
+                    <!--对不起 &#45;&#45; 您的抽奖次数已用完-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---不能抽奖---->
 
 </body>
+
+
+<!--Swiper切换----获取高度-->
+<script src="js/swiper.min.js"></script>
+<script>
+    var mySwiper1 = new Swiper('.swiper1',{
+        spaceBetween: 0,
+        slidesPerView : 3,
+        paginationClickable: true,
+        autopalyDisableOnInteraction:false
+    });
+    $(document).ready(function () {
+        //card高度+++++
+        $(".swiper1").height($(window).height()-50);
+        $(".swiper1 .swiper-slide").height($(window).height()-50);
+        //card高度-----
+
+        //人气女神榜排行高度+++++
+        var container_height = $(".card_container3").height();
+        var titleimg_height = $(".nvshen_paihang_titleimg").height();
+        var nvshen_paihang_container_height = container_height-titleimg_height-10-25-50;
+        $(".nvshen_paihang_container").height(nvshen_paihang_container_height);
+        //人气女神榜排行高度-----
+    })
+</script>
+<!--Swiper切换---获取高度-->
+
+
+<!--页面刚加载时的数据-->
+<script>
+    var usertoken = localStorage.getItem("usertoken");
+    localStorage.getItem("userid");
+    var code;
+
+    $(function () {
+        load();
+    });
+    function load() {
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'/view/allPrizeInfo',
+            data:"",
+            success:function(json){
+                console.dir(json.data);
+                var datas = json.data;
+                $(".zp_top h1").empty().append('奖池剩余金额：'+datas.allMoney+'元');
+                $(".zp_top h2").empty().append('参与人数：'+datas.joinMember+'人');
+            }
+        });
+
+
+        //---#is_login-是盖在立即抽奖上的div,如果已经登陆，#is_login要隐藏，在抽奖之前就要把这个判断好。
+        if(usertoken){
+            console.dir(usertoken);
+            $("#is_login").fadeOut(100);
+        }
+        else{
+            $("#is_login").on('click', function () {
+
+                //微信上可以登陆
+//               var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+
+                // 网页上可以登陆
+                var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+                location.href = url_code;
+
+            });
+        }
+
+
+
+        code = getQueryString("code");
+        if(code){
+
+            var params = ({"code":code});
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'view/login',
+                data: params,
+                success:function(json){
+                    //获取token之后存到本地缓存
+                    console.dir(json);
+                    var datas = json.data;
+                    localStorage.setItem("userid",datas.id);
+                    localStorage.setItem("usertoken",datas.token);
+
+                },
+                error: function (json) {
+
+                }
+            });
+        }
+
+
+    }
+
+
+</script>
+<!--页面刚加载时的数据-->
+
+
+<!--模态框------modal-->
+<script>
+    $(document).ready(function () {
+
+
+        //-----ALL-modal---模态框
+        $(".acivity_xiangqing").on('click', function () {
+            $(".acivity_guize_modal").fadeIn(500);
+        });
+        $(".acivity_guize_modal").on('click', function () {
+            $(".acivity_guize_modal").fadeOut(500);
+        });
+        $(".zhuli_btn").on('click', function () {
+            $(".zhuli_yaoqing_modal").fadeIn(500);
+        });
+        $(".zhuli_yaoqing_modal").on('click', function () {
+            $(".zhuli_yaoqing_modal").fadeOut(500);
+        });
+          $(".jilu_btn").on('click', function () {
+            $(".zhongjiangjilu_modal").fadeIn(500);
+        });
+        $(".zhongjiangjilu_modal").on('click', function () {
+            $(".zhongjiangjilu_modal").fadeOut(500);
+        });
+
+        $(".yaoqing_haoyou").on('click', function () {
+            $(".zhongjiang_modal").fadeOut(500);
+            $(".zhuli_yaoqing_modal").fadeIn(500);
+        });
+        $(".zhongjiang_modal").on('click', function () {
+            $(".zhongjiang_modal").fadeOut(500);
+        });
+        //-----ALL-modal---模态框
+
+
+    })
+
+</script>
+<!--模态框------modal-->
+
+
+<!-----转盘------>
+<script src="js/zepto.min.js"></script>
+<script src="js/kinerLottery.js"></script>
+<script>
+    function tishi_out() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        },2000)
+    }//提示框2秒后消失
+
+    //------旋转角度
+    var whichAward = function(deg) {
+        if ((deg > 337 && deg <= 360) || (deg > 0 && deg <= 22)) { //10M流量
+            return "iphone7 plus 128G黑色";
+        } else if ((deg > 22 && deg <= 67)) { //50元
+            return "50元";
+        } else if (deg > 67 && deg <= 112) { //10元
+            return "10元";
+        } else if (deg > 112 && deg <= 157) { //100元
+            return "100元";
+        } else if (deg > 157 && deg <= 202) { //1元
+            return "1元";
+        } else if (deg > 202 && deg <= 247) { //3元
+            return "3元";
+        }else if (deg > 247 && deg <= 292) { //8888元
+            return "8888元";
+        }else if (deg > 292 && deg <= 337) { //5元
+            return "5元";
+        }
+    };
+
+    //------转盘
+    var KinerLottery = new KinerLottery({
+        rotateNum: 8, //转盘转动圈数
+        body: "#zp", //大转盘整体的选择符或zepto对象
+        direction: 0, //0为顺时针转动,1为逆时针转动
+
+        disabledHandler: function(key) {
+            switch (key) {
+                case "noStart":
+                    alert("活动尚未开始");
+                    break;
+                case "completed":
+                    alert("活动已结束");
+                    break;
+            }
+        }, //禁止抽奖时回调
+
+        clickCallback: function() {
+            //此处访问接口获取奖品
+
+//			if(jiangpin == '5元话费'){
+//				jiaodu = 60
+//			}
+            var cishu = 1;
+
+            if(cishu>0){
+                this.goKinerLottery(22.5);
+            }
+            else{
+                //如果不能抽奖弹出框--2秒后自动消失
+                $(".tishi").fadeIn(500);
+                $(".tishi_val").empty().append('对不起 -- 您的抽奖次数已用完');
+                tishi_out();
+            }
+
+        }, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
+
+        KinerLotteryHandler: function(deg) {
+//			弹出奖品
+            $(".zhongjiang_modal").fadeIn(500);
+            $(".jiangxiang h2").append().append(whichAward(deg)+'奖励，请至后会有期APP进行体现，邀请10位好友助力可再获得一次抽奖机会');
+//            alert('恭喜你获得：'+whichAward(deg)+'奖励');
+
+        } //抽奖结束回调
+    });
+</script>
+<!-----转盘------>
+
+
+<!--魔窗-->
+<script>
+    new Mlink({
+        mlink: 'AcpY',//短链地址
+        button: document.querySelector('a#activity_upload'),
+        autoLaunchApp: false,
+        autoRedirectToDownloadUrl: true,
+        downloadWhenUniversalLinkFailed: false
+    });
+</script>
+<!--魔窗-->
+
+
 </html>

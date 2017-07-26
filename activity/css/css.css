@@ -1,0 +1,635 @@
+
+/* ------活动 总card */
+.swiper1{
+    width: 270%;
+    position: relative;
+    left: -85%;
+    padding: 25px 0;
+    box-sizing: border-box;
+}
+.swiper1 .swiper-wrapper .swiper-slide{
+    padding: 0 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+/*.swiper1 .swiper-wrapper .swiper-slide-active{*/
+    /*刚移走的slide的样式*/
+/*}*/
+.card_container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+
+/*::selection {background: #222 ; color: white ; text-shadow: none ; }*/
+/*::-webkit-scrollbar-track-piece{width:10px;background-color:#f2f2f2}*/
+/*::-webkit-scrollbar{width:1px;height:6px}*/
+/*::-webkit-scrollbar-thumb{height:50px;background-color:rgba(0,0,0,.3);}*/
+/*::-webkit-scrollbar-thumb:hover{background:#3fb560}*/
+
+
+::-webkit-scrollbar-track-piece{width:0;background-color:#f2f2f2}
+::-webkit-scrollbar{width:0;height:6px}
+
+/*------活动 总card-----------*/
+
+
+
+
+/*-------card_container1*/
+.card_container1{
+    background: url("../images/card1_bg.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    padding: 80px 10px;
+}
+.card1_title{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.card1_title img{
+    width: 35px;
+    float: left;
+    margin-right: 8px;
+}
+.card1_title h1{
+    float: left;
+    font-size: 15px;
+    color: #fff;
+    line-height: 33px;
+    font-weight: 100;
+}
+.activity_title{
+    width: 92%;
+    display: block;
+    margin: auto;
+}
+.appewm{
+    width: 110px;
+    display: block;
+    margin: 30px auto 0;
+}
+.activity_upload{
+    display: block;
+    margin: 20px auto 0;
+    width: 110px;
+    height: 35px;
+    font-size: 14px;
+    color: #fff;
+    background: #3460a4;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 34px;
+}
+
+
+/*-------card_container1------*/
+
+
+/*-------card_container2------*/
+.card_container2{
+    background: linear-gradient(to bottom, #fda085 30%, #f6d365 80%);
+    padding: 40px 10px 10px 10px;
+    position: relative;
+}
+.card_container2 img{
+    width: 215px;
+    display: block;
+    margin: auto;
+}
+.zp_top{
+    padding: 20px 10px 0;
+}
+.zp_top h1{
+    font-size: 10px;
+    color: #fff;
+    float: left;
+    font-weight: 100;
+}
+.zp_top h2{
+    font-size: 10px;
+    color: #fff;
+    float: right;
+    font-weight: 100;
+}
+.zp_bom{
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    left: 0;
+}
+.shengyu_cishu{
+    font-size: 15px;
+    color: #e04054;
+    text-align: center;
+    font-weight: 600;
+}
+.shengyu_cishu span{
+    margin: 0 4px 0 8px;
+    color: #fff;
+}
+.zp_bom input{
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+    margin: 20px auto 0;
+    border: none;
+    background: linear-gradient(to bottom, #fe5859 30%, #df3750 80%);
+}
+.acivity_xiangqing{
+    width: 80px;
+    background: url(../images/xiangqing_btn.png)no-repeat;
+    height: 34px;
+    line-height: 34px;
+    border: none;
+    background-size: 100% 100%;
+    font-size: 15px;color: #fff;
+    position: absolute;
+    top: 22%;
+    right: 10px;
+    z-index: 1;
+    outline: none;
+}
+#is_login{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    left: 0;
+    top: 0;
+    z-index: 5;
+}
+/*-------card_container2------*/
+
+
+/*-------card_container3------*/
+.card_container3{
+    background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);
+    padding: 10px;
+    position: relative;
+}
+.nvshen_paihang_titleimg{
+    width: 100%;
+}
+.nvshen_paihang_title {
+    width: 100%;
+    height: 25px;
+    margin: 0 0 10px;
+    border-radius: 4px;
+    background: #dbf2fc;
+
+    line-height: 25px;
+}
+.nvshen_paihang_container{
+    overflow-y: auto;
+    height: 600px;
+    padding: 0 0 10px;
+}
+.nvshen_paihang_title ul li{
+    float: left;
+    font-size: 12px;
+    color: #5579c3;
+}
+.nvshen_paihang{
+    padding: 7px 0;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 4px;
+    height: 50px;
+}
+.nvshen_paihang_paixu{
+    width: 25%;
+    float: left;
+}
+.nvshen_paihang_user{
+    width: 45%;
+    float: left;
+}
+.nvshen_paihang h3{
+    width: 30%;
+    font-size: 15px;
+    color: #333;
+    float: right;
+    text-align: center;
+    font-weight: 100;
+    line-height: 36px;
+}
+.nvshen_paihang_paixu img{
+    width: 30px;
+    display: block;
+    margin: 3px auto;
+}
+.nvshen_paihang_paixu h1{
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    line-height: 36px;
+    font-weight: 100;
+}
+.nvshen_paihang_user img{
+    float: left;
+    width: 36px;
+    border-radius: 50%;
+}
+.nvshen_paihang_user h1{
+    width: calc(100% - 36px);
+    font-size: 15px;
+    color: #333;
+    float: left;
+    line-height: 36px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    font-weight: 100;
+}
+.myself_paihang{
+    background: #d6cffe;
+    padding: 7px 10px;
+    height: 50px;
+    border-radius: 5px;
+}
+.myself_paihang h3{
+    font-size: 15px;
+    color: #333;
+    line-height: 36px;
+    text-align: center;
+    font-weight: 100;
+}
+.abc{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    padding: 0 10px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+/*-------card_container3------*/
+
+
+
+
+/*----以下是所有modal---ALL---modal-----------------*/
+/*-------给ta助力modal--*/
+.help_modal{
+    display: none;
+}
+.help{
+    background: #fff;
+    border-radius: 20px;
+    width: 88%;
+    margin: auto;
+    padding: 35px 15px 40px;
+}
+.help_user h1{
+    font-size: 30px;
+    color: #00b8e8;
+    text-align: center;
+    line-height: 32px;
+}
+.help_user img{
+    width: 110px;
+    display: block;
+    border-radius: 50%;
+    margin: 15px auto 20px;
+}
+.help_user h2{
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    width: 200px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0 auto 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.help_user h3{
+    font-size: 13px;
+    color: #808080;
+    line-height: 18px;
+    font-weight: 200;
+    padding: 0 15px;
+}
+.zhuli_num h2{
+    margin: 20px 0;
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    font-weight: 400;
+}
+.one_zhuli_user{
+    width: 14.27%;
+    float: left;
+    margin: 0 0 10px;
+}
+.one_zhuli_user img{
+    width: 25px;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+
+}
+.one_zhuli_user h6{
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 100;
+}
+.btn_help{
+    width: 115px;
+    display: block;
+    margin: 20px auto 0;
+    height: 35px;
+    background: #00b8e8;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+/*-------给ta助力-----------------*/
+
+/*-------活动规则-----助力邀请----*/
+.acivity_guize_modal{
+    display: none;
+}
+.zhuli_yaoqing_modal{
+    display: none;
+    z-index: 99999;
+}
+.acivity_guize{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200!important;
+    background: url("../images/acivity_guize.png") no-repeat;
+    background-size: cover;
+}
+.acivity_guize h3{
+    width: 100%;
+    font-size: 12px;
+    color: #ccc;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.zhuli_yaoqing img{
+    width: 13em;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+/*-------活动规则-----------------*/
+
+
+/*-------中奖记录-----------------*/
+.zhongjiangjilu_modal{
+    display: none;
+}
+.zhongjiangjilu{
+    width: 78%;
+    margin: auto;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px 0 15px;
+    min-height: 140px;
+}
+.zhongjiangjilu h1{
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+}
+.zhongjiangjilu img{
+    width: 90%;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: -16px;
+    left: 5%;
+}
+.zhongjiangjilu_list li{
+    line-height: 40px;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: dashed 1px #ccc;
+}
+.zhongjiangjilu_list li:last-child{
+    border-bottom: none;
+}
+.zhongjiang_time{
+    float: left;
+}
+.zhongjiang_jine{
+    float: right;
+}
+.zj_jilu{
+    width: 70%;
+    margin: auto;
+    min-width: 210px;
+}
+/*-------中奖记录-----------------*/
+
+
+/*--------------中奖啦----*/
+.zhongjiang_modal{
+    display: none;
+}
+.zhongjiangla_bg{
+    width: 100%;
+    height: 100%;
+    background: url("../images/zhongjiangla_bg.png") no-repeat;
+    background-size: cover;
+}
+.zhongjiang img{
+    width: 70%;
+    display: block;
+    margin: 0 auto 15px;
+}
+.jiangxiang{
+    width: 70%;
+    margin: auto;
+    background: url("../images/jiangxiang_bg.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 20px 30px;
+}
+.jiangxiang h1{
+    font-size: 18px;
+    color: #fff1d9;
+    line-height: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 100;
+}
+.jiangxiang h2{
+    font-size: 14px;
+    color: #fff1d9;
+    line-height: 26px;
+    font-weight: 100;
+}
+.yaoqing_haoyou{
+    width: 100px;
+    height: 30px;
+    background: linear-gradient(to bottom, #eb5169 30%, #da3f59 80%);
+    display: block;
+    margin: 35px auto 0;
+    font-size: 14px;
+    color: #fff1d9;
+    border: none;
+    line-height: 30px;
+    border-radius: 4px;
+
+}
+/*-------------中奖啦-------------*/
+
+/*-------------不能抽奖-------------*/
+.tishi{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 100;
+    display: none;
+}
+.tishi_val{
+    width: 60%;
+    margin: auto;
+    padding: 30px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    font-weight: 100;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+}
+/*-------------不能抽奖-------------*/
+/*----以上是所有modal---ALL---modal-----------------*/
+
+
+
+
+
+
+
+
+/*-------------达人榜-----+++++----*/
+.darenbang_container{
+    width: 100%;
+    padding: 25px 0;
+}
+.darenbang{
+    width: 92%;
+    margin: auto;
+    height: 100%;
+    background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 20px;
+    padding: 10px ;
+}
+.darenbang_titleimg{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+.one_darenbang{
+    padding-bottom: 10px;
+}
+.daren_paihang_container{
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    height: 50px;
+}
+.daren_container{
+    width: 100%;
+    overflow-y: auto;
+}
+.daren_paihang{
+    padding: 7px 10px 7px 0;
+    margin-bottom: 1px;
+    background: #fff;
+    border-radius: 4px;
+    height: 50px;
+}
+.daren_paihang_title{
+    width: 100%;
+    height: 25px;
+    margin: 0;
+    border-radius: 4px;
+    background: #dbf2fc;
+    line-height: 25px;
+    padding: 0 10px 0 0;
+}
+.daren_paihang_title ul li{
+    float: left;
+    font-size: 12px;
+    color: #5579c3;
+}
+.daren_paihang h3{
+    width: 30%;
+    font-size: 15px;
+    color: #333;
+    float: right;
+    text-align: center;
+    font-weight: 100;
+    line-height: 36px;
+}
+.up_down_jt{
+    width: 16px;
+    position: absolute;
+    top: 17px;
+    right:10px;
+}
+.up_down_jt img {
+    width: 100%;
+    height: 10px;
+}
+.xuanzzhuan{
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 	/* IE 9 */
+    -moz-transform:rotate(180deg); 	/* Firefox */
+    -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+    -o-transform:rotate(180deg);
+}
+.one_darenbang .nvshen_paihang_user{
+    width: 40%!important;
+}
+.one_darenbang .daren_paihang h3{
+    width: 35%!important;
+}
+/*-------------达人榜-----------------*!/*/
+
+
+
+
+
+@media (max-width:320px){
+    .card_container1{
+        padding: 50px 10px;
+    }
+}
