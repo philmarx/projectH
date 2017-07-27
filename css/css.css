@@ -18,10 +18,14 @@
     float: left;
 }
 .yq_userinfo span{
+    width: calc(100% - 66px);
     font-size: 18px;
     color: #fff;
     line-height: 56px;
     float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .yq_info{padding: 0 20px;}
 .yq_info p{

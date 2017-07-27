@@ -163,8 +163,6 @@
         loadMap();
         //微信登录获取到code后重定向会刷新页面，所以获取code要放在页面一加载就执行的函数里面
         code=getQueryString("code");
-
-        console.dir(params4);
         if(code){
             // code 传到后台，拿到用户信息，包括抽奖次数
 

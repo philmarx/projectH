@@ -65,7 +65,7 @@
                 <div id="zp" class="zp">
                     <div class="outer KinerLottery KinerLotteryContent"><img src="images/zzsc.png"></div>
                     <div class="inner KinerLotteryBtn start"></div>
-                    <div id="is_login"></div>
+                    <!--<div id="is_login"></div>-->
                 </div>
                 <button class="acivity_xiangqing">活动详情</button>
                 <div class="zp_bom">
@@ -447,19 +447,53 @@
 
 <!--页面刚加载时的数据-->
 <script>
-    var usertoken = localStorage.getItem("usertoken");
-    localStorage.getItem("userid");
+
+    var usertoken;
+    var userid;
     var code;
 
     $(function () {
+        usertoken = localStorage.getItem("usertoken");
+        userid = localStorage.getItem("userid");
         load();
+        login();
     });
+
+    function login(){
+        code = getQueryString("code");
+        if(code){
+            var params = {"code":code};
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'view/login',
+                data: params,
+                success:function(json){
+                    if(!json.success){
+                        alert("获取token:"+json.msg);
+                        return;
+                    }
+                    //获取token之后存到本地缓存
+                    var datas = json.data;
+                    alert("ajax获取的---userid:"+datas.id+"---usertoken:"+datas.token);
+
+                    localStorage.setItem("userid",datas.id);
+                    localStorage.setItem("usertoken",datas.token);
+                    alert("localStorage缓存----userid:"+localStorage.getItem("userid")+"---usertoken:"+localStorage.getItem("usertoken"));
+
+                },
+                error: function (e) {
+                    alert("获取token--"+e.status + ',' + e.statusText);
+                }
+            });
+        }
+    }
+
     function load() {
         $.ajax({
             type:'post',
             dataType:'json',
             url:ContextPath+'/view/allPrizeInfo',
-            data:"",
             success:function(json){
                 console.dir(json.data);
                 var datas = json.data;
@@ -468,51 +502,16 @@
             }
         });
 
+    }
 
-        //---#is_login-是盖在立即抽奖上的div,如果已经登陆，#is_login要隐藏，在抽奖之前就要把这个判断好。
-        if(usertoken){
-            console.dir(usertoken);
-            $("#is_login").fadeOut(100);
-        }
-        else{
-            $("#is_login").on('click', function () {
+    function getcode() {
+//        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        location.href = url_code;
+    }
 
-                //微信上可以登陆
-//               var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-
-                // 网页上可以登陆
-                var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-                location.href = url_code;
-
-            });
-        }
-
-
-
-        code = getQueryString("code");
-        if(code){
-
-            var params = ({"code":code});
-            $.ajax({
-                type:'post',
-                dataType:'json',
-                url:ContextPath+'view/login',
-                data: params,
-                success:function(json){
-                    //获取token之后存到本地缓存
-                    console.dir(json);
-                    var datas = json.data;
-                    localStorage.setItem("userid",datas.id);
-                    localStorage.setItem("usertoken",datas.token);
-
-                },
-                error: function (json) {
-
-                }
-            });
-        }
-
-
+    function clear_localStorage() {
+        localStorage.clear("usertoken");
     }
 
 
@@ -611,19 +610,35 @@
 
         clickCallback: function() {
             //此处访问接口获取奖品
-
-//			if(jiangpin == '5元话费'){
-//				jiaodu = 60
-//			}
-            var cishu = 1;
+            var jiaodu;
+            var cishu;
+            var params2 = {"token":localStorage.getItem("usertoken"),"userId":localStorage.getItem("userid")};
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'/view/luckDraw',
+                data: params2,
+                success:function(json){
+                    if(!json.success){
+                        alert("登陆信息过期--请重新获取--"+json.msg);
+                        getcode();
+                        return;
+                    }
+                    alert("获取奖品----"+json.data);
+                    cishu = 1;
+                },
+                error: function (e) {
+                    alert("获取奖品----"+e.status + ',' + e.statusText);
+                }
+            });
 
             if(cishu>0){
-                this.goKinerLottery(22.5);
+                this.goKinerLottery(90);
             }
             else{
                 //如果不能抽奖弹出框--2秒后自动消失
                 $(".tishi").fadeIn(500);
-                $(".tishi_val").empty().append('对不起 -- 您的抽奖次数已用完');
+                $(".tishi_val").empty().html('对不起 -- 您的抽奖次数已用完');
                 tishi_out();
             }
 
@@ -632,7 +647,7 @@
         KinerLotteryHandler: function(deg) {
 //			弹出奖品
             $(".zhongjiang_modal").fadeIn(500);
-            $(".jiangxiang h2").append().append(whichAward(deg)+'奖励，请至后会有期APP进行体现，邀请10位好友助力可再获得一次抽奖机会');
+            $(".jiangxiang h2").empty().html(whichAward(deg)+'奖励，请至后会有期APP进行体现，邀请10位好友助力可再获得一次抽奖机会');
 //            alert('恭喜你获得：'+whichAward(deg)+'奖励');
 
         } //抽奖结束回调

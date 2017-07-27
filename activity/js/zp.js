@@ -47,15 +47,43 @@
         this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度
         // console.log(this.defNum);
 
+
+
+
+
         //-------点击抽奖--------触发按钮
         $('.KinerLotteryBtn').on('click', function() {
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'/view/luckDraw',
+                data: {"token":usertoken,"userId":userid},
+                success:function(json){
+                    if(!json.success){
+                        //--token过期
+                        clear_localStorage();
+                        getcode();
+                        return;
+                    }
+                    console.dir(json.data);
+                    if( $(this).hasClass('start') && !self.doing){
+                        console.log('点击');
 
-            //ajax判断是否登陆，登陆后判断
+                        self.opts.clickCallback.call(self);
+                    }
+                    else {
+                        var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
 
-            if ($(this).hasClass('start') && !self.doing) {
+                        self.opts.disabledHandler(key);
+                    }
+                }
+            });
+
+
+     /*       //ajax判断是否登陆，登陆后判断
+            if ( $(this).hasClass('start') && !self.doing) {
 
                 console.log('点击');
-
                 self.opts.clickCallback.call(self);
 
             } else {
@@ -64,7 +92,7 @@
 
                 self.opts.disabledHandler(key);
 
-            }
+            }*/
 
         });
 
