@@ -53,48 +53,46 @@
 
         //-------点击抽奖--------触发按钮
         $('.KinerLotteryBtn').on('click', function() {
+            var isLogin= (localStorage.getItem("usertoken") && localStorage.getItem("userid"));
+            if(!isLogin){
+                alert('请先登陆');
+                getcode();
+                return;
+            }
+
             $.ajax({
                 type:'post',
                 dataType:'json',
-                url:ContextPath+'/view/luckDraw',
-                data: {"token":usertoken,"userId":userid},
+                url:ContextPath+'view/luckDraw',
+                data: {"token":localStorage.getItem("usertoken"),"userId":localStorage.getItem("userid")},
                 success:function(json){
+
                     if(!json.success){
-                        //--token过期
-                        clear_localStorage();
-                        getcode();
-                        return;
+                        console.dir(json.msg);
+                        if(json.msg == '助力10人可再获取一次抽奖机会' || json.msg == '您的抽奖次数已用完'){
+                            $(".zhuli_yaoqing_modal").fadeIn(500);
+                            return;
+                        }
+                        if(json.msg == '登录失效'){
+                            alert(json.msg);
+                            getcode();
+                            return;
+                        }
                     }
-                    console.dir(json.data);
-                    if( $(this).hasClass('start') && !self.doing){
-                        console.log('点击');
-
+                    if(json.success){
+                        var data = json.data;
+                        $(".zp_top h1").empty().append('奖池剩余金额：'+data.allMoney+'元');
+                        $(".zp_top h2").empty().append('参与人数：'+data.joinMember+'人');
+                        $(".shengyu_cishu span").empty().append(data.frequency);
+                        window.DrawObject= data;
+                        console.dir(json.data);
                         self.opts.clickCallback.call(self);
-                    }
-                    else {
-                        var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
-
-                        self.opts.disabledHandler(key);
                     }
                 }
             });
-
-
-     /*       //ajax判断是否登陆，登陆后判断
-            if ( $(this).hasClass('start') && !self.doing) {
-
-                console.log('点击');
-                self.opts.clickCallback.call(self);
-
-            } else {
-
-                var key = $(this).hasClass('no-start') ? "noStart" : $(this).hasClass('completed') ? "completed" : "illegal";
-
-                self.opts.disabledHandler(key);
-
-            }*/
-
         });
+
+
 
         $(this.opts.body).find('.KinerLotteryContent').get(0).addEventListener('transitionend', function() {
 

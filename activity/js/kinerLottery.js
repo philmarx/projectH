@@ -56,19 +56,6 @@ var cishu= 3;
 
                 console.log('点击');
 
-                //set---转盘次数，---用户转3次就不可以转了。
-
-
-                //cishu-=1;
-                //console.dir(cishu);
-                ////localStorage.setItem("cishu");
-                ////localStorage.getItem("cishu");
-                //if(cishu == 0){
-                //    alert("你已经抽过3次啦");
-                //    location.reload();
-                //}
-
-
                 //执行转盘函数
                 self.opts.clickCallback.call(self);
 

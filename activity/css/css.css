@@ -176,104 +176,6 @@
     padding: 10px;
     position: relative;
 }
-.nvshen_paihang_titleimg{
-    width: 100%;
-}
-.nvshen_paihang_title {
-    width: 100%;
-    height: 25px;
-    margin: 0 0 10px;
-    border-radius: 4px;
-    background: #dbf2fc;
-
-    line-height: 25px;
-}
-.nvshen_paihang_container{
-    overflow-y: auto;
-    height: 600px;
-    padding: 0 0 10px;
-}
-.nvshen_paihang_title ul li{
-    float: left;
-    font-size: 12px;
-    color: #5579c3;
-}
-.nvshen_paihang{
-    padding: 7px 0;
-    margin-bottom: 5px;
-    background: #fff;
-    border-radius: 4px;
-    height: 50px;
-}
-.nvshen_paihang_paixu{
-    width: 25%;
-    float: left;
-}
-.nvshen_paihang_user{
-    width: 45%;
-    float: left;
-}
-.nvshen_paihang h3{
-    width: 30%;
-    font-size: 15px;
-    color: #333;
-    float: right;
-    text-align: center;
-    font-weight: 100;
-    line-height: 36px;
-}
-.nvshen_paihang_paixu img{
-    width: 30px;
-    display: block;
-    margin: 3px auto;
-}
-.nvshen_paihang_paixu h1{
-    font-size: 15px;
-    color: #333;
-    text-align: center;
-    line-height: 36px;
-    font-weight: 100;
-}
-.nvshen_paihang_user img{
-    float: left;
-    width: 36px;
-    border-radius: 50%;
-}
-.nvshen_paihang_user h1{
-    width: calc(100% - 36px);
-    font-size: 15px;
-    color: #333;
-    float: left;
-    line-height: 36px;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-left: 10px;
-    font-weight: 100;
-}
-.myself_paihang{
-    background: #d6cffe;
-    padding: 7px 10px;
-    height: 50px;
-    border-radius: 5px;
-}
-.myself_paihang h3{
-    font-size: 15px;
-    color: #333;
-    line-height: 36px;
-    text-align: center;
-    font-weight: 100;
-}
-.abc{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 50;
-    padding: 0 10px;
-    border-radius: 4px;
-    overflow: hidden;
-}
 /*-------card_container3------*/
 
 
@@ -428,13 +330,16 @@
     top: -16px;
     left: 5%;
 }
-.zhongjiangjilu_list li{
+.zj_jilu{
+    width: 70%;
+    margin: auto;
+    min-width: 210px;
     line-height: 40px;
     font-size: 14px;
     color: #333333;
     border-bottom: dashed 1px #ccc;
 }
-.zhongjiangjilu_list li:last-child{
+.zhongjiangjilu_list div:last-child{
     border-bottom: none;
 }
 .zhongjiang_time{
@@ -443,11 +348,7 @@
 .zhongjiang_jine{
     float: right;
 }
-.zj_jilu{
-    width: 70%;
-    margin: auto;
-    min-width: 210px;
-}
+
 /*-------中奖记录-----------------*/
 
 
@@ -557,7 +458,7 @@
     margin: auto;
 }
 .one_darenbang{
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 .daren_paihang_container{
     overflow: hidden;
@@ -625,7 +526,125 @@
 /*-------------达人榜-----------------*!/*/
 
 
+/*-------------女神榜----------*/
+.nvshen_container{
+    width: 100%;
+    height: 100%;
+    padding: 25px 30px;
+}
+.nvshenpaihang_box{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
 
+    background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);
+    padding: 10px;
+    position: relative;
+}
+.nvshen{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.nvshen_myself{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #d6cffe;
+    padding: 7px 10px;
+    height: 50px;
+}
+.nvshen_paihang_titleimg{
+    width: 100%;
+}
+.nvshen_paihang_title {
+    width: 100%;
+    height: 25px;
+    margin: 0 0 10px;
+    border-radius: 4px;
+    background: #dbf2fc;
+
+    line-height: 25px;
+}
+.nvshen_paihang_container{
+    overflow-y: auto;
+    height: 600px;
+    padding: 0 0 10px;
+}
+.nvshen_paihang_title ul li{
+    float: left;
+    font-size: 12px;
+    color: #5579c3;
+}
+.nvshen_paihang{
+    padding: 7px 0;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 4px;
+    height: 50px;
+}
+.nvshen_paihang_paixu{
+    width: 25%;
+    float: left;
+}
+.nvshen_paihang_user{
+    width: 45%;
+    float: left;
+}
+.nvshen_paihang h3{
+    width: 30%;
+    font-size: 15px;
+    color: #333;
+    float: right;
+    text-align: center;
+    font-weight: 100;
+    line-height: 36px;
+}
+.nvshen_paihang_paixu img{
+    width: 30px;
+    display: block;
+    margin: 3px auto;
+}
+.nvshen_paihang_paixu h1{
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    line-height: 36px;
+    font-weight: 100;
+}
+.nvshen_paihang_user img{
+    float: left;
+    width: 36px;
+    border-radius: 50%;
+}
+.nvshen_paihang_user h1{
+    width: calc(100% - 36px);
+    font-size: 15px;
+    color: #333;
+    float: left;
+    line-height: 36px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    font-weight: 100;
+}
+.nvshen_myself h3{
+    font-size: 15px;
+    color: #333;
+    line-height: 36px;
+    text-align: center;
+    font-weight: 100;
+    width: 30%;
+    float: right;
+}
+
+/*-------------女神榜-----------------*/
 
 
 @media (max-width:320px){
