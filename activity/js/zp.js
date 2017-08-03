@@ -53,7 +53,7 @@
 
         //-------点击抽奖--------触发按钮
         $('.KinerLotteryBtn').on('click', function() {
-            var isLogin= (localStorage.getItem("usertoken") && localStorage.getItem("userid"));
+            var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
             if(!isLogin){
                 alert('请先登陆');
                 getcode();
@@ -64,13 +64,16 @@
                 type:'post',
                 dataType:'json',
                 url:ContextPath+'view/luckDraw',
-                data: {"token":localStorage.getItem("usertoken"),"userId":localStorage.getItem("userid")},
+                data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
                 success:function(json){
-
+                    var data = json.data;
+                    console.dir(json);
                     if(!json.success){
                         console.dir(json.msg);
                         if(json.msg == '助力10人可再获取一次抽奖机会' || json.msg == '您的抽奖次数已用完'){
-                            $(".zhuli_yaoqing_modal").fadeIn(500);
+                            $(".tishi").fadeIn(500);
+                            $(".tishi_val").html('邀请10人助力可再获取一次抽奖机会');
+                            tishi_out();
                             return;
                         }
                         if(json.msg == '登录失效'){
@@ -80,12 +83,11 @@
                         }
                     }
                     if(json.success){
-                        var data = json.data;
                         $(".zp_top h1").empty().append('奖池剩余金额：'+data.allMoney+'元');
                         $(".zp_top h2").empty().append('参与人数：'+data.joinMember+'人');
                         $(".shengyu_cishu span").empty().append(data.frequency);
                         window.DrawObject= data;
-                        console.dir(json.data);
+
                         self.opts.clickCallback.call(self);
                     }
                 }

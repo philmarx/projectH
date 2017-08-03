@@ -41,7 +41,7 @@
 
 /*-------card_container1*/
 .card_container1{
-    background: url("../images/card1_bg.png") no-repeat;
+    background: url("../images/card1_bg2.png") no-repeat;
     background-size: 100% 100%;
     position: relative;
     padding: 60px 10px;
@@ -75,7 +75,6 @@
 }
 .activity_upload{
     display: block;
-    margin: 20px auto 0;
     width: 110px;
     height: 35px;
     font-size: 14px;
@@ -84,6 +83,10 @@
     border-radius: 4px;
     text-align: center;
     line-height: 34px;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    margin-left: -55px;
 }
 
 
@@ -93,25 +96,25 @@
 /*-------card_container2------*/
 .card_container2{
     background: linear-gradient(to bottom, #fda085 30%, #f6d365 80%);
-    padding: 40px 10px 10px 10px;
+    padding: 25px 10px 10px 10px;
     position: relative;
 }
 .card_container2 img{
-    width: 215px;
+    width: 200px;
     display: block;
     margin: auto;
 }
 .zp_top{
-    padding: 20px 10px 0;
+    padding: 15px 10px 0;
 }
 .zp_top h1{
-    font-size: 10px;
+    font-size: 12px;
     color: #fff;
     float: left;
     font-weight: 100;
 }
 .zp_top h2{
-    font-size: 10px;
+    font-size: 12px;
     color: #fff;
     float: right;
     font-weight: 100;
@@ -119,24 +122,35 @@
 .zp_bom{
     width: 100%;
     position: absolute;
-    top: 72%;
+    top: 70%;
     left: 0;
 }
 .shengyu_cishu{
-    font-size: 15px;
+    font-size: 13px;
     color: #e04054;
     text-align: center;
     font-weight: 600;
+}
+.cha_usernum{
+    text-align: center;
+    color: #ef4954;
+    font-size: 12px;
+    margin: 0 0 5px;
+}
+.cha_usernum span{
+    color: #fff;
+    font-size: 12px;
+    margin: 0 2px;
 }
 .shengyu_cishu span{
     margin: 0 4px 0 8px;
     color: #fff;
 }
 .zp_bom input{
-    width: 150px;
-    height: 35px;
+    width: 140px;
+    height: 34px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #fff;
     display: block;
@@ -172,55 +186,170 @@
 
 /*-------card_container3------*/
 .card_container3{
-    background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);
+    /*background: linear-gradient(to bottom, #fecfef 30%, #ff9a9e 80%);*/
+    background: url("../images/xiannv_bg.png") no-repeat;
+    background-size: 100% 100%;
     padding: 10px;
     position: relative;
 }
+.xiannv_titile{
+    width: 130px;
+}
+.xiannv_img{
+    width: 90%;
+    display: block;
+    margin: 40px auto 0;
+}
+.xiannv_btn_box{
+    /*width: 240px;*/
+    /*margin: 50px auto 0;*/
+    width: 240px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -120px;
+}
+.xiannv_btn_box a{
+    display: block;
+    width: 100px;
+    height: 35px;
+    background: #ff5a9a;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #fff;
+    float: left;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 4px;
+}
+.look_nvshen_guize{
+    background: #cd85ff!important;
+}
 /*-------card_container3------*/
 
+/*-------card_container4------*/
+.card_container4{
+    /*background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);*/
+    background: url("../images/daren_bg.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 10px;
+    position: relative;
+}
+.daren_font{
+    width: 190px;
+    display: block;
+    margin: 1.5em auto 0.7em;
+}
+.daren_img{
+    width: 86%;
+    display: block;
+    margin: 20px auto 0;
+}
+.daren_btn_box{
+    width: 240px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -120px;
+}
+.daren_btn_box a{
+    display: block;
+    width: 100px;
+    height: 35px;
+    background: #ff5a9a;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #fff;
+    float: left;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 4px;
+}
+/*-------card_container4------*/
 
+/*-------card_container5------*/
+.card_container5{
+    background: url("../images/meirinvshen_bg.png")no-repeat;
+    background-size: 100% 100%;
+}
+.meiri_btn{
+    display: block;
+    width: 110px;
+    height: 35px;
+    font-size: 14px;
+    color: #fff;
+    background: #3460a4;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 34px;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    margin-left: -55px;
+}
+.meiri_guize_modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200!important;
+    background: url("../images/meiri_guize.png") no-repeat;
+    background-size: cover;
+    display: none;
+}
+/*-------card_container5------*/
 
 
 /*----以下是所有modal---ALL---modal-----------------*/
 /*-------给ta助力modal--*/
 .help_modal{
-    display: none;
+    /*display: none;*/
+}
+.close_help{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 35px;
+    display: block;
+    z-index: 99999;
 }
 .help{
     background: #fff;
     border-radius: 20px;
-    width: 88%;
+    width: 80%;
     margin: auto;
-    padding: 35px 15px 40px;
+    padding: 25px 15px;
+    position: relative;
 }
 .help_user h1{
-    font-size: 30px;
+    font-size: 22px;
     color: #00b8e8;
     text-align: center;
-    line-height: 32px;
+    line-height: 24px;
 }
 .help_user img{
-    width: 110px;
+    width: 80px;
     display: block;
     border-radius: 50%;
-    margin: 15px auto 20px;
+    margin: 15px auto 10px;
 }
 .help_user h2{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     color: #333;
     width: 200px;
-    line-height: 18px;
+    line-height: 16px;
     text-align: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .help_user h3{
-    font-size: 13px;
+    font-size: 12px;
     color: #808080;
-    line-height: 18px;
+    line-height: 14px;
     font-weight: 200;
     padding: 0 15px;
 }
@@ -233,17 +362,17 @@
 }
 .one_zhuli_user{
     width: 14.27%;
-    float: left;
     margin: 0 0 10px;
 }
 .one_zhuli_user img{
     width: 25px;
-    display: block;
-    margin: auto;
+    margin: 10px 12px 0;
     border-radius: 50%;
 
 }
 .one_zhuli_user h6{
+    width: 50px;
+    padding-right: 4px;
     font-size: 10px;
     color: #666;
     text-align: center;
@@ -262,6 +391,10 @@
     color: #fff;
     border: none;
     border-radius: 4px;
+}
+.btn_not_help{
+    background: #555!important;
+    color: #999!important;
 }
 
 /*-------给ta助力-----------------*/
@@ -284,9 +417,9 @@
     background: url("../images/acivity_guize.png") no-repeat;
     background-size: cover;
 }
-.acivity_guize h3{
+.guize_h3{
     width: 100%;
-    font-size: 12px;
+    font-size: 13px;
     color: #ccc;
     position: absolute;
     bottom: 20px;
@@ -411,13 +544,14 @@
     width: 100%;
     height: 100%;
     background: transparent;
-    z-index: 100;
+    z-index: 999999999999;
     display: none;
 }
 .tishi_val{
     width: 60%;
     margin: auto;
     padding: 30px 15px;
+    text-align: center;
     background: rgba(0, 0, 0, 0.5);
     font-size: 14px;
     line-height: 24px;
@@ -505,6 +639,7 @@
     position: absolute;
     top: 17px;
     right:10px;
+    z-index: 100;
 }
 .up_down_jt img {
     width: 100%;
@@ -520,8 +655,26 @@
 .one_darenbang .nvshen_paihang_user{
     width: 40%!important;
 }
-.one_darenbang .daren_paihang h3{
+.one_darenbang .nvshen_fenshu{
     width: 35%!important;
+}
+.myPaihang{
+    font-size: 13px;
+    color: #5579c3;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+.daren_guize_modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200!important;
+    background: url("../images/daren_guize.png") no-repeat;
+    background-size: cover;
+    display: none;
 }
 /*-------------达人榜-----------------*!/*/
 
@@ -537,10 +690,20 @@
     height: 100%;
     overflow: hidden;
     border-radius: 15px;
-
     background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);
     padding: 10px;
     position: relative;
+}
+.xiannv_guize{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200!important;
+    background: url("../images/xiannv_guize.png") no-repeat;
+    background-size: cover;
+    display: none;
 }
 .nvshen{
     width: 100%;
@@ -596,15 +759,6 @@
     width: 45%;
     float: left;
 }
-.nvshen_paihang h3{
-    width: 30%;
-    font-size: 15px;
-    color: #333;
-    float: right;
-    text-align: center;
-    font-weight: 100;
-    line-height: 36px;
-}
 .nvshen_paihang_paixu img{
     width: 30px;
     display: block;
@@ -627,8 +781,9 @@
     font-size: 15px;
     color: #333;
     float: left;
+    height: 36px;
     line-height: 36px;
-    white-space: normal;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 10px;
@@ -643,7 +798,15 @@
     width: 30%;
     float: right;
 }
-
+.nvshen_fenshu{
+    width: 30%;
+    font-size: 15px;
+    color: #333;
+    float: right;
+    text-align: center;
+    font-weight: 100;
+    line-height: 36px;
+}
 /*-------------女神榜-----------------*/
 
 

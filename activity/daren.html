@@ -15,9 +15,13 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
 
+    <script src="js/key.js"></script>
+    <script src="js/common.js"></script>
+
     <link rel="stylesheet" href="css/swiper.min.css"/>
     <link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/css.css"/>
+
 </head>
 <body>
 
@@ -26,9 +30,11 @@
 
     <div class="darenbang">
         <img src="images/daren_toptitle.png" class="darenbang_titleimg" alt=""/>
+        <a href="myPaihang.html" class="myPaihang">我的排行</a>
 
         <div class="daren_container">
 
+            <!-- 组织活动次数-createRoomMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
@@ -38,71 +44,40 @@
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+                <!-- 组织活动次数-->
+                <div class="daren_paihang_container" id="createRoomMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
+
                     <div class="daren_paihang">
                         <div class="nvshen_paihang_paixu">
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>156</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>156</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
                 </div>
             </div>
 
+            <!-- 好友最多-friendMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
                         <li style="width: 25%;text-align: center;">排名</li>
                         <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">分数</li>
+                        <li style="width: 30%;text-align: center;">好友最多</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+
+                <!-- 好友最多-friendMaster-->
+                <div class="daren_paihang_container" id="friendMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
@@ -111,62 +86,30 @@
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
+
                 </div>
             </div>
 
+            <!-- 狼人杀参与次数最多-joinWerewolfMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
                         <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">参加狼人杀次数</li>
+                        <li style="width: 40%;padding-left: 35px;">昵称</li>
+                        <li style="width: 35%;text-align: center;">参加狼人杀次数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+
+                <!-- 狼人杀参与次数最多-joinWerewolfMaster-->
+                <div class="daren_paihang_container" id="joinWerewolfMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
@@ -175,126 +118,63 @@
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
+
                 </div>
             </div>
 
+            <!-- 排行榜分数总和最高-maxScoreMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
                         <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">好友人数</li>
+                        <li style="width: 40%;padding-left: 35px;">昵称</li>
+                        <li style="width: 35%;text-align: center;">排行榜分数总和</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+
+                <!-- 排行榜分数总和最高-->
+                <div class="daren_paihang_container" id="maxScoreMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
+
                     <div class="daren_paihang">
                         <div class="nvshen_paihang_paixu">
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
+
                 </div>
             </div>
 
+            <!-- 狼人杀排行第一-werewolfMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
                         <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">异性好友(女生)</li>
+                        <li style="width: 40%;padding-left: 35px;">昵称</li>
+                        <li style="width: 35%;text-align: center;">狼人杀分数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+
+                <!-- 狼人杀排行第一-werewolfMaster-->
+                <div class="daren_paihang_container" id="werewolfMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
@@ -303,62 +183,30 @@
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
+
                 </div>
             </div>
 
+            <!-- 异性好友最多的女性-womanFriendMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
                         <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">异性好友(男生)</li>
+                        <li style="width: 40%;padding-left: 35px;">昵称</li>
+                        <li style="width: 35%;text-align: center;">异性好友最多(女生)</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+
+                <!-- 异性好友最多的女性-womanFriendMaster-->
+                <div class="daren_paihang_container" id="womanFriendMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
@@ -367,62 +215,30 @@
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
+
                 </div>
             </div>
 
+            <!-- 异性好友最多的男性-manFriendMaster-->
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
                         <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">迟到次数</li>
+                        <li style="width: 40%;padding-left: 35px;">昵称</li>
+                        <li style="width: 35%;text-align: center;">异性好友最多(男生)</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
-                <div class="daren_paihang_container">
+
+                <!-- 异性好友最多的男性-manFriendMaster-->
+                <div class="daren_paihang_container" id="manFriendMaster">
                     <div class="up_down_jt">
                         <img src="images/daren_down.png" alt=""/>
                     </div>
@@ -431,47 +247,43 @@
                             <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 金色好友最多-goldenFriendMaster-->
+            <div class="one_darenbang">
+                <div class="daren_paihang_title">
+                    <ul>
+                        <li style="width: 25%;text-align: center;">排名</li>
+                        <li style="width: 40%;padding-left: 35px;">昵称</li>
+                        <li style="width: 35%;text-align: center;">金色好友最多</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+
+                <!-- 金色好友最多-goldenFriendMaster-->
+                <div class="daren_paihang_container" id="goldenFriendMaster">
+                    <div class="up_down_jt">
+                        <img src="images/daren_down.png" alt=""/>
                     </div>
                     <div class="daren_paihang">
                         <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu2.png" alt=""/>
+                            <img src="images/paixu1.png" alt=""/>
                         </div>
                         <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
+                            <img src="images/tx2.jpg" alt=""/>
+                            <h1>----</h1>
                             <div class="clear"></div>
                         </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <img src="images/paixu3.png" alt=""/>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="daren_paihang">
-                        <div class="nvshen_paihang_paixu">
-                            <h1>4</h1>
-                        </div>
-                        <div class="nvshen_paihang_user">
-                            <img src="images/tx.jpg" alt=""/>
-                            <h1>小棉袄</h1>
-                            <div class="clear"></div>
-                        </div>
-                        <h3>15620</h3>
+                        <div class="nvshen_fenshu">0</div>
                         <div class="clear"></div>
                     </div>
                 </div>
@@ -493,28 +305,264 @@
 
 <!--Swiper切换-->
 <script src="js/swiper.min.js"></script>
+<!--达人榜--高度-->
 <script>
-
     $(document).ready(function () {
         //card高度+++++
         $(".darenbang_container").height($(window).height()-50);
         //card高度-----
         $(".daren_container").height($(".darenbang").height()-$(".darenbang_titleimg").height());
+    })
+</script>
 
-        $(".up_down_jt").on('click',function () {
-            var hei = $(this).parent(".daren_paihang_container").height();
-            if(hei == 50){
-                $(this).parent(".daren_paihang_container").height("auto");
-                $(this).addClass("xuanzzhuan");
-            }
-            if(hei !== 50){
-                $(this).parent(".daren_paihang_container").height(50);
-                $(this).removeClass("xuanzzhuan");
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'view/findMaster',
+            success:function(json){
+                var data = json.data;
+                console.dir(json.data);
+
+                var $clear = $("<div class='clear'></div>");
+
+                //组织活动最多
+                var $createRoomMaster = $("#createRoomMaster").html('');
+                $createRoomMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.createRoomMaster, function (index,obj) {
+                    var $dr1_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr1_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr1_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr1_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr1_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr1_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr1_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr1_daren_paihang.append($dr1_nvshen_paihang_paixu);
+                    $dr1_daren_paihang.append($dr1_nvshen_paihang_user);
+                    $dr1_daren_paihang.append($dr1_nvshen_fenshu);
+                    $dr1_daren_paihang.append($clear);
+                    $createRoomMaster.append($dr1_daren_paihang);
+
+                });
+
+                //好友最多
+                var $friendMaster = $("#friendMaster").html('');
+                $friendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.friendMaster, function (index,obj) {
+                    var $dr2_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr2_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr2_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr2_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr2_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr2_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr2_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr2_daren_paihang.append($dr2_nvshen_paihang_paixu);
+                    $dr2_daren_paihang.append($dr2_nvshen_paihang_user);
+                    $dr2_daren_paihang.append($dr2_nvshen_fenshu);
+                    $dr2_daren_paihang.append($clear);
+                    $friendMaster.append($dr2_daren_paihang);
+
+                });
+
+                //狼人杀参与次数最多-joinWerewolfMaster
+                var $joinWerewolfMaster = $("#joinWerewolfMaster").html('');
+                $joinWerewolfMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.joinWerewolfMaster, function (index,obj) {
+                    var $dr3_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr3_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr3_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr3_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr3_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr3_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr3_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr3_daren_paihang.append($dr3_nvshen_paihang_paixu);
+                    $dr3_daren_paihang.append($dr3_nvshen_paihang_user);
+                    $dr3_daren_paihang.append($dr3_nvshen_fenshu);
+                    $dr3_daren_paihang.append($clear);
+                    $joinWerewolfMaster.append($dr3_daren_paihang);
+
+                });
+
+                //排行榜分数总和最高-maxScoreMaster
+                var $maxScoreMaster = $("#maxScoreMaster").html('');
+                $maxScoreMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.maxScoreMaster, function (index,obj) {
+                    var $dr4_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr4_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr4_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr4_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr4_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr4_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr4_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr4_daren_paihang.append($dr4_nvshen_paihang_paixu);
+                    $dr4_daren_paihang.append($dr4_nvshen_paihang_user);
+                    $dr4_daren_paihang.append($dr4_nvshen_fenshu);
+                    $dr4_daren_paihang.append($clear);
+                    $maxScoreMaster.append($dr4_daren_paihang);
+
+                });
+
+                //狼人杀排行第一-werewolfMaster
+                var $werewolfMaster = $("#werewolfMaster").html('');
+                $werewolfMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.werewolfMaster, function (index,obj) {
+                    var $dr5_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr5_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr5_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr5_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr5_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr5_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr5_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr5_daren_paihang.append($dr5_nvshen_paihang_paixu);
+                    $dr5_daren_paihang.append($dr5_nvshen_paihang_user);
+                    $dr5_daren_paihang.append($dr5_nvshen_fenshu);
+                    $dr5_daren_paihang.append($clear);
+                    $werewolfMaster.append($dr5_daren_paihang);
+
+                });
+
+                //异性好友最多的女性-womanFriendMaster
+                var $womanFriendMaster = $("#womanFriendMaster").html('');
+                $womanFriendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.womanFriendMaster, function (index,obj) {
+                    var $dr6_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr6_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr6_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr6_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr6_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr6_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr6_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr6_daren_paihang.append($dr6_nvshen_paihang_paixu);
+                    $dr6_daren_paihang.append($dr6_nvshen_paihang_user);
+                    $dr6_daren_paihang.append($dr6_nvshen_fenshu);
+                    $dr6_daren_paihang.append($clear);
+                    $womanFriendMaster.append($dr6_daren_paihang);
+
+                });
+
+                //异性好友最多的男性-manFriendMaster
+                var $manFriendMaster = $("#manFriendMaster").html('');
+                $manFriendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.manFriendMaster, function (index,obj) {
+                    var $dr7_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr7_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr7_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr7_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr7_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr7_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr7_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr7_daren_paihang.append($dr7_nvshen_paihang_paixu);
+                    $dr7_daren_paihang.append($dr7_nvshen_paihang_user);
+                    $dr7_daren_paihang.append($dr7_nvshen_fenshu);
+                    $dr7_daren_paihang.append($clear);
+                    $manFriendMaster.append($dr7_daren_paihang);
+
+                });
+
+                //金色好友最多-goldenFriendMaster
+                var $goldenFriendMaster = $("#goldenFriendMaster").html('');
+                $goldenFriendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                $.each(data.goldenFriendMaster, function (index,obj) {
+                    var $dr8_daren_paihang = $('<div class="daren_paihang"></div>');
+                    var $dr8_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                    var $dr8_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                    var $dr8_nvshen_fenshu = $('<div class="nvshen_fenshu">'+obj.count+'</div>');
+
+                    if(index<3){
+                        $dr8_nvshen_paihang_paixu.append('<img src="images/paixu'+parseInt(index+1)+'.png" alt=""/>');
+                    }
+                    if(index>=3){
+                        $dr8_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
+                    }
+                    $dr8_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            '<h1>'+obj.nickname+'</h1>'+
+                            '<div class="clear"></div>');
+
+                    $dr8_daren_paihang.append($dr8_nvshen_paihang_paixu);
+                    $dr8_daren_paihang.append($dr8_nvshen_paihang_user);
+                    $dr8_daren_paihang.append($dr8_nvshen_fenshu);
+                    $dr8_daren_paihang.append($clear);
+                    $goldenFriendMaster.append($dr8_daren_paihang);
+
+                });
+
+
+                $(".up_down_jt").on('click',function () {
+                    var hei = $(this).parent(".daren_paihang_container").height();
+                    if(hei == 50){
+                        $(this).parent(".daren_paihang_container").height("auto");
+                        $(this).addClass("xuanzzhuan");
+                    }
+                    if(hei !== 50){
+                        $(this).parent(".daren_paihang_container").height(50);
+                        $(this).removeClass("xuanzzhuan");
+                    }
+                });
+
             }
         });
 
-    })
 
+
+
+    })
 </script>
 
 </html>

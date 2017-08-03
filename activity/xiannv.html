@@ -45,7 +45,7 @@
             </div>
             <div class="nvshen_paihang_container">
 
-                <div class="nvshen_paihang">
+              <!--  <div class="nvshen_paihang">
                     <div class="nvshen_paihang_paixu">
                         <img src="images/paixu1.png" alt=""/>
                     </div>
@@ -54,130 +54,10 @@
                         <h1>小棉袄</h1>
                         <div class="clear"></div>
                     </div>
-                    <h3>15620</h3>
+                    <div class="nvshen_fenshu">15620</div>
                     <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <img src="images/paixu2.png" alt=""/>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <img src="images/paixu3.png" alt=""/>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
+                </div>-->
 
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>4</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>5</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>6</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>7</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>7</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>8</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>9</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
-                <div class="nvshen_paihang">
-                    <div class="nvshen_paihang_paixu">
-                        <h1>10</h1>
-                    </div>
-                    <div class="nvshen_paihang_user">
-                        <img src="images/tx.jpg" alt=""/>
-                        <h1>小棉袄</h1>
-                        <div class="clear"></div>
-                    </div>
-                    <h3>15620</h3>
-                    <div class="clear"></div>
-                </div>
             </div>
         </div>
 
@@ -194,15 +74,8 @@
             <div class="clear"></div>
         </div>
 
-
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -234,17 +107,17 @@
     var code;
 
     $(function () {
-        code = getQueryString("code");
         login();
         load();
-
     });
 
     function login(){
+        code = getQueryString("code");
         if(code){
             alert(code);
             var params = {"code":code};
             $.ajax({
+                async: false,
                 type:'post',
                 dataType:'json',
                 url:ContextPath+'view/login',
@@ -262,7 +135,7 @@
                     localStorage.setItem("userid",datas.id);
                     localStorage.setItem("usertoken",datas.token);
 
-//                    location.href = 'https://hzease.com/activity/nvshen.html';
+                    location.href = 'https://hzease.com/activity/xiannv.html';
                 },
                 error: function (e) {
                     alert("获取token--"+e.status + ',' + e.statusText);
@@ -272,8 +145,7 @@
     }
 
     function load() {
-        setTimeout( function () {
-            var isLogin= (localStorage.getItem("usertoken") && localStorage.getItem("userid"));
+            var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
             if(!isLogin){
                 alert('请先登陆');
                 getcode();
@@ -281,9 +153,9 @@
             }
             $.ajax({
                 type:'post',
-//            dataType:'json',
+                dataType:'json',
                 url:ContextPath+'view/findPopularGirls',
-                data: {"token":localStorage.getItem("usertoken"),"userId":localStorage.getItem("userid")},
+                data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
                 success:function(json){
 
                     if(!json.success){
@@ -297,6 +169,37 @@
                     if(json.success){
                         var data = json.data;
                         console.dir(json.data);
+
+                        var $nvshen_paihang_container = $(".nvshen_paihang_container").html('');
+
+                        $.each(data.list, function (index,obj) {
+                            var $nvshen_paihang = $('<div class="nvshen_paihang"></div>');
+                            var $clear = $("<div class='clear'></div>");
+                            var $nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                            var $nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+
+
+
+                            if(index<3){
+                                $nvshen_paihang_paixu.append('<img src="images/paixu'+obj.order+'.png" alt=""/>');
+                            }
+                            if(index>=3){
+                                $nvshen_paihang_paixu.append('<h1>'+obj.order+'</h1>');
+                            }
+
+                            $nvshen_paihang_user.append('<img src="' + '//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.userId+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72' + '" alt=""/>'+
+                                                        '<h1>'+obj.nickname+'</h1>'+
+                                                        '<div class="clear"></div>');
+
+                            var $fenshu = $('<div class="nvshen_fenshu">'+obj.order+'</div>');
+                            $nvshen_paihang.append($nvshen_paihang_paixu);
+                            $nvshen_paihang.append($nvshen_paihang_user);
+                            $nvshen_paihang.append($fenshu);
+                            $nvshen_paihang.append($clear);
+                            $nvshen_paihang_container.append($nvshen_paihang);
+                        });
+                        
+                        
 
                         $("#nvshen_myself .nvshen_paihang_paixu h1").empty().append(data.me.order);
                         var $nvshen_paihang_user = $(".nvshen_paihang_user").html();
@@ -315,9 +218,6 @@
                     }
                 }
             });
-        },1000);
-
-
 
 
     }
@@ -325,8 +225,8 @@
 
 
     function getcode() {
-//        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
         location.href = url_code;
     }
 

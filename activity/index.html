@@ -18,6 +18,9 @@
     <!--魔窗-->
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
 
+    <!-- 微信jssdk-->
+    <srcipt src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></srcipt>
+
     <!-- 接口前缀-->
     <script src="js/key.js"></script>
     <script src="js/common.js"></script>
@@ -28,6 +31,7 @@
     <link rel="stylesheet" href="css/css.css"/>
 </head>
 <body>
+<div id="userId"></div>
 
 <!--card轮播-->
 <div class="swiper-container swiper1">
@@ -41,12 +45,6 @@
         <!-- card1  -------->
         <div class="swiper-slide">
             <div class="card_container card_container1">
-                <div class="card1_title">
-                    <img src="images/applogo.png" alt=""/>
-                    <h1>后会有期</h1>
-                </div>
-                <img src="images/activity_title.png" class="activity_title" alt=""/>
-                <img src="images/ewm.png" class="appewm" alt=""/>
                 <a href="" class="activity_upload" id="activity_upload">下载APP</a>
             </div>
         </div>
@@ -65,12 +63,14 @@
                 <div id="zp" class="zp">
                     <div class="outer KinerLottery KinerLotteryContent"><img src="images/zzsc.png"></div>
                     <div class="inner KinerLotteryBtn start"></div>
-                    <!--<div id="is_login"></div>-->
                 </div>
                 <button class="acivity_xiangqing">活动详情</button>
                 <div class="zp_bom">
+                    <div class="cha_usernum">
+                        再邀请<span>1</span>人助力可获得一次抽奖机会
+                    </div>
                     <div class="shengyu_cishu">
-                        剩余抽奖次数<span>0</span>次
+                        剩余抽奖次数<span>1</span>次
                     </div>
                     <input type="button" class="jilu_btn" value="我的中奖记录"/>
                     <input type="button" class="zhuli_btn" value="邀请好友助力"/>
@@ -80,27 +80,41 @@
         <!-- card2 --------转盘抽奖-->
 
 
-        <!-- card3----人气女神---->
+        <!-- card3----仙女榜---->
         <div class="swiper-slide">
             <div class="card_container card_container3">
-                <input type="button" value="人气女神排行榜" id="nvshen_ph" style="width: 150px;height: 35px;border: none;background: #6695b9;color: #fff; font-size: 14px;display: block;margin: 100px auto;"/>
-            </div>
-        </div>
-        <!-- card3----人气女神---->
 
-
-        <!-- card4 -->
-        <div class="swiper-slide">
-            <div class="card_container" style="background: blue">
+                <div class="xiannv_btn_box">
+                    <a href="javascript:void(0);" class="look_nvshen_guize">活动详情</a>
+                    <a href="xiannv.html">仙女排行榜</a>
+                    <div class="clear"></div>
+                </div>
 
             </div>
         </div>
+        <!-- card3----仙女榜---->
+
+
+        <!-- card4 -达人榜-->
+        <div class="swiper-slide">
+            <div class="card_container card_container4">
+
+                <div class="daren_btn_box">
+                    <a href="javascript:void(0);" class="look_daren_guize" style="background: #c78cfe;">活动详情</a>
+                    <a href="daren.html" style="background: #fdd185;">查看排行</a>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </div>
         <!-- card4 -->
 
 
-        <!-- card5 -->
+        <!-- card5 -每日女神-->
         <div class="swiper-slide">
-            <div class="card_container" style="background: yellow;"></div>
+            <div class="card_container card_container5">
+                <a href="javascript:void(0);" class="meiri_btn" id="look_meirinvshen_guize">活动详情</a>
+            </div>
         </div>
         <!-- card5 -->
 
@@ -112,77 +126,38 @@
 </div>
 <!------------card轮播------------->
 
-<!---为TA助力---->
-<section>
-    <div class="help_modal">
-        <div class="all_black_bg7">
-            <div class="distable">
-                <div class="distabcell">
-                    <div class="help">
-                        <div class="help_user">
-                            <h1>为TA助力</h1>
-                            <img src="images/tx.jpg" alt=""/>
-                            <h2>韩梅梅</h2>
-                            <h3>我正在申请【后会有期】APP游戏大礼包，需要你的一臂之力</h3>
-                        </div>
-                        <div class="zhuli_num">
-                            <h2>已有<font color="#00b8e8">9</font>位玩家给TA助力</h2>
-                        </div>
-                        <div class="zhuli_user">
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>凌琳</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>香菱</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>阿芳</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>赵月</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>朱立宇</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>汪蕾</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>李璐</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>张芳</h6>
-                            </div>
-                            <div class="one_zhuli_user">
-                                <img src="images/tx.jpg" alt=""/>
-                                <h6>李雷</h6>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <input type="button" value="助TA" class="btn_help"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!---为TA助力---->
 
-<!---规则---->
+<!---转盘-规则---->
 <section>
     <div class="acivity_guize acivity_guize_modal">
-        <h3>本活动最终解释权归后会有期所有</h3>
+        <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
     </div>
 </section>
-<!---规则---->
+<!---转盘-规则---->
+
+<!---人气女神-规则---->
+<section>
+    <div class="xiannv_guize">
+        <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
+    </div>
+</section>
+<!---人气女神-规则---->
+
+<!---达人榜-规则---->
+<section>
+    <div class="daren_guize_modal">
+        <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
+    </div>
+</section>
+<!---达人榜-规则---->
+
+<!---每日女神-规则---->
+<section>
+    <div class="meiri_guize_modal">
+        <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
+    </div>
+</section>
+<!---每日女神-规则---->
 
 <!---邀请助力---->
 <section>
@@ -204,11 +179,11 @@
                     <!--<h1>暂无记录</h1>-->
                     <div class="zhongjiangjilu_list">
 
-                        <!--<div class="zj_jilu">-->
-                            <!--<div class="zhongjiang_time">2017-07-20 14:24</div>-->
-                            <!--<div class="zhongjiang_jine">中奖100元</div>-->
-                            <!--<div class="clear"></div>-->
-                        <!--</div>-->
+                        <!--<div class="zj_jilu">
+                            <div class="zhongjiang_time">2017-07-20 14:24</div>
+                            <div class="zhongjiang_jine">中奖100元</div>
+                            <div class="clear"></div>
+                        </div>-->
 
                     </div>
                 </div>
@@ -251,6 +226,52 @@
 </section>
 <!---不能抽奖---->
 
+<!---为TA助力---->
+<section>
+    <div class="help_modal">
+        <div class="all_black_bg7">
+            <div class="distable">
+                <div class="distabcell">
+                    <div class="help">
+                        <img src="images/close.png" class="close_help" alt=""/>
+                        <div class="help_user">
+                            <h1>为TA助力</h1>
+                            <img src="images/tx2.jpg" class="beizhuli_userimg" alt=""/>
+                            <h2>----</h2>
+                            <h3>我正在申请【后会有期】APP游戏大礼包，需要你的一臂之力</h3>
+                        </div>
+                        <div class="zhuli_num">
+                            <h2>已有<font color="#00b8e8">0</font>位玩家给TA助力</h2>
+                        </div>
+
+                        <div class="zhuli_user">
+                            <!--<span class="one_zhuli_user">-->
+                                <!--<img src="images/tx.jpg" alt=""/>-->
+                                <!--<h6>凌琳</h6>-->
+                            <!--</span>-->
+                         <!--   <div class="one_zhuli_user">
+
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>香菱</h6>
+                            </div>
+                            <div class="one_zhuli_user">
+                                <img src="images/tx.jpg" alt=""/>
+                                <h6>阿芳</h6>
+                            </div>-->
+
+                            <div class="clear"></div>
+                        </div>
+                        <input type="button" value="助TA" class="btn_help" id="btn_help"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---为TA助力---->
+
 </body>
 
 
@@ -268,133 +289,320 @@
         $(".swiper1").height($(window).height()-50);
         $(".swiper1 .swiper-slide").height($(window).height()-50);
         //card高度-----
-
-        //人气女神榜排行高度+++++
-        var container_height = $(".card_container3").height();
-        var titleimg_height = $(".nvshen_paihang_titleimg").height();
-        var nvshen_paihang_container_height = container_height-titleimg_height-10-25-50;
-        $(".nvshen_paihang_container").height(nvshen_paihang_container_height);
-        //人气女神榜排行高度-----
     })
 </script>
 <!--Swiper切换---获取高度-->
 
 
-<!--页面刚加载时的数据-->
+<!--load-->
 <script>
 
-    var usertoken;
-    var userid;
     var code;
+    var state;
+    var beizhuli_userid = parseInt(getQueryString("userId"));
+    localStorage.setItem("beizhuli_userid",beizhuli_userid);
 
     $(function () {
         code = getQueryString("code");
-        load();
         login();
+        load();
+        zhuli();//    点击助力
+        get_zhuli();//获取助力的人
+        get_ticket();//微信分享jssdk
+
     });
 
-    function login(){
+    //    获取token
+    function login() {
 
-        if(code){
-            alert(code);
-            var params = {"code":code};
-            $.ajax({
-                type:'post',
-                dataType:'json',
-                url:ContextPath+'view/login',
-                data: params,
-                success:function(json){
-                    if(!json.success){
-                        alert("获取token失败--:"+json.msg);
-                        getcode();
-                        return;
+        if (code) {
+            var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
+            if (!isLogin) {
+                $.ajax({
+                    async: false,
+                    type: 'post',
+                    dataType: 'json',
+                    url: ContextPath + 'view/login',
+                    data: {"code": code},
+                    success: function (json) {
+                        console.dir(json);
+                        //获取token之后存到本地缓存
+
+                        if (json.success) {
+                            var datas = json.data;
+                            $(".shengyu_cishu").empty().append('剩余抽奖次数<span>' + datas.frequency + '</span>次');
+                            localStorage.setItem("userid", datas.id);
+                            localStorage.setItem("token", datas.token);
+                        }
+                        if (!json.success) {
+                            console.dir(json.msg);
+                        }
+
+                    },
+                    error: function (e) {
+                        alert("获取token--" + e.status + ',' + e.statusText);
                     }
-                    //获取token之后存到本地缓存
-                    var datas = json.data;
-                    alert("ajax获取----userid:"+datas.id+"---usertoken:"+datas.token);
+                });
+            }
 
-                    localStorage.setItem("userid",datas.id);
-                    localStorage.setItem("usertoken",datas.token);
-
-                    location.href = 'https://hzease.com/activity/index.html';
-                },
-                error: function (e) {
-                    alert("获取token--"+e.status + ',' + e.statusText);
-                }
-            });
         }
+
     }
 
     function load() {
+        //    被助力着昵称
+        if(beizhuli_userid){
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: ContextPath + '/view/findUserInfo',
+                data: {"userId":beizhuli_userid},
+                success: function (json) {
+                    if (json.success) {
+//                        console.dir(json.data);
+                        var data = json.data;
+                        $(".beizhuli_userimg").attr("src",'//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+data.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200');
+                        $(".help_user h2").html(data.nickname);
+
+                    } else {
+                        alert(json.msg);
+                    }
+                },
+                error: function (e) {
+                    alert("获取被助力者nickname：" + e.status + ',' + e.statusText);
+                }
+            });
+        }
+        else{
+            $(".help_modal").css("display","none");
+        }
+
+        //奖池剩余金额
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + '/view/allPrizeInfo',
+            success: function (json) {
+                if (json.success) {
+//                    console.dir(json.data);
+                    var datas = json.data;
+                    $(".zp_top h1").empty().append('奖池剩余金额：' + datas.allMoney + '元');
+                    $(".zp_top h2").empty().append('参与人数：' + datas.joinMember + '人');
+                } else {
+                    alert('获取奖池剩余金额：' + json.msg);
+                }
+            },
+            error: function (e) {
+                alert("获取奖池剩余金额error--" + e.status + ',' + e.statusText);
+            }
+        });
+
+    }
+
+    //获取助力的人
+    function get_zhuli() {
         $.ajax({
             type:'post',
             dataType:'json',
-            url:ContextPath+'/view/allPrizeInfo',
+            url:ContextPath+'/view/findHelped',
+            data: {"userId":beizhuli_userid},
             success:function(json){
-                console.dir(json.data);
-                var datas = json.data;
-                $(".zp_top h1").empty().append('奖池剩余金额：'+datas.allMoney+'元');
-                $(".zp_top h2").empty().append('参与人数：'+datas.joinMember+'人');
+                if(json.success){
+//                    console.dir(json.data);
+                    var data = json.data;
+                    var zhuli_usrnum = 10-parseInt(data.length);
+
+                    $(".zhuli_num").empty().append('<h2>已有<font color="#00b8e8">'+data.length+'</font>位玩家给TA助力</h2>');
+                    $(".cha_usernum").empty().append('再邀请<span>'+zhuli_usrnum+'</span>人助力可获得一次抽奖机会');
+                    var $zhuli_user = $('.zhuli_user').html('');
+                    var $clear = $('<div class="clear"></div>');
+
+                    $.each(data, function (index,obj) {
+                        $('<img src="'+'//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
+                        var $one_zhuli_user = $('<span class="one_zhuli_user"></span>');
+                        $one_zhuli_user.append('<div style="display: inline-block"><img src="' + '//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_50,h_50' + '" alt=""/>'+
+                                '<h6>'+obj.nickname+'</h6></div>');
+
+                        $zhuli_user.append($one_zhuli_user);
+                        $zhuli_user.append($clear);
+
+                    });
+
+                }else{
+                    alert('获取助力人：'+json.msg);
+                }
+
+            },
+            error: function (e) {
+                alert("获取助力人error--"+e.status + ',' + e.statusText);
             }
         });
     }
 
+    //    点击助力
+    function zhuli() {
+       var now_url = getUrlParams(location.href);
+       nowstate = now_url.state;
+       if(nowstate == 'help'){
+           ajax_zhuli(nowstate);
+       }
+
+       $("#btn_help").on('click', function () {
+           state = 'help';
+
+           var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
+           if(!isLogin){
+//               alert('请先登陆');
+               getcode();
+               return;
+           }
+           ajax_zhuli(state);
+
+       });
+    }
+    function ajax_zhuli(state) {
+        if(state == 'help'){
+            var param = {"helperId":parseInt(beizhuli_userid),"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")};
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                url:ContextPath+'view/help',
+                data: param,
+                success:function(json){
+//                    console.dir(json);
+
+                    if(json.success){
+                        $(".btn_help").addClass("btn_not_help");
+                        $(".btn_help").val("已助力");
+                        get_zhuli();
+                    }
+                    if(!json.success){
+                        if(json.msg == '助力已存在'){
+                            $(".btn_help").addClass("btn_not_help");
+                            $(".btn_help").val("已助力");
+                        }
+                        if(json.msg == '最多助力3个人'){
+                            $(".tishi").fadeIn(500);
+                            $(".tishi_val").html('最多助力3个人');
+                            tishi_out();
+                        }
+                        if(json.msg == '自己不能给自己助力'){
+                            $(".tishi").fadeIn(500);
+                            $(".tishi_val").html('自己不能给自己助力');
+                            tishi_out();
+                        }
+                        if(json.msg == '登录失效'){
+                            getcode();
+                            return;
+                        }
+                        console.dir('助力errMsg：'+json.msg);
+                    }
+
+                },
+                error: function (e) {
+                    alert("助力error--"+e.status + ',' + e.statusText);
+                }
+            })
+        }
+    }
 
 
+//    微信分享jssdk
+    function get_ticket() {
+        var signature;
+        var noncestr;
+        var timestamp;
+        var urlurl;
+        var nowurl = location.href;
+
+        if(nowurl.indexOf('#') == -1){
+            urlurl = nowurl;
+        }
+        if(nowurl.indexOf('#') !== -1){
+            urlurl = get_urlurl(url);
+        }
+
+//        console.dir(urlurl);
+
+        $.ajax({
+            type:'get',
+            dataType:'json',
+            url:ContextPath+'/view/getWXSignature',
+            data: {"url":urlurl},
+            success:function(json){
+                if(json.success){
+//                    console.dir(json);
+                    signature = json.data.signature;
+                    noncestr = json.data.noncestr;
+                    timestamp = json.data.timestamp;
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wx59b691c92ccb58e1', // 必填，公众号的唯一标识
+                        timestamp: timestamp, // 必填，生成签名的时间戳
+                        nonceStr: noncestr, // 必填，生成签名的随机串
+                        signature: signature,// 必填，签名，见附录1
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+
+                    //        分享到朋友
+                    wx.onMenuShareAppMessage({
+                        title: '后会有期活动页', // 分享标题
+                        desc: '一款线下组队交友神器，来参加活动有好礼送哦', // 分享描述
+                        link: 'https://hzease.com/activity/index.html?userId='+localStorage.getItem("userid"), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: 'https://hzease.com/images/logo200x200.png', // 分享图标
+                        type: 'link', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                            console.dir('分享给朋友');
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                            console.dir('分享给朋友');
+                        }
+                    });
+
+                    //        分享到朋友圈
+                    wx.onMenuShareTimeline({
+                        title: '后会有期活动页', // 分享标题
+                        link: 'https://hzease.com/activity/index.html?userId='+localStorage.getItem("userid"), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: 'https://hzease.com/images/logo200x200.png', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                            console.dir("分享给好友成功");
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                            console.dir("分享给好友失败");
+
+                        }
+                    });
+                }else{
+                    console.dir(json.msg);
+                }
+
+            }
+        });
+
+    }
+
+
+//    获取code
     function getcode() {
-//        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state='+state+'#wechat_redirect';
+//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state='+state+'#wechat_redirect';
         location.href = url_code;
     }
 
-
-    function clear_localStorage() {
-        var $nvshen_paihang_container = $(".nvshen_paihang_container").html('');
-        $.ajax({
-            type:'post',
-            dataType: 'json',
-            url:'http://www.com',
-            data:'',
-            success: function () {
-
-            }
-        });
-
-
-        $.ajax({
-            type:'post',
-            dataType:'json',
-            url:ContextPath+'/view/findPrizeList',
-            data: {"token":localStorage.getItem("usertoken"),"userId":localStorage.getItem("userid")},
-            success:function(json){
-                if(!json.success){
-                    alert(json.msg);
-                    return;
-                }
-                var data = json.data;
-                console.dir(data);
-                var $zhongjiangjilu_list = $(".zhongjiangjilu_list").html('');
-
-                $.each(data,function (index,obj) {
-                    var $zhongjiang_time = $('<div class="zhongjiang_time">'+obj.drawTime+'</div>');
-                    var $zhongjiang_jine = $('<div class="zhongjiang_jine">中奖'+obj.money/100+'元</div>');
-                    var $clear = $('<div class="clear"></div>');
-                    var $zj_jilu = $('<div class="zj_jilu"></div>');
-                    $zj_jilu.append($zhongjiang_time);
-                    $zj_jilu.append($zhongjiang_jine);
-                    $zj_jilu.append($clear);
-                    $zhongjiangjilu_list.append($zj_jilu);
-                })
-
-            }
-        });
-    }
-
 </script>
-<!--页面刚加载时的数据-->
+<!--load-->
 
 
-<!--模态框------modal-->
+<!--模态框-->
 <script>
     $(document).ready(function () {
 
@@ -405,6 +613,27 @@
         $(".acivity_guize_modal").on('click', function () {
             $(".acivity_guize_modal").fadeOut(500);
         });
+        $(".look_nvshen_guize").on('click', function () {
+            $(".xiannv_guize").fadeIn(500);
+        });
+        $(".xiannv_guize").on('click', function () {
+            $(".xiannv_guize").fadeOut(500);
+        });
+        $(".look_daren_guize").on('click', function () {
+            $(".daren_guize_modal").fadeIn(500);
+        });
+        $(".daren_guize_modal").on('click', function () {
+            $(".daren_guize_modal").fadeOut(500);
+        });
+        $(".meiri_btn").on('click', function () {
+            $(".meiri_guize_modal").fadeIn(500);
+        });
+        $(".meiri_guize_modal").on('click', function () {
+            $(".meiri_guize_modal").fadeOut(500);
+        });
+
+
+
         $(".zhuli_btn").on('click', function () {
             $(".zhuli_yaoqing_modal").fadeIn(500);
         });
@@ -412,11 +641,15 @@
             $(".zhuli_yaoqing_modal").fadeOut(500);
         });
 
+        $(".close_help").on('click', function () {
+            $(".help_modal").fadeOut(1000);
+        });
+
         //--查看中奖记录
         $(".jilu_btn").on('click', function () {
-            var isLogin = (localStorage.getItem("usertoken") && localStorage.getItem("userid"));
+            var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
             if (!isLogin) {
-                alert('请先登陆');
+//                alert('请先登陆');
                 getcode();
                 return;
             }
@@ -424,26 +657,36 @@
                 type: 'post',
                 dataType: 'json',
                 url: ContextPath + '/view/findPrizeList',
-                data: {"token": localStorage.getItem("usertoken"), "userId": localStorage.getItem("userid")},
+                data: {"token": localStorage.getItem("token"), "userId": localStorage.getItem("userid")},
                 success: function (json) {
+                    var data = json.data;
+                    console.dir(json);
                     if (!json.success) {
                         alert(json.msg);
+                        getcode();
                         return;
                     }
-                    var data = json.data;
-                    console.dir(data);
-                    var $zhongjiangjilu_list = $(".zhongjiangjilu_list").html('');
 
-                    $.each(data, function (index, obj) {
-                        var $zhongjiang_time = $('<div class="zhongjiang_time">' + obj.drawTime + '</div>');
-                        var $zhongjiang_jine = $('<div class="zhongjiang_jine">中奖' + obj.money / 100 + '元</div>');
-                        var $clear = $('<div class="clear"></div>');
-                        var $zj_jilu = $('<div class="zj_jilu"></div>');
-                        $zj_jilu.append($zhongjiang_time);
-                        $zj_jilu.append($zhongjiang_jine);
-                        $zj_jilu.append($clear);
-                        $zhongjiangjilu_list.append($zj_jilu);
-                    })
+                    if(json.success){
+                        var $zhongjiangjilu_list = $(".zhongjiangjilu_list").html('');
+
+                        $.each(data, function (index, obj) {
+
+                            if(!obj.drawTime){
+                                $(".zhongjiangjilu").empty().append('<h1>暂无记录</h1>')
+                            }
+
+                            var $zhongjiang_time = $('<div class="zhongjiang_time">' + obj.drawTime + '</div>');
+                            var $zhongjiang_jine = $('<div class="zhongjiang_jine">中奖' + obj.money / 100 + '元</div>');
+                            var $clear = $('<div class="clear"></div>');
+                            var $zj_jilu = $('<div class="zj_jilu"></div>');
+                            $zj_jilu.append($zhongjiang_time);
+                            $zj_jilu.append($zhongjiang_jine);
+                            $zj_jilu.append($clear);
+                            $zhongjiangjilu_list.append($zj_jilu);
+                        })
+                    }
+
 
                 }
             });
@@ -455,7 +698,6 @@
             $(".zhongjiangjilu_modal").fadeOut(500);
         });
         //--查看中奖记录
-
 
         $(".yaoqing_haoyou").on('click', function () {
             $(".zhongjiang_modal").fadeOut(500);
@@ -470,10 +712,10 @@
     })
 
 </script>
-<!--模态框------modal-->
+<!--模态框-->
 
 
-<!-----转盘------>
+<!-----转盘---->
 <script src="js/zepto.min.js"></script>
 <script src="js/zp.js"></script>
 <script>
@@ -550,18 +792,7 @@
         } //抽奖结束回调
     });
 </script>
-<!-----转盘------>
-
-
-<!--页面跳转-->
-<script>
-    $(document).ready(function () {
-        $("#nvshen_ph").on('click', function () {
-            window.location.href = 'https://hzease.com/activity/nvshen.html';
-        })
-    })
-</script>
-<!--页面跳转-->
+<!-----转盘---->
 
 
 <!--魔窗-->
@@ -575,6 +806,9 @@
     });
 </script>
 <!--魔窗-->
+
+
+
 
 
 </html>
