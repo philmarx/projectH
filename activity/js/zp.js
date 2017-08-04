@@ -55,7 +55,6 @@
         $('.KinerLotteryBtn').on('click', function() {
             var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
             if(!isLogin){
-                alert('请先登陆');
                 getcode();
                 return;
             }
@@ -67,7 +66,6 @@
                 data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
                 success:function(json){
                     var data = json.data;
-                    console.dir(json);
                     if(!json.success){
                         console.dir(json.msg);
                         if(json.msg == '助力10人可再获取一次抽奖机会' || json.msg == '您的抽奖次数已用完'){
@@ -77,12 +75,19 @@
                             return;
                         }
                         if(json.msg == '登录失效'){
-                            alert(json.msg);
                             getcode();
                             return;
                         }
+                        if(json.msg == '活动还未开始'){
+                            $(".tishi").fadeIn(500);
+                            $(".tishi_val").html('活动还未开始');
+                            tishi_out();
+                            return;
+                        }
+
                     }
                     if(json.success){
+                        console.dir(json.data);
                         $(".zp_top h1").empty().append('奖池剩余金额：'+data.allMoney+'元');
                         $(".zp_top h2").empty().append('参与人数：'+data.joinMember+'人');
                         $(".shengyu_cishu span").empty().append(data.frequency);

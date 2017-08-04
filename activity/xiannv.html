@@ -102,45 +102,44 @@
 
 <!--页面刚加载时的数据-->
 <script>
-    var usertoken;
-    var userid;
     var code;
 
     $(function () {
+        code = getQueryString("code");
         login();
         load();
     });
 
+
     function login(){
-        code = getQueryString("code");
+
         if(code){
-            alert(code);
-            var params = {"code":code};
-            $.ajax({
-                async: false,
-                type:'post',
-                dataType:'json',
-                url:ContextPath+'view/login',
-                data: params,
-                success:function(json){
-                    if(!json.success){
-                        alert("获取token失败--:"+json.msg);
-                        getcode();
-                        return;
+            var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
+            if(!isLogin){
+                $.ajax({
+                    async: false,
+                    type:'post',
+                    dataType:'json',
+                    url:ContextPath+'view/login',
+                    data: {"code":code},
+                    success:function(json){
+                        var datas = json.data;
+                        if (json.success) {
+                            var datas = json.data;
+                            localStorage.setItem("userid", datas.id);
+                            localStorage.setItem("token", datas.token);
+                        }
+                        if (!json.success) {
+                            console.dir(json.msg);
+                        }
+
+
+                    },
+                    error: function (e) {
+                        alert("获取token--"+e.status + ',' + e.statusText);
                     }
-                    //获取token之后存到本地缓存
-                    var datas = json.data;
-                    alert("ajax获取----userid:"+datas.id+"---usertoken:"+datas.token);
-
-                    localStorage.setItem("userid",datas.id);
-                    localStorage.setItem("usertoken",datas.token);
-
-                    location.href = 'https://hzease.com/activity/xiannv.html';
-                },
-                error: function (e) {
-                    alert("获取token--"+e.status + ',' + e.statusText);
-                }
-            });
+                });
+            }
         }
     }
 
@@ -177,8 +176,6 @@
                             var $clear = $("<div class='clear'></div>");
                             var $nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
-
-
 
                             if(index<3){
                                 $nvshen_paihang_paixu.append('<img src="images/paixu'+obj.order+'.png" alt=""/>');
