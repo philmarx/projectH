@@ -107,6 +107,7 @@
 
 <script>
     $(function () {
+        $(".f_bg").height($(window).height()-70);
         load();
         getQueryString();
     });
@@ -114,18 +115,6 @@
     var userId  = getQueryString("userId");
     var roomId  = getQueryString("roomId");
 
-    function getSessionId(){
-        var c_name = 'JSESSIONID';
-        if(document.cookie.length>0){
-            c_start=document.cookie.indexOf(c_name + "=")
-            if(c_start!=-1){
-                c_start=c_start + c_name.length+1
-                c_end=document.cookie.indexOf(";",c_start)
-                if(c_end==-1) c_end=document.cookie.length
-                return unescape(document.cookie.substring(c_start,c_end));
-            }
-        }
-    }
     //ajax调接口
     function load() {
         //userId和roomId有手机端传过来
@@ -146,14 +135,19 @@
                     $('.room_yaoqing_tx').attr('src','//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+data.inviter.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200')//邀请人头像
                     $(".place_info").empty().append(data.room.place+'<span></span>');//房间地点
                     $(".room_gamename h3").empty().append(data.room.name);//房间名字
-//                <img src="../images/game/'+obj.game.id+'.png" class="game_img"/>
                     $("#room_gameimg").attr('src','../images/game/'+data.room.gameId+'.png');
                     $(".room_xiangqing").append(data.room.description);//活动详情
-                    $(".man_num").empty().append(data.room.joinManMember+"/"+data.room.joinMember);//房间男生总人数
-                    $(".woman_num").empty().append(data.room.joinWomanMember+"/"+data.room.joinMember);//房间女生总人数
+
+
+                    if(data.room.manCount == 0 && data.room.womanCount == 0){
+                        $(".nan_clo").empty().append('<span class="man_num">'+data.room.joinMember+'/'+data.room.memberCount+'</span>');//房间总人数
+                        $(".nv_clo").css("display","none");
+                    } else{
+                        $(".man_num").empty().append(data.room.joinManMember+"/"+data.room.manCount);//房间男生总人数
+                        $(".woman_num").empty().append(data.room.joinWomanMember+"/"+data.room.womanCount);//房间女生总人数
+                    }
 
                     var beginTime=new Date(data.room.beginTime);
-
                     var $game_time = $(".game_time").html('');
                     if(data.room.locked){
                         $game_time.append('<img src="../images/mi.png" alt=""/>');
@@ -191,7 +185,7 @@
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
                 timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 600000,
+                maximumAge: 600000
             });
             mapObj.addControl(geolocation);
             geolocation.getCurrentPosition();

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
 
-    <title>女神排行榜</title>
+    <title>仙女排行榜</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
 
@@ -62,6 +62,7 @@
         </div>
 
         <div class="nvshen_myself" id="nvshen_myself">
+            <!--<h4>此排行仅限女性用户</h4>-->
             <div class="nvshen_paihang_paixu">
                 <h1>0</h1>
             </div>
@@ -79,7 +80,19 @@
 
 
 
-
+<!---tishi---->
+<section>
+    <div class="tishi">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="tishi_val">
+                    <!--对不起 &#45;&#45; 您的抽奖次数已用完-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---tishi---->
 
 
 </body>
@@ -112,7 +125,6 @@
 
 
     function login(){
-
         if(code){
             var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
             if(!isLogin){
@@ -132,11 +144,9 @@
                         if (!json.success) {
                             console.dir(json.msg);
                         }
-
-
                     },
                     error: function (e) {
-                        alert("获取token--"+e.status + ',' + e.statusText);
+                        console.dir("获取token--"+e.status + ',' + e.statusText);
                     }
                 });
             }
@@ -144,60 +154,57 @@
     }
 
     function load() {
-            var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
-            if(!isLogin){
-                alert('请先登陆');
-                getcode();
-                return;
-            }
-            $.ajax({
-                type:'post',
-                dataType:'json',
-                url:ContextPath+'view/findPopularGirls',
-                data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
-                success:function(json){
+        var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
+        if(!isLogin){
+            alert('请先登陆');
+            getcode();
+            return;
+        }
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'view/findPopularGirls',
+            data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
+            success:function(json){
 
-                    if(!json.success){
-                        console.dir(json.msg);
-                        if(json.msg == '登录失效'){
-                            alert(json.msg);
-                            getcode();
-                            return;
-                        }
+                if(!json.success){
+                    console.dir(json.msg);
+                    if(json.msg == '登录失效'){
+                        alert(json.msg);
+                        getcode();
+                        return;
                     }
-                    if(json.success){
-                        var data = json.data;
-                        console.dir(json.data);
+                }
+                if(json.success){
+                    var data = json.data;
+                    console.dir(json.data);
+                    var $nvshen_paihang_container = $(".nvshen_paihang_container").html('');
+                    $.each(data.list, function (index,obj) {
+                        var $nvshen_paihang = $('<div class="nvshen_paihang"></div>');
+                        var $clear = $("<div class='clear'></div>");
+                        var $nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
+                        var $nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
 
-                        var $nvshen_paihang_container = $(".nvshen_paihang_container").html('');
+                        if(index<3){
+                            $nvshen_paihang_paixu.append('<img src="images/paixu'+obj.order+'.png" alt=""/>');
+                        }
+                        if(index>=3){
+                            $nvshen_paihang_paixu.append('<h1>'+obj.order+'</h1>');
+                        }
 
-                        $.each(data.list, function (index,obj) {
-                            var $nvshen_paihang = $('<div class="nvshen_paihang"></div>');
-                            var $clear = $("<div class='clear'></div>");
-                            var $nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
-                            var $nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
+                        $nvshen_paihang_user.append('<img src="' + '//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.userId+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72' + '" alt=""/>'+
+                                                    '<h1>'+obj.nickname+'</h1>'+
+                                                    '<div class="clear"></div>');
 
-                            if(index<3){
-                                $nvshen_paihang_paixu.append('<img src="images/paixu'+obj.order+'.png" alt=""/>');
-                            }
-                            if(index>=3){
-                                $nvshen_paihang_paixu.append('<h1>'+obj.order+'</h1>');
-                            }
+                        var $fenshu = $('<div class="nvshen_fenshu">'+obj.order+'</div>');
+                        $nvshen_paihang.append($nvshen_paihang_paixu);
+                        $nvshen_paihang.append($nvshen_paihang_user);
+                        $nvshen_paihang.append($fenshu);
+                        $nvshen_paihang.append($clear);
+                        $nvshen_paihang_container.append($nvshen_paihang);
+                    });
 
-                            $nvshen_paihang_user.append('<img src="' + '//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.userId+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72' + '" alt=""/>'+
-                                                        '<h1>'+obj.nickname+'</h1>'+
-                                                        '<div class="clear"></div>');
-
-                            var $fenshu = $('<div class="nvshen_fenshu">'+obj.order+'</div>');
-                            $nvshen_paihang.append($nvshen_paihang_paixu);
-                            $nvshen_paihang.append($nvshen_paihang_user);
-                            $nvshen_paihang.append($fenshu);
-                            $nvshen_paihang.append($clear);
-                            $nvshen_paihang_container.append($nvshen_paihang);
-                        });
-                        
-                        
-
+                    if(data.me){
                         $("#nvshen_myself .nvshen_paihang_paixu h1").empty().append(data.me.order);
                         var $nvshen_paihang_user = $(".nvshen_paihang_user").html();
                         var $clear = $('<div class="clear"></div>');
@@ -210,27 +217,31 @@
                         console.dir(data.me.nickname);
                         $me_name.empty().html(data.me.nickname);
                         $me_point.empty().html(data.me.point);
-
-
+                    }else{
+                        $("#nvshen_myself").empty().append('<h4>您不在此排行上</h4>');
                     }
                 }
-            });
-
-
+            }
+        });
     }
-
-
 
     function getcode() {
-        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        localStorage.clear();
+//        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
         location.href = url_code;
     }
-
-
 </script>
 <!--页面刚加载时的数据-->
 
+
+<script>
+    function tishi_out() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        },1500)
+    }//提示框2秒后消失
+</script>
 
 
 </html>

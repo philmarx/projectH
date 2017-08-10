@@ -77,76 +77,83 @@
 </section>
 
 <!--选择登陆方式-->
-<section>
-    <div class="choose_way_modal">
-        <div class="all_black_bg7">
-            <div class="distable">
-                <div class="distabcell">
-                    <div class="login_way">
-                        <h1>选择登录方式</h1>
-                        <div class="all_way">
-                            <div class="way_weixin">
-                                <img src="../images/way_wei.png" alt=""/>
-                                <h5>微信</h5>
-                            </div>
-                            <div class="way_qq">
-                                <img src="../images/way_q.png" alt=""/>
-                                <h5>QQ</h5>
-                            </div>
-                            <div class="way_phone">
-                                <img src="../images/way_phone.png" alt=""/>
-                                <h5>手机</h5>
-                            </div>
-                            <div class="clear"></div>
+<div class="choose_way_modal">
+    <div class="all_black_bg7">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="login_way">
+                    <h1>选择登录方式</h1>
+                    <div class="all_way">
+                        <div class="way_weixin">
+                            <img src="../images/way_wei.png" alt=""/>
+                            <h5>微信</h5>
                         </div>
-                        <img src="../images/close.png" class="close_modal close1" alt=""/>
+                       <!-- <div class="way_qq">
+                            <img src="../images/way_q.png" alt=""/>
+                            <h5>QQ</h5>
+                        </div>-->
+                        <div class="way_phone">
+                            <img src="../images/way_phone.png" alt=""/>
+                            <h5>手机</h5>
+                        </div>
+                        <div class="clear"></div>
                     </div>
+                    <img src="../images/close.png" class="close_modal close1" alt=""/>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!--手机验证-->
-<section>
-    <div class="phone_yanzheng_modal">
-        <div class="all_black_bg7">
-            <div class="distable">
-                <div class="distabcell">
-                    <div class="phone_yanzheng">
-                        <form>
-                            <input type="number" class="get_phonenum" placeholder="输入手机号" onblur="this.placeholder='输入手机号'" onfocus="this.placeholder=''"/>
-                            <input type="button" value="验证码" id="get_yzm" class="get_yzm"/>
-                            <div class="clear"></div>
-                            <input type="number" class="shuru_yzm" placeholder="输入验证码" onblur="this.placeholder='输入验证码'" onfocus="this.placeholder=''"/>
-                            <input type="button" class="lingqu_libao" value="领取新手大礼包"/>
-                        </form>
-                        <img src="../images/close.png" class="close_modal close2" alt=""/>
-                    </div>
+<div class="phone_yanzheng_modal">
+    <div class="all_black_bg7">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="phone_yanzheng">
+                    <form>
+                        <input type="number" class="get_phonenum" placeholder="输入手机号" onblur="this.placeholder='输入手机号'" onfocus="this.placeholder=''"/>
+                        <input type="button" value="验证码" id="get_yzm" class="get_yzm"/>
+                        <div class="clear"></div>
+                        <input type="number" class="shuru_yzm" placeholder="输入验证码" onblur="this.placeholder='输入验证码'" onfocus="this.placeholder=''"/>
+                        <input type="button" class="lingqu_libao" value="领取新手大礼包"/>
+                    </form>
+                    <img src="../images/close.png" class="close_modal close2" alt=""/>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!--礼包领取----成功与否，-->
-<section>
-    <div class="libao_modal">
-        <div class="all_black_bg7">
-            <div class="distable">
-                <div class="distabcell">
-                    <div class="libao">
-                        <p><!--领取成功<br/>请登录APP查看--></p>
-                        <img src="../images/libao.png" class="libao_img" alt=""/>
-                        <a href="" class="uploadapp libao_loadapp">去APP查看</a>
-                        <img src="../images/close.png" class="close_modal close3" alt=""/>
-                    </div>
+
+<div class="libao_modal">
+    <div class="all_black_bg7">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="libao">
+                    <p><!--领取成功<br/>请登录APP查看--></p>
+                    <img src="../images/libao.png" class="libao_img" alt=""/>
+                    <a href="" class="uploadapp libao_loadapp">去APP查看</a>
+                    <img src="../images/close.png" class="close_modal close3" alt=""/>
                 </div>
             </div>
+        </div>
 
+    </div>
+</div>
+
+<!---tishi---->
+<div class="tishi">
+    <div class="distable">
+        <div class="distabcell">
+            <div class="tishi_val">
+                <!--对不起 &#45;&#45; 您的抽奖次数已用完-->
+            </div>
         </div>
     </div>
-</section>
+</div>
+<!---tishi---->
 
 </body>
 
@@ -159,13 +166,32 @@
     var origin  = getQueryString("origin");
 
     $(function () {
+        code=getQueryString("code");
         load();
         loadMap();
+        login();
         //微信登录获取到code后重定向会刷新页面，所以获取code要放在页面一加载就执行的函数里面
-        code=getQueryString("code");
+
+    });
+
+    //set传后app的参数
+    switch (origin) {
+        case 'WEIXIN':
+            origin = "WX";
+            break;
+        case 'QQ':
+            origin = "QQ";
+            break;
+        case 'WEIXIN_CIRCLE':
+            origin = "WXPYQ";
+            break;
+        default:
+            origin = "WEB";
+            break;
+    }
+    function  login() {
         if(code){
             // code 传到后台，拿到用户信息，包括抽奖次数
-
             var params4={};
             if(userId){
                 params4 = ({"code":code,"recommenderId":userId})
@@ -174,52 +200,50 @@
                 params4 = ({"code":code})
             }
 
-            $.ajax({
-                type:'post',
-                dataType:'json',
-                url:ContextPath+'view/login',
-                data: params4,
-                success:function(json){
+            var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
+            if(!isLogin){
+                $.ajax({
+                    type:'post',
+                    dataType:'json',
+                    url:ContextPath+'view/login',
+                    data: params4,
+                    success:function(json){
+                        var data = json.data;
+                        console.dir(json);
+                        if(json.success){
+                            $(".phone_yanzheng_modal").fadeOut();
+                            $(".libao_modal p").html("领取成功<br/>请登录APP查看");
+                            $(".libao_modal").fadeIn(500);
 
-                    //领取成功
-                    $(".phone_yanzheng_modal").fadeOut();
-                    $(".libao_modal").fadeIn(500);
-                    $(".libao_modal p").append("1111领取成功<br/>请登录APP查看");
-                },
-                error: function (json) {
+                            localStorage.setItem("userid", data.id);
+                            localStorage.setItem("token", data.token);
 
-                    //领取失败
-                    $(".phone_yanzheng_modal").fadeOut(500);
-                    $(".libao_modal").fadeIn(500);
-                    $(".libao_modal p").append("您已经领取过啦<br/>不能重复领取哦")
-                }
-            });
-
+                        }else{
+                            $(".phone_yanzheng_modal").fadeOut();
+                            $(".libao_modal p").html("您已经领取过啦<br/>不能重复领取哦");
+                            $(".libao_modal").fadeIn(500);
+                        }
+                    },
+                    error: function (json) {
+                        //领取失败
+                        $(".tishi").fadeIn(500);
+                        $(".tishi_val").html('登陆失败 - 请重试');
+                        tishi_out();
+                    }
+                });
+            }
         }
-    });
-
-
-
-    //set传后app的参数
-    switch (origin) {
-        case 'WEIXIN':
-            origin = "微信";
-            break;
-        case 'QQ':
-            origin = "QQ";
-            break;
-        case 'WEIXIN_CIRCLE':
-            origin = "微信朋友圈";
-            break;
-        default:
-            origin = "";
-            break;
     }
 
+    function tishi_out() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        }, 1500)
+    }//提示框2秒后消失
 
     //页面一加载就执行
     function load() {
-        //应用邀请--手机验证、登录方式。模态框开关控制
+        //modal
         $(".lingqu_btn").click(function () {
             $(".choose_way_modal").fadeIn(500);
         });
@@ -237,7 +261,7 @@
             $(".phone_yanzheng_modal").fadeIn(500);
         });
 
-        //ajax页面上邀请人name与头像加载
+        //yaoqing_username--and--usericon
         var params2 = {"userId":userId};
         $.ajax({
             type:'post',
@@ -251,15 +275,12 @@
                     $('.yyyq_user_icon').attr('src','//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+datas.id+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100');
                     $("#yy_user").append(datas.nickname);
                 }else{
-                    alert("失败-未获取到邀请人以及头像");
+                    console.dir("失败-未获取到邀请人以及头像");
                 }
             }
         });
 
-
-
-
-        //------------验证码获取  登陆------------
+        //yzm_login
         $("#get_yzm").click(function () {
             var params3={};
             var phone=$(".get_phonenum").val();
@@ -273,10 +294,8 @@
                 url:ContextPath+'/view/getSmsCode',
                 data:params3,
                 success:(function (json) {
-                    var success = json.success;
-                    var error = json.msg;
                     //如果手机号发送成功
-                    if(success){
+                    if(json.success){
                         $(".lingqu_libao").click(function () {
                             $.ajax({
                                 type: 'post',
@@ -285,43 +304,49 @@
                                 data: {"phone": $('.get_phonenum').val(), "smsCode": $(".shuru_yzm").val()},
                                 success: (function (json) {
                                     console.dir(json);
-                                    $(".phone_yanzheng_modal").fadeOut();
-                                    $(".libao_modal").fadeIn(500);
-                                    $(".libao_modal p").append("领取成功<br/>请登录APP查看");
-                                    if(json.msg == '验证码错误'){
-                                        alert("验证码错误，请重试");
+                                    if(json,success){
+                                        $(".phone_yanzheng_modal").fadeOut();
+                                        $(".libao_modal").fadeIn(500);
+                                        $(".libao_modal p").append("领取成功<br/>请登录APP查看");
+                                    }else{
+                                        if(json.msg == '验证码错误'){
+                                            $(".tishi").fadeIn(500);
+                                            $(".tishi_val").html('验证码错误，请重试');
+                                            tishi_out();
+                                        }
                                     }
                                 })
                             });
                         });
+                    }else{
+                        if(json.msg == '发送失败'){
+                            $(".tishi").fadeIn(500);
+                            $(".tishi_val").html('验证码发送失败，请重试');
+                            tishi_out();
+                        }
+                        if(json.msg == '您已注册过'){
+                            $(".phone_yanzheng_modal").fadeOut(500);
+                            $(".libao_modal p").append("您已经领取过啦<br/>不能重复领取哦");
+                            $(".libao_modal").fadeIn(500);
+                        }
                     }
                     //如果验证码发送失败或者此人已经注册过
-                    if(error == '发送失败'){
-                        alert("验证码发送失败，请稍后重试")
-                    }
-                    if(error == '您已注册过'){
-                        console.dir("这个人已经注册过");
-                        $(".phone_yanzheng_modal").fadeOut(500);
-                        $(".libao_modal").fadeIn(500);
-                        $(".libao_modal p").append("您已经领取过啦<br/>不能重复领取哦")
-                    }
+
                 })
             });
         });
-        //------------验证码获取  登陆------------
 
-
-        //------------微信登录------------
-        //只有微信内置的浏览器才能打开--
-        var url_1 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-
-        //所有浏览器都能打开--微信打开扫描后会跳到公众平台
-       // var url_1 = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        //weixin_login
         $(".way_weixin").click(function () {
-            location.href = url_1;
+            getcode();
         });
-        //------------微信登录------------
+    }
 
+    function getcode() {
+        localStorage.clear();
+        var url_1 = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state='+state+'#wechat_redirect';
+        location.href = url_1;
     }
 
     //高德获取位置
@@ -360,7 +385,7 @@
                                         obj.beginTime+'</div><div class="clear"></div></div>');
                                 var $imgContainer=  $('<div class="adduser_tx"></div>');
                                 $.each(obj.joinMembers,function(index,obj){
-                                    var $img=$('<img src="'+'//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
+                                    var $img=$('<img src="'+'https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
                                     $imgContainer.append($img);
                                 });
                                 $gameInfo.append($imgContainer);
@@ -370,17 +395,17 @@
                                 $tuijianContainer.append($tuijian);
                             })
                         }else{
-                            console.dir(datas.message);
+                            $('#tuijian_container').html('<div class="zanwu">暂无</div>');
                         }
                     }
                 });
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
-                console.log("定位失败");
+//                console.dir(error.message);
+                $('#tuijian_container').html('<div class="zanwu">暂无</div>');
             });      //返回定位出错信息
         })
     }
-
 </script>
 
 <!--魔窗-->

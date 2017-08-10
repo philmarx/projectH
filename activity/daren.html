@@ -300,7 +300,7 @@
         <div class="distable">
             <div class="distabcell">
                 <div class="tishi_val">
-                    <!--对不起 &#45;&#45; 您的抽奖次数已用完-->
+                    <!--对不起,您的抽奖次数已用完-->
                 </div>
             </div>
         </div>
@@ -336,7 +336,6 @@
             success:function(json){
                 var data = json.data;
                 console.dir(json.data);
-
                 var $clear = $("<div class='clear'></div>");
 
                 if(json.success){
@@ -368,7 +367,6 @@
                         });
                     }
 
-
                     //好友最多
                     if(data.friendMaster.length>0){
                         var $friendMaster = $("#friendMaster").html('');
@@ -396,7 +394,6 @@
                             $friendMaster.append($dr2_daren_paihang);
                         });
                     }
-
 
                     //狼人杀参与次数最多-joinWerewolfMaster
                     if(data.joinWerewolfMaster.length>0){
@@ -427,7 +424,6 @@
                         });
                     }
 
-
                     //排行榜分数总和最高-maxScoreMaster
                     if(data.maxScoreMaster.length>0){
                         var $maxScoreMaster = $("#maxScoreMaster").html('');
@@ -455,7 +451,6 @@
                             $maxScoreMaster.append($dr4_daren_paihang);
                         });
                     }
-
 
                     //狼人杀排行第一-werewolfMaster
                     if(data.werewolfMaster.length>0){
@@ -485,7 +480,6 @@
                         });
                     }
 
-
                     //异性好友最多的女性-womanFriendMaster
                     if(data.womanFriendMaster.length>0){
                         var $womanFriendMaster = $("#womanFriendMaster").html('');
@@ -513,7 +507,6 @@
                             $womanFriendMaster.append($dr6_daren_paihang);
                         });
                     }
-
 
                     //异性好友最多的男性-manFriendMaster
                     if(data.manFriendMaster.length>0){
@@ -543,7 +536,6 @@
                         });
                     }
 
-
                     //金色好友最多-goldenFriendMaster
                     if(data.goldenFriendMaster.length>0){
                         var $goldenFriendMaster = $("#goldenFriendMaster").html('');
@@ -572,8 +564,6 @@
                         });
                     }
 
-
-
                     $(".up_down_jt").on('click',function () {
                         var hei = $(this).parent(".daren_paihang_container").height();
                         if(hei == 50){
@@ -589,15 +579,11 @@
                 }
                 else{
                     $(".tishi").fadeIn(500);
-                    $(".tishi_val").html('网络错误，数据加载失败');
+                    $(".tishi_val").html('数据加载失败');
                     tishi_out();
                 }
             }
         });
-
-
-
-
     })
 </script>
 
@@ -605,7 +591,7 @@
     function tishi_out() {
         setTimeout(function () {
             $(".tishi").fadeOut(500);
-        },2000)
+        },1500)
     }//提示框2秒后消失
 </script>
 

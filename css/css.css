@@ -1,6 +1,6 @@
 .clear{clear: both;}
 
-/*¼ÓÈë·¿¼ä£¬¼ÓÈëÈ¦×Ó*/
+/*ï¿½ï¿½ï¿½ë·¿ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½È¦ï¿½ï¿½*/
 .room_container{padding: 10px 15px;}
 .yq_user{
     padding: 20px 20px;
@@ -134,7 +134,7 @@
     color: #fff;
     box-shadow: 0 4px 7px -1px #93e4f7;
     position: absolute;
-    bottom: 30px;
+    bottom: 50px;
     left: 50%;
     margin-left: -84px;
     line-height: 44px;
@@ -152,7 +152,6 @@
 .f_bg{
     background: #fff;
     border-radius: 25px;
-    padding-bottom: 40px;
     min-height: 460px;
     box-sizing: border-box;
     position: relative;
@@ -195,9 +194,16 @@
     line-height: 36px;
     text-align: center;
 }
-/*¼ÓÈë·¿¼ä£¬¼ÓÈëÈ¦×Ó---------*/
+.zanwu{
+    font-size: 15px;
+    color: #333;
+    line-height: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+/*ï¿½ï¿½ï¿½ë·¿ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½È¦ï¿½ï¿½---------*/
 
-/*·ÖÏíÑûÇë*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .fenxiang_container>div>img{
     width: 100%;
 }
@@ -251,12 +257,12 @@
     margin: 20px 0 35px;
     text-align: center;
 }
-/*·ÖÏíÑûÇë-----------*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-----------*/
 .adduser_tx{
     height: 22px;
 }
 
-/*Ó¦ÓÃÑûÇë*/
+/*Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .yyyq_container{
     width: 100%;
     /*background: url("../images/yyyq_bg.png") no-repeat;*/
@@ -312,7 +318,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 30%;
+    width: 0px;
     top: 4px;
 }
 .yyyq_user h2{
@@ -432,7 +438,7 @@
     margin: 10px auto 50px;
 }
 
-/*µÇÂ¼·½Ê½*/
+/*ï¿½ï¿½Â¼ï¿½ï¿½Ê½*/
 .login_way{
     width: 80%;
     min-width: 300px;
@@ -455,7 +461,7 @@
     margin: auto;
 }
 .all_way >div{
-    width: 33.32%;
+    width: 50%;
     float: left;
     text-align: center;
 }
@@ -473,9 +479,9 @@
     right: 0;
     top: -58.5px;
 }
-/*µÇÂ¼·½Ê½----------*/
+/*ï¿½ï¿½Â¼ï¿½ï¿½Ê½----------*/
 
-/*ÊÖ»úÑéÖ¤*/
+/*ï¿½Ö»ï¿½ï¿½ï¿½Ö¤*/
 .phone_yanzheng{
     width: 80%;
     min-width: 300px;
@@ -529,7 +535,7 @@
     cursor: pointer;
 }
 
-/*ÊÖ»úºÅ-ÑéÖ¤ÂëµÇÂ¼³É¹¦ºó--ÌáÊ¾ÓÃ»§ÏÂÔØAPP*/
+/*ï¿½Ö»ï¿½ï¿½ï¿½-ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½--ï¿½ï¿½Ê¾ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½APP*/
 .libao_modal{
     display: none;
 }
@@ -566,7 +572,7 @@
     text-align: center;
     line-height: 38px;
 }
-/*ÊÖ»úºÅ-ÑéÖ¤ÂëµÇÂ¼³É¹¦ºó--ÌáÊ¾ÓÃ»§ÏÂÔØAPP------------------*/
+/*ï¿½Ö»ï¿½ï¿½ï¿½-ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½--ï¿½ï¿½Ê¾ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½APP------------------*/
 
 
 
@@ -593,18 +599,11 @@
     font-size: 12px;
     color: #808080;
 }
-
-
-
-/*Ó¦ÓÃÑûÇë-----------*/
-
+/*Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-----------*/
 
 
 @media (max-width:320px){
     .yq_user{
         min-height: 140px;
-    }
-    .f_bg{
-        min-height: 450px;
     }
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
 
-    <title>达人榜</title>
+    <title>我的排行</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
 
@@ -261,19 +261,25 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </div>
 
-
-
-
-
+<!---tishi---->
+<section>
+    <div class="tishi">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="tishi_val">
+                    <!--对不起，您的抽奖次数已用完-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---tishi---->
 
 </body>
-
 
 
 <!--Swiper切换-->
@@ -292,15 +298,13 @@
 <!--页面刚加载时的数据-->
 <script>
     var code;
-
     $(function () {
         code = getQueryString("code");
-        login();
         load();
+        login();
     });
 
     function login(){
-
         if(code){
             var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
             if(!isLogin){
@@ -311,20 +315,21 @@
                     url:ContextPath+'view/login',
                     data: {"code":code},
                     success:function(json){
-                        var datas = json.data;
                         if (json.success) {
-                            var datas = json.data;
-                            localStorage.setItem("userid", datas.id);
-                            localStorage.setItem("token", datas.token);
+                            var data = json.data;
+                            localStorage.setItem("userid", data.id);
+                            localStorage.setItem("token", data.token);
                         }
                         if (!json.success) {
                             console.dir(json.msg);
                         }
-
-
                     },
                     error: function (e) {
-                        alert("获取token--"+e.status + ',' + e.statusText);
+                        if(localStorage.getItem("userid")){
+                            location.href = 'https://hzease.com/activity/myPaihang.html';
+                        }else{
+                            location.href = 'https://hzease.com/activity/myPaihang.html';
+                        }
                     }
                 });
             }
@@ -334,7 +339,6 @@
     function load() {
         var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
         if(!isLogin){
-            alert('请先登陆');
             getcode();
             return;
         }
@@ -344,11 +348,9 @@
             url:ContextPath+'view/findMyMaster',
             data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
             success:function(json){
-
                 if(!json.success){
                     console.dir(json.msg);
                     if(json.msg == '登录失效'){
-                        alert(json.msg);
                         getcode();
                         return;
                     }
@@ -362,7 +364,7 @@
 
                     // 组织活动最多
                     if(data.createRoomMaster.length == 0){
-                        $("#createRoomMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#createRoomMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.createRoomMaster.length > 0){
                         $each(data.createRoomMaster, function (index,obj) {
@@ -373,7 +375,7 @@
 
                     //好友最多
                     if(data.friendMaster.length == 0){
-                        $("#friendMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#friendMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.friendMaster.length > 0){
                         $.each(data.friendMaster, function (index,obj) {
@@ -384,7 +386,7 @@
 
                     //参加狼人杀次数
                     if(data.joinWerewolfMaster.length == 0){
-                        $("#joinWerewolfMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#joinWerewolfMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.joinWerewolfMaster.length > 0){
                         $.each(data.joinWerewolfMaster, function (index,obj) {
@@ -395,7 +397,7 @@
 
                     //排行榜总分最高
                     if(data.maxScoreMaster.length == 0){
-                        $("#maxScoreMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#maxScoreMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.maxScoreMaster.length > 0){
                         $.each(data.maxScoreMaster, function (index,obj) {
@@ -406,7 +408,7 @@
 
                     //狼人杀分数排行
                     if(data.werewolfMaster.length == 0){
-                        $("#werewolfMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#werewolfMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.werewolfMaster.length > 0){
                         $.each(data.werewolfMaster, function (index,obj) {
@@ -417,7 +419,7 @@
 
                     //异性好友最多的女生
                     if(data.womanFriendMaster.length == 0){
-                        $("#womanFriendMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#womanFriendMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.womanFriendMaster.length > 0){
                         $.each(data.womanFriendMaster, function (index,obj) {
@@ -428,7 +430,7 @@
 
                     //异性好友最多的男生
                     if(data.manFriendMaster.length == 0){
-                        $("#manFriendMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#manFriendMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.manFriendMaster.length > 0){
                         $.each(data.manFriendMaster, function (index,obj) {
@@ -439,7 +441,7 @@
 
                     //金色好友最多
                     if(data.goldenFriendMaster.length == 0){
-                        $("#goldenFriendMaster .nvshen_paihang_paixu h1").empty().append("无");
+                        $("#goldenFriendMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.goldenFriendMaster.length > 0){
                         $.each(data.goldenFriendMaster, function (index,obj) {
@@ -450,25 +452,28 @@
 
 
                 }
+            },
+            error:function (e) {
+                $(".tishi").fadeIn(500);
+                $(".tishi_val").html('数据加载失败');
+                tishi_out();
             }
         });
-
-
     }
 
-
-
     function getcode() {
+        localStorage.clear();
         var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
 //        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
         location.href = url_code;
     }
-
-
 </script>
 <!--页面刚加载时的数据-->
-
-
-
-
+<script>
+    function tishi_out() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        },1500)
+    }//提示框2秒后消失
+</script>
 </html>

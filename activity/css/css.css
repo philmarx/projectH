@@ -1,5 +1,5 @@
 
-/* ------� ��card */
+/* card */
 .swiper1{
     width: 270%;
     position: relative;
@@ -13,9 +13,9 @@
     position: relative;
     z-index: 10;
 }
-/*.swiper1 .swiper-wrapper .swiper-slide-active{*/
-    /*�����ߵ�slide����ʽ*/
-/*}*/
+/*.swiper1 .swiper-wrapper .swiper-slide-active{
+    dongtai
+}*/
 .card_container{
     width: 100%;
     height: 100%;
@@ -23,23 +23,15 @@
     border-radius: 15px;
 }
 
-
-/*::selection {background: #222 ; color: white ; text-shadow: none ; }*/
-/*::-webkit-scrollbar-track-piece{width:10px;background-color:#f2f2f2}*/
-/*::-webkit-scrollbar{width:1px;height:6px}*/
-/*::-webkit-scrollbar-thumb{height:50px;background-color:rgba(0,0,0,.3);}*/
-/*::-webkit-scrollbar-thumb:hover{background:#3fb560}*/
-
-
 ::-webkit-scrollbar-track-piece{width:0;background-color:#f2f2f2}
 ::-webkit-scrollbar{width:0;height:6px}
 
-/*------� ��card-----------*/
+/*card*/
 
 
 
 
-/*-------card_container1*/
+/*card_container1*/
 .card_container1{
     background: url("../images/card1_bg3.png") no-repeat;
     background-size: 100% 100%;
@@ -69,12 +61,12 @@
     margin: auto;
 }
 .appewm{
-    width: 120px;
+    width: 140px;
     display: block;
     position: absolute;
-    bottom: 100px;
+    bottom: 130px;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -70px;
 }
 .activity_upload{
     display: block;
@@ -82,21 +74,19 @@
     height: 35px;
     font-size: 14px;
     color: #fff;
-    background: #3460a4;
+    background: #4383bd;
     border-radius: 4px;
     text-align: center;
     line-height: 34px;
     position: absolute;
-    bottom: 35px;
+    bottom: 70px;
     left: 50%;
     margin-left: -100px;
 }
+/*card_container1*/
 
 
-/*-------card_container1------*/
-
-
-/*-------card_container2------*/
+/*card_container2*/
 .card_container2{
     background: linear-gradient(to bottom, #fda085 30%, #f6d365 80%);
     padding: 25px 10px 10px 10px;
@@ -133,7 +123,7 @@
     color: #e04054;
     text-align: center;
     font-weight: 100;
-    font-family: 宋体;
+    font-family: 宋体!important;
 }
 .cha_usernum{
     text-align: center;
@@ -141,7 +131,7 @@
     font-size: 12px;
     margin: 0 0 5px;
     font-weight:100;
-    font-family: 宋体;
+    font-family: 宋体!important;;
 }
 .cha_usernum span{
     color: #fff;
@@ -187,10 +177,10 @@
     top: 0;
     z-index: 5;
 }
-/*-------card_container2------*/
+/*card_container2*/
 
 
-/*-------card_container3------*/
+/*card_container3*/
 .card_container3{
     /*background: linear-gradient(to bottom, #fecfef 30%, #ff9a9e 80%);*/
     background: url("../images/xiannv_bg.png") no-repeat;
@@ -231,11 +221,10 @@
 .look_nvshen_guize{
     background: #cd85ff!important;
 }
-/*-------card_container3------*/
+/*card_container3*/
 
-/*-------card_container4------*/
+/*card_container4*/
 .card_container4{
-    /*background: linear-gradient(to bottom, #c2e9fb 30%, #a1c4fd 80%);*/
     background: url("../images/daren_bg.png") no-repeat;
     background-size: 100% 100%;
     padding: 10px;
@@ -271,9 +260,9 @@
     text-align: center;
     border-radius: 4px;
 }
-/*-------card_container4------*/
+/*card_container4*/
 
-/*-------card_container5------*/
+/*card_container5*/
 .card_container5{
     background: url("../images/meirinvshen_bg.png")no-repeat;
     background-size: 100% 100%;
@@ -300,15 +289,16 @@
     top: 0;
     left: 0;
     z-index: 200!important;
-    background: url("../images/meiri_guize.png") no-repeat;
-    background-size: cover;
+    background: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    padding: 60px 0;
     display: none;
 }
-/*-------card_container5------*/
+/*card_container5*/
 
 
-/*----����������modal---ALL---modal-----------------*/
-/*-------��ta����modal--*/
+/*modal--ALLmodal*/
+/*zhuli*/
 .help_modal{
     display: none;
 }
@@ -377,7 +367,6 @@
     width: 25px;
     margin: 10px 12px 0;
     border-radius: 50%;
-
 }
 .one_zhuli_user h6{
     width: 50px;
@@ -403,15 +392,37 @@
     border: none;
     border-radius: 4px;
 }
+.my_help{
+    width: 115px;
+    display: block;
+    margin: 20px auto 0;
+    height: 35px;
+    line-height: 34px;
+    text-align: center;
+    background: #00b8e8;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    display: none;
+}
 .btn_not_help{
     background: #555!important;
     color: #999!important;
 }
 
-/*-------��ta����-----------------*/
+/*zhuli*/
 
-/*-------�����-----��������----*/
-.acivity_guize_modal{
+/*activity_guize*/
+.keyizp{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100!important;
+    background: url("../images/keyizp.gif") no-repeat;
+    background-size: cover;
     display: none;
 }
 .zhuli_yaoqing_modal{
@@ -441,23 +452,27 @@
     top: 0;
     left: 0;
     z-index: 200!important;
-    background: url("../images/acivity_guize.png") no-repeat;
-    background-size: cover;
+    background: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    padding: 60px 0;
+    display: none;
 }
 .guize_h3{
     width: 100%;
     font-size: 13px;
     color: #ccc;
-    position: absolute;
-    bottom: 20px;
     text-align: center;
     font-weight: 100;
     letter-spacing: 1px;
+    padding-top: 30px;
+    position: absolute;
+    bottom: 30px;
+
 }
-/*-------�����-----------------*/
+/*activity_guize*/
 
 
-/*-------�н���¼-----------------*/
+/*zhongjiang_jilu*/
 .zhongjiangjilu_modal{
     display: none;
 }
@@ -503,10 +518,10 @@
     float: right;
 }
 
-/*-------�н���¼-----------------*/
+/*-zhongjiang_jilu*/
 
 
-/*--------------�н���----*/
+/*zhongjiang_tishi*/
 .zhongjiang_modal{
     display: none;
 }
@@ -517,7 +532,7 @@
     background-size: cover;
 }
 .zhongjiang img{
-    width: 70%;
+    width: 50%;
     display: block;
     margin: 0 auto 15px;
 }
@@ -555,9 +570,9 @@
     border-radius: 4px;
 
 }
-/*-------------�н���-------------*/
+/*zhongjiang_tishi*/
 
-/*-------------���ܳ齱-------------*/
+/*tishi*/
 .tishi{
     position: fixed;
     top: 0;
@@ -582,17 +597,11 @@
     background: rgba(0, 0, 0, 0.5);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
 }
-/*-------------���ܳ齱-------------*/
-/*----����������modal---ALL---modal-----------------*/
+/*tishi*/
+/*ALL---modal*/
 
 
-
-
-
-
-
-
-/*-------------���˰�-----+++++----*/
+/*darenbang*/
 .darenbang_container{
     width: 100%;
     padding: 25px 0;
@@ -693,14 +702,44 @@
     top: 0;
     left: 0;
     z-index: 200!important;
-    background: url("../images/daren_guize.png") no-repeat;
-    background-size: cover;
+    background: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    padding: 60px 0;
     display: none;
 }
-/*-------------���˰�-----------------*!/*/
+.guize_container{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.one_list{
+    padding-left: 40px;
+    width: 85%;
+    margin: auto;
+    position: relative;
+    padding-bottom: 20px;
+}
+.one_list h1{
+    font-size: 16px;
+    font-weight: 100;
+    color: #fff;
+    margin: 0 0 10px;
+}
+.one_list ul li{
+    font-size: 13px;
+    color: #fff;
+    line-height: 24px;
+}
+.gz_biao{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+}
+/*darenbang*/
 
 
-/*-------------Ů���----------*/
+/*xiannvbang*/
 .nvshen_container{
     width: 100%;
     height: 100%;
@@ -722,8 +761,9 @@
     top: 0;
     left: 0;
     z-index: 200!important;
-    background: url("../images/xiannv_guize.png") no-repeat;
-    background-size: cover;
+    background: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    padding: 60px 0;
     display: none;
 }
 .nvshen{
@@ -742,6 +782,13 @@
     background: #d6cffe;
     padding: 7px 10px;
     height: 50px;
+}
+.nvshen_myself h4{
+    font-size: 14px;
+    color: #333;
+    line-height: 36px;
+    text-align: center;
+    font-weight: 100;
 }
 .nvshen_paihang_titleimg{
     width: 100%;
@@ -828,7 +875,7 @@
     font-weight: 100;
     line-height: 36px;
 }
-/*-------------Ů���-----------------*/
+/*xiannvbang*/
 
 
 @media (max-width:320px){

@@ -43,12 +43,7 @@
 
         var self = this;
 
-        //this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度
         this.defNum = this.opts.rotateNum * 360; //转盘需要转动的角度
-        // console.log(this.defNum);
-
-
-
 
 
         //-------点击抽奖--------触发按钮
@@ -58,7 +53,6 @@
                 getcode();
                 return;
             }
-
             $.ajax({
                 type:'post',
                 dataType:'json',
@@ -66,11 +60,23 @@
                 data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
                 success:function(json){
                     var data = json.data;
-                    if(!json.success){
-                        console.dir(json.msg);
-                        if(json.msg == '助力10人可再获取一次抽奖机会' || json.msg == '您的抽奖次数已用完'){
+                    console.dir(json);
+                    if(json.success){
+                        window.DrawObject= data;
+                        $(".shengyu_cishu span").html(data.frequency);
+
+                        //执行转盘回调
+                        self.opts.clickCallback.call(self);
+                    }else{
+                        if(json.msg == '您的抽奖次数已用完'){
+                            $(".tishi_val").html('您的抽奖次数已用完');
                             $(".tishi").fadeIn(500);
-                            $(".tishi_val").html('邀请10人助力可再获取一次抽奖机会');
+                            tishi_out();
+                            return;
+                        }
+                        if(json.msg == '助力5人可再获取一次抽奖机会'){
+                            $(".tishi_val").html('邀请5人助力可获取第二次抽奖机会');
+                            $(".tishi").fadeIn(500);
                             tishi_out();
                             return;
                         }
@@ -79,26 +85,15 @@
                             return;
                         }
                         if(json.msg == '活动还未开始'){
-                            $(".tishi").fadeIn(500);
                             $(".tishi_val").html('活动还未开始');
+                            $(".tishi").fadeIn(500);
                             tishi_out();
                             return;
                         }
-
-                    }
-                    if(json.success){
-                        console.dir(json.data);
-                        $(".zp_top h1").empty().append('奖池剩余金额：'+data.allMoney+'元');
-                        $(".zp_top h2").empty().append('参与人数：'+data.joinMember+'人');
-                        $(".shengyu_cishu span").empty().append(data.frequency);
-                        window.DrawObject= data;
-
-                        self.opts.clickCallback.call(self);
                     }
                 }
             });
         });
-
 
 
         $(this.opts.body).find('.KinerLotteryContent').get(0).addEventListener('transitionend', function() {
@@ -126,11 +121,7 @@
                 });
                 self.opts.KinerLotteryHandler(deg);
             }
-
-
-
         });
-
     };
 
 
@@ -145,7 +136,7 @@
         this.doing = true;
         $(this.opts.body).find('.KinerLotteryBtn').addClass('doing');
 
-        $(this.opts.body).find(".outer")
+        $(this.opts.body).find(".outer");
 
         $(this.opts.body).find('.KinerLotteryContent').css({
             '-webkit-transition': 'all 5s',
@@ -156,8 +147,6 @@
         $(this.opts.body).attr('data-deg', _deg);
 
     };
-
-
 
     win.KinerLottery = KinerLottery;
 
