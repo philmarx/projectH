@@ -6,7 +6,10 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
-
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
     <title>我的排行</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
@@ -37,9 +40,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">组织活动次数</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">组织活动次数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -64,9 +67,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">好友最多</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">好友最多</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -93,9 +96,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">参加狼人杀次数</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">参加狼人杀次数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -122,9 +125,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">排行榜分数总和</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">排行榜分数总和</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -151,9 +154,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">狼人杀分数</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">狼人杀分数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -180,9 +183,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">异性好友最多(女生)</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">异性好友最多(女生)</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -209,9 +212,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">异性好友最多(男生)</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">异性好友最多(男生)</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -238,9 +241,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">金色好友最多</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">金色好友最多</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -284,7 +287,6 @@
 
 <!--Swiper切换-->
 <script src="js/swiper.min.js"></script>
-<!--达人榜--高度-->
 <script>
     $(document).ready(function () {
         //card高度+++++
@@ -293,15 +295,15 @@
         $(".daren_container").height($(".darenbang").height()-$(".darenbang_titleimg").height());
     })
 </script>
-
+<!--达人榜--高度-->
 
 <!--页面刚加载时的数据-->
 <script>
     var code;
     $(function () {
         code = getQueryString("code");
-        load();
         login();
+        load();
     });
 
     function login(){
@@ -326,9 +328,7 @@
                     },
                     error: function (e) {
                         if(localStorage.getItem("userid")){
-                            location.href = 'https://hzease.com/activity/myPaihang.html';
-                        }else{
-                            location.href = 'https://hzease.com/activity/myPaihang.html';
+                            location.href = 'https://hzease.com/activity/myPaihang.html'+localStorage.getItem("userid");
                         }
                     }
                 });
@@ -348,10 +348,17 @@
             url:ContextPath+'view/findMyMaster',
             data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
             success:function(json){
+                console.dir(json);
                 if(!json.success){
                     console.dir(json.msg);
                     if(json.msg == '登录失效'){
                         getcode();
+                        return;
+                    }
+                    if(json.msg == '用户ID不存在'){
+                        $(".tishi_val").html('用户不存在');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
                         return;
                     }
                 }
@@ -367,7 +374,7 @@
                         $("#createRoomMaster .nvshen_paihang_paixu h1").empty().append("暂无");
                     }
                     if(data.createRoomMaster.length > 0){
-                        $each(data.createRoomMaster, function (index,obj) {
+                        $.each(data.createRoomMaster, function (index,obj) {
                             $("#createRoomMaster .nvshen_paihang_paixu h1").empty().append(obj.order);
                             $("#createRoomMaster .nvshen_fenshu").empty().append(obj.count);
                         })
@@ -463,8 +470,8 @@
 
     function getcode() {
         localStorage.clear();
-        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+//        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
         location.href = url_code;
     }
 </script>

@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
-    <meta http-equiv="Expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
@@ -272,7 +272,7 @@
                 if(json.success){
                     var datas = json.data;
                     console.dir(datas);
-                    $('.yyyq_user_icon').attr('src','//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+datas.id+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100');
+                    $('.yyyq_user_icon').attr('src','https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+datas.id+'/avatar?x-oss-process=image/resize,m_lfit,w_100,h_100');
                     $("#yy_user").append(datas.nickname);
                 }else{
                     console.dir("失败-未获取到邀请人以及头像");
@@ -350,7 +350,70 @@
     }
 
     //高德获取位置
-    function loadMap(){
+/*    function loadMap(longitude,latitude){
+        mapObj = new AMap.Map('iCenter');
+        mapObj.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 600000
+            });
+            mapObj.addControl(geolocation);
+            geolocation.getCityInfo(function (status,result) {
+                console.dir(result);
+//                alert("经度："+result.center[0]+"+纬度："+result.center[1]+"+城市："+result.city);
+                var params={"gameId":0,"longitude":result.center[0],"latitude":result.center[1],"page":0,"size":10,"state":0};
+                $.ajax({
+                    type:'post',
+                    dataType:'json',
+                    url:ContextPath+'/room/findRoomsByGameOrder',
+                    data:params,
+                    success:function(json){
+                        if(json.success){
+                            var datas = json.data;
+                            var $tuijianContainer=$('#tuijian_container').html('');
+
+                            $.each(datas, function (index,obj) {
+
+                                var $tuijian=$('<div class="tuijian"><div class="game_img_div"><div class="distable"><div class="distabcell"><img src="../images/game/'+obj.game.id+'.png" class="game_img"/></div></div></div></div>');
+
+                                var $gameInfo=$(' <div class="game_info">'+
+                                    '<h5 class="game_name">'+obj.name+'</h5>'+
+                                    '<div class="place_container">'+
+                                    '<div class="place_info">'+obj.place+'</div>'+
+                                    '<div class="distance_info"><span> · </span>'+getjuli(obj.latitude,obj.longitude,result.center[1],result.center[0])+'km</div>'+
+                                    '<div class="game_time">'+(obj.locked?'<img src="../images/mi.png" alt=""/>':'')+(obj.money>0?'<img src="../images/bao.png" alt=""/>':'')+
+                                    obj.beginTime+'</div><div class="clear"></div></div>');
+                                var $imgContainer=  $('<div class="adduser_tx"></div>');
+                                $.each(obj.joinMembers,function(index,obj){
+                                    var $img=$('<img src="'+'https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
+                                    $imgContainer.append($img);
+                                });
+                                $gameInfo.append($imgContainer);
+                                $tuijian.append($gameInfo);
+                                var $clear=$('<div class="clear"></div>');
+                                $tuijian.append($clear);
+                                $tuijianContainer.append($tuijian);
+                            })
+                        }else{
+                            $('#tuijian_container').html('<div class="zanwu">暂无</div>');
+                        }
+                    }
+                });
+            });
+            AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+            AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+        })
+    }
+    function onComplete(result) {
+        console.dir(result);
+    }
+    function onError(error) {
+        console.dir(error.message);
+        $('#tuijian_container').html('<div class="zanwu">暂无</div>');
+    }*/
+
+    //原本经纬度定位
+        function loadMap(){
         mapObj = new AMap.Map('iCenter');
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
@@ -401,11 +464,11 @@
                 });
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
-//                console.dir(error.message);
                 $('#tuijian_container').html('<div class="zanwu">暂无</div>');
             });      //返回定位出错信息
         })
     }
+
 </script>
 
 <!--魔窗-->

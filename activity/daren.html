@@ -6,7 +6,10 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
-
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
     <title>达人榜</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
@@ -38,9 +41,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">组织活动次数</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">组织活动次数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -69,9 +72,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 45%;padding-left: 35px;">昵称</li>
-                        <li style="width: 30%;text-align: center;">好友最多</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">好友最多</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -101,9 +104,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">参加狼人杀次数</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">参加狼人杀次数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -133,9 +136,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">排行榜分数总和</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">排行榜分数总和</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -166,9 +169,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">狼人杀分数</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">狼人杀分数</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -198,9 +201,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">异性好友最多(女生)</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">异性好友最多(女生)</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -230,9 +233,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">异性好友最多(男生)</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">异性好友最多(男生)</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -262,9 +265,9 @@
             <div class="one_darenbang">
                 <div class="daren_paihang_title">
                     <ul>
-                        <li style="width: 25%;text-align: center;">排名</li>
-                        <li style="width: 40%;padding-left: 35px;">昵称</li>
-                        <li style="width: 35%;text-align: center;">金色好友最多</li>
+                        <li class="title_paiming">排名</li>
+                        <li class="title_nicheng">昵称</li>
+                        <li class="title_three">金色好友最多</li>
                         <div class="clear"></div>
                     </ul>
                 </div>
@@ -308,9 +311,6 @@
 </section>
 <!---tishi---->
 
-
-
-
 </body>
 
 
@@ -328,6 +328,7 @@
 </script>
 
 <script>
+
     $(document).ready(function () {
         $.ajax({
             type:'post',
@@ -336,14 +337,15 @@
             success:function(json){
                 var data = json.data;
                 console.dir(json.data);
-                var $clear = $("<div class='clear'></div>");
 
                 if(json.success){
+
                     //组织活动最多
                     if(data.createRoomMaster.length>0){
                         var $createRoomMaster = $("#createRoomMaster").html('');
-                        $createRoomMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $createRoomMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.createRoomMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr1_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr1_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr1_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -355,7 +357,7 @@
                             if(index>=3){
                                 $dr1_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr1_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr1_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -370,8 +372,9 @@
                     //好友最多
                     if(data.friendMaster.length>0){
                         var $friendMaster = $("#friendMaster").html('');
-                        $friendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $friendMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.friendMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr2_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr2_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr2_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -383,7 +386,7 @@
                             if(index>=3){
                                 $dr2_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr2_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr2_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -398,8 +401,9 @@
                     //狼人杀参与次数最多-joinWerewolfMaster
                     if(data.joinWerewolfMaster.length>0){
                         var $joinWerewolfMaster = $("#joinWerewolfMaster").html('');
-                        $joinWerewolfMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $joinWerewolfMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.joinWerewolfMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr3_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr3_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr3_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -411,7 +415,7 @@
                             if(index>=3){
                                 $dr3_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr3_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr3_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -427,8 +431,9 @@
                     //排行榜分数总和最高-maxScoreMaster
                     if(data.maxScoreMaster.length>0){
                         var $maxScoreMaster = $("#maxScoreMaster").html('');
-                        $maxScoreMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $maxScoreMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.maxScoreMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr4_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr4_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr4_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -440,7 +445,7 @@
                             if(index>=3){
                                 $dr4_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr4_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr4_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -455,8 +460,9 @@
                     //狼人杀排行第一-werewolfMaster
                     if(data.werewolfMaster.length>0){
                         var $werewolfMaster = $("#werewolfMaster").html('');
-                        $werewolfMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $werewolfMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.werewolfMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr5_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr5_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr5_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -468,7 +474,7 @@
                             if(index>=3){
                                 $dr5_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr5_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr5_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -483,8 +489,9 @@
                     //异性好友最多的女性-womanFriendMaster
                     if(data.womanFriendMaster.length>0){
                         var $womanFriendMaster = $("#womanFriendMaster").html('');
-                        $womanFriendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $womanFriendMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.womanFriendMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr6_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr6_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr6_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -496,7 +503,7 @@
                             if(index>=3){
                                 $dr6_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr6_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr6_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -511,8 +518,9 @@
                     //异性好友最多的男性-manFriendMaster
                     if(data.manFriendMaster.length>0){
                         var $manFriendMaster = $("#manFriendMaster").html('');
-                        $manFriendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $manFriendMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.manFriendMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr7_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr7_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr7_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -524,7 +532,7 @@
                             if(index>=3){
                                 $dr7_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr7_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr7_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 
@@ -539,8 +547,9 @@
                     //金色好友最多-goldenFriendMaster
                     if(data.goldenFriendMaster.length>0){
                         var $goldenFriendMaster = $("#goldenFriendMaster").html('');
-                        $goldenFriendMaster.empty().append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
+                        $goldenFriendMaster.append('<div class="up_down_jt"><img src="images/daren_down.png" alt=""/></div>');
                         $.each(data.goldenFriendMaster, function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
                             var $dr8_daren_paihang = $('<div class="daren_paihang"></div>');
                             var $dr8_nvshen_paihang_paixu = $('<div class="nvshen_paihang_paixu"></div>');
                             var $dr8_nvshen_paihang_user = $('<div class="nvshen_paihang_user"></div>');
@@ -552,7 +561,7 @@
                             if(index>=3){
                                 $dr8_nvshen_paihang_paixu.append('<h1>'+parseInt(index+1)+'</h1>');
                             }
-                            $dr8_nvshen_paihang_user.append('<img src="//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
+                            $dr8_nvshen_paihang_user.append('<img src="https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+obj.id+'/avatar?x-oss-process=image/resize,m_lfit,w_72,h_72" alt=""/>'+
                                 '<h1>'+obj.nickname+'</h1>'+
                                 '<div class="clear"></div>');
 

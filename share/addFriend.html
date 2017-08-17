@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>添加好友邀请</title>
+    <meta name="keywords" content="后会有期"/>
+    <meta name="description" content="后会有期"/>
+
+    <link rel="stylesheet" href="../css/css.css" type="text/css"/>
+
+    <!--jquery-->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!--jquery-->
+
+    <!--魔窗-->
+    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+    <script src="../js/key.js"></script>
+    <script src="../js/common.js"></script>
+
+    <!-- 公共样式---要放在高德API的后面----不然有html,body---height:100%的问题-->
+    <link rel="stylesheet" href="../css/common.css"/>
+</head>
+<body style="background: #eff3f6;height: auto">
+
+<div class="div_addFriend">
+    <div class="addF_container">
+        <div class="distable">
+            <div class="distabcell">
+                <div class="adaF">
+                    <div class="addF_logo">
+                        <img src="../images/logo200x200.png" alt="">
+                        <span>后会有期</span>
+                    </div>
+                    <div class="addF_user">
+                        <img src="../images/tx2.jpg" alt="">
+                        <h1>XXX</h1>
+                        <h1>邀请你成为好友</h1>
+                    </div>
+                    <div class="addF_label"></div>
+                    <a href="javascript:void(0);" class="btn_addFriend" id="addFriend">同意</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--浮在底部-->
+<section>
+    <div class="bom_xiazai">
+        <img src="../images/cha.png" class="cha" alt=""/>
+        <div class="logo_info">
+            <img src="../images/logo.png" alt=""/>
+            <span>
+                    <h3>后会有期</h3>
+                    <h4>线下即时组队平台</h4>
+                </span>
+            <div class="clear"></div>
+        </div>
+        <a href="" class="liji_load" id="uploadapp">立即打开</a>
+    </div>
+</section>
+
+</body>
+
+<script>
+    var userId  = getQueryString("userId");
+    var roomId  = getQueryString("roomId");
+    var origin  = getQueryString("origin");
+
+    $(function () {
+        $(".div_addFriend").height($(window).height()-150);
+        load();
+
+    });
+
+    switch (origin) {
+        case 'WEIXIN':
+            origin = "WX";
+            break;
+        case 'QQ':
+            origin = "QQ";
+            break;
+        case 'WEIXIN_CIRCLE':
+            origin = "WXPYQ";
+            break;
+        default:
+            origin = "WEB";
+            break;
+    }
+
+    function load() {
+        //load.tx,and,nickname
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'user/findOtherInfo',
+            data: {"userId":userId},
+            success:function(json){
+                if(json.success){
+                    var data = json.data;
+                    console.dir(data);
+                    $(".addF_user").html('<img src="'+'https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+data.id+'/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200'+'" alt="">'+
+                        '<h1>'+data.nickname+'</h1>'+
+                        '<h1>邀请你成为好友</h1>');
+
+                    $addF_label = $(".addF_label").html("");
+                    $.each(data.labels,function (index,obj) {
+                        var addspanclass = index % 5;
+                        $addF_label.append('<span class="addspan'+ addspanclass +'">'+obj+'</span>');
+                    })
+                }else{
+                    console.dir("失败-未获取到邀请人以及头像");
+                }
+            }
+        });
+    }
+
+
+
+</script>
+
+<!--定义魔窗深链接-->
+<script type="text/javascript">
+    //addFriend
+    new Mlink({
+        mlink:'AcpY',//短链地址
+        button:document.querySelectorAll('a#addFriend'),
+        autoLaunchApp : false,
+        autoRedirectToDownloadUrl: true,
+        downloadWhenUniversalLinkFailed: false,
+        inapp : false,
+        params: {action:'friend', key1:userId, key2:origin}
+    });
+    //lijidakai
+    new Mlink({
+        mlink:'AcpY',//短链地址
+        button:document.querySelector('a#uploadapp'),
+        autoLaunchApp : false,
+        autoRedirectToDownloadUrl: true,
+        downloadWhenUniversalLinkFailed: false,
+        inapp : false,
+        params: {}
+    });
+</script>
+
+</html>

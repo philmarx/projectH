@@ -70,8 +70,8 @@
 }
 .activity_upload{
     display: block;
-    width: 200px;
-    height: 35px;
+    width: 120px;
+    height: 34px;
     font-size: 14px;
     color: #fff;
     background: #4383bd;
@@ -81,7 +81,7 @@
     position: absolute;
     bottom: 70px;
     left: 50%;
-    margin-left: -100px;
+    margin-left: -60px;
 }
 /*card_container1*/
 
@@ -98,19 +98,27 @@
     margin: auto;
 }
 .zp_top{
-    padding: 15px 10px 0;
+    padding: 15px 5px 0;
 }
 .zp_top h1{
-    font-size: 12px;
+    font-size: 13px;
     color: #fff;
     float: left;
     font-weight: 100;
 }
 .zp_top h2{
-    font-size: 12px;
+    font-size: 13px;
     color: #fff;
     float: right;
     font-weight: 100;
+}
+.tixian_ts{
+    font-size: 12px;
+    color: #909090;
+    line-height: 16px;
+    margin: 10px auto;
+    width: 74%;
+    display: block;
 }
 .zp_bom{
     width: 100%;
@@ -629,12 +637,14 @@
     padding: 0;
     position: relative;
     height: 50px;
+    width: 100%;
 }
 .daren_container{
     width: 100%;
     overflow-y: auto;
 }
 .daren_paihang{
+    width: 100%;
     padding: 7px 10px 7px 0;
     margin-bottom: 1px;
     background: #fff;
@@ -681,9 +691,6 @@
     -moz-transform:rotate(180deg); 	/* Firefox */
     -webkit-transform:rotate(180deg); /* Safari �� Chrome */
     -o-transform:rotate(180deg);
-}
-.one_darenbang .nvshen_paihang_user{
-    width: 40%!important;
 }
 .one_darenbang .nvshen_fenshu{
     width: 35%!important;
@@ -735,6 +742,15 @@
     top: 0;
     left: 0;
     width: 30px;
+}
+.title_paiming{
+    width: 20%;text-align: center;
+}
+.title_nicheng{
+    width: 45%;padding-left: 25px;
+}
+.title_three{
+    width: 35%;text-align: center;
 }
 /*darenbang*/
 
@@ -820,7 +836,7 @@
     height: 50px;
 }
 .nvshen_paihang_paixu{
-    width: 25%;
+    width: 20%;
     float: left;
 }
 .nvshen_paihang_user{
@@ -828,12 +844,12 @@
     float: left;
 }
 .nvshen_paihang_paixu img{
-    width: 30px;
+    width: 24px;
     display: block;
-    margin: 3px auto;
+    margin: 6px auto;
 }
 .nvshen_paihang_paixu h1{
-    font-size: 15px;
+    font-size: 13px;
     color: #333;
     text-align: center;
     line-height: 36px;
@@ -846,7 +862,7 @@
 }
 .nvshen_paihang_user h1{
     width: calc(100% - 36px);
-    font-size: 15px;
+    font-size: 13px;
     color: #333;
     float: left;
     height: 36px;
@@ -868,7 +884,7 @@
 }
 .nvshen_fenshu{
     width: 30%;
-    font-size: 15px;
+    font-size: 13px;
     color: #333;
     float: right;
     text-align: center;
@@ -876,6 +892,34 @@
     line-height: 36px;
 }
 /*xiannvbang*/
+
+.tishigif{
+    width: 40px;
+    position: absolute;
+    top: 49%;
+    right: 0;
+    z-index: 20;
+}
+/*dingwei*/
+.dingwei{
+    width: 70%;
+    padding: 30px 0;
+    position: fixed;
+    top: 30%;
+    left: 15%;
+    z-index: 20;
+    background: #fff;
+    text-align: center;
+    font-size: 13px;
+    border-radius: 10px;
+    display: none;
+}
+
+
+
+
+
+/*dingwei*/
 
 
 @media (max-width:320px){

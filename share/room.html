@@ -22,11 +22,11 @@
     <!--jquery-->
 
     <!--魔窗-->
-    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+   <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
 
      <!--高德地图-->
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
-     <!--高德地图-->
+    <!--高德地图-->
 
     <script src="../js/key.js"></script>
     <script src="../js/common.js"></script>
@@ -109,7 +109,6 @@
     $(function () {
         $(".f_bg").height($(window).height()-70);
         load();
-        getQueryString();
     });
 
     var userId  = getQueryString("userId");
@@ -174,17 +173,49 @@
         });
     }
 
+/*
     //高德获取位置
     function loadMap(longitude,latitude){
         var xzuobiao = longitude;
         var yzuobiao = latitude;
+
         mapObj = new AMap.Map('iCenter');
-
-//        mapObj point1 = MAMapPointForCoordinate(CLLocationCoordinate2DMake(39.989612,116.480972));
-
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
                 timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 600000
+            });
+            mapObj.addControl(geolocation);
+            geolocation.getCityInfo(function (status,result) {
+                console.dir(result);
+                var getzuobiao  = {"longitude":result.center[0],"latitude":result.center[1]};
+                var juli = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
+                $(".distance_info").empty().append('<span> · </span>'+juli+"km");
+            });
+            AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+            AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+        })
+    }
+
+    function onComplete(result) {
+        console.dir(result);
+    }
+    function onError(error) {
+        console.log("定位失败");
+        $(".distance_info").empty().append('<span> · </span>定位失败');
+    }
+*/
+
+
+ //原本经纬度定位
+        function loadMap(longitude,latitude){
+        var xzuobiao = longitude;
+        var yzuobiao = latitude;
+        mapObj = new AMap.Map('iCenter');
+
+        mapObj.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                timeout: 50000,          //超过10秒后停止定位，默认：无穷大
                 maximumAge: 600000
             });
             mapObj.addControl(geolocation);

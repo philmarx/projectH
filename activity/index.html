@@ -6,7 +6,10 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no"/>
-
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
     <title>后会有期首届活动节</title>
     <meta name="keywords" content="后会有期"/>
     <meta name="description" content="后会有期"/>
@@ -16,10 +19,14 @@
 
     <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--微信JSsdk-->
     <!--魔窗-->
-    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+    <!--<script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>-->
 
     <!-- 微信jssdk-->
     <srcipt src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></srcipt>
+
+    <!--高德地图-->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9344958298d889735b71b95a0699960f"></script>
+    <!--高德地图-->
 
     <!-- 接口前缀-->
     <script src="js/key.js"></script>
@@ -45,7 +52,8 @@
         <div class="swiper-slide">
             <div class="card_container card_container1">
                 <img src="images/ewm.png" class="appewm" alt="">
-                <a href="" class="activity_upload" id="activity_upload">开启线下组队新世界的大门</a>
+                <a href="https://a.app.qq.com/o/simple.jsp?pkgname=com.hzease.tomeet" class="activity_upload" id="activity_upload">下载APP</a>
+                <img src="images/tishi.gif" class="tishigif" alt="">
             </div>
         </div>
         <!-- card1  -->
@@ -67,7 +75,7 @@
                 <button class="acivity_xiangqing">活动详情</button>
                 <div class="zp_bom">
                     <div class="cha_usernum">
-                        再邀请<span>10</span>人助力可获得一次抽奖机会
+                        再邀请<span>5</span>人助力可获得一次抽奖机会
                     </div>
                     <div class="shengyu_cishu">
                         剩余抽奖次数<span>-</span>次
@@ -126,7 +134,6 @@
 </div>
 <!------------card轮播------------->
 
-
 <!---转盘-规则---->
 <div class="acivity_guize">
         <div class="guize_container">
@@ -144,7 +151,7 @@
                     <li>1.奖励将在正式上线后发放至“后会有期”app对应账号内</li>
                     <li>2.每位用户有一次抽奖机会，之后成功获得5位好友助力可再获得一次抽奖机会</li>
                     <li>3.请关注公众号【后会有期tomeet】，关注中奖信息</li>
-                    <li>4.奖励统一发放至app个人中心，需用户参与活动的微信号授权登录，完成实名认证即可提现，无手续费和提现要求</li>
+                    <li>4.奖励统一发放至app个人中心，需用户参与活动的微信号授权登录</li>
                 </ul>
             </div>
             <div class="one_list">
@@ -152,7 +159,6 @@
                 <h1>活动奖项设置</h1>
                 <ul>
                     <li>本活动中奖率100%，奖池金额共100万，抽完即止</li>
-                    <li>注：（一直参与4人以下活动且人员固定将被判定为刷活动行为）</li>
                 </ul>
             </div>
             <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
@@ -186,16 +192,15 @@
                     <li>收获一个9分好感度+2分</li>
                     <li>收获一个10分好感度+3分</li>
                     <li>注：最终获奖名单及奖金发放请关注后会有期ToMeet公众号。</li>
-                    <li>若后台数据监测到任意刷分行为，将取消获奖资格，顺延给下一个候选人。所以没有排在首榜也未必没有机会哦！</li>
+                    <li>若后台数据监测到任意刷分行为（例：一直参与4人一下活动且人员固定将被判定为刷活动行为），将取消获奖资格，顺延给下一个候选人。所以没有排在首榜也未必没有机会哦！</li>
                 </ul>
             </div>
             <div class="one_list">
                 <img src="images/hdjp.png" class="gz_biao" alt="">
                 <h1>活动奖项设置</h1>
                 <ul>
-                    <li>仙女榜前10将在公众号公开投票决出人气小仙女，获得大奖，价值2wFENDIMini款包包，其余9位美女也可以获得200元</li>
+                    <li>仙女榜前10将在公众号公开投票决出人气小仙女，获得大奖，价值2wFENDI KANi款包包，其余9位美女也可以获得200元</li>
                     <li>注：人气小仙女的仙气值将成为基础票数（例：排行第一名1000分，第二名900分，第三名800分，则各获得1000，900，800基础票数</li>
-                    <li>（一直参与4人一下活动且人员固定将被判定为刷活动行为）</li>
                 </ul>
             </div>
             <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
@@ -225,7 +230,8 @@
                     <li>6.异性好友最多的男生，获得现金￥2000， 授予称号“风流才子”</li>
                     <li>7.异性好友最多的女生，获得现金￥2000， 授予称号“窈窕淑女”</li>
                     <li>8.金色好友最多的人，获得现金￥2000，授予 称号“情深义重”</li>
-                    <li>注：最终获奖名单及奖金发放请关注后会有期ToMeet 公众号。 若后台数据监测到任意刷分行为，将取消获奖资格， 顺延给下一个候</li>
+                    <li>注：最终获奖名单及奖金发放请关注后会有期ToMeet公众号。若后台数据监测到任意刷分行为，将取消获奖资格，顺延给下一个候选人。所以没有排在榜首也未必没有机会哦！</li>
+                    <li>（一直参与4人以下活动且人员固定将被判定为刷活动行为）</li>
                 </ul>
             </div>
             <h3 class="guize_h3">本活动最终解释权归后会有期所有</h3>
@@ -247,7 +253,7 @@
                 <img src="images/cytj.png" class="gz_biao" alt="">
                 <h1>参与条件</h1>
                 <ul>
-                    <li>杭州地区女生，需要提供姓名+联系方式+微信号+5张近照+感兴趣的活动, 发送至微信公众号或者activity@hzease</li>
+                    <li>杭州地区女生，需要提供姓名+联系方式+微信号+5张近照+感兴趣的活动, 发送至微信公众号或者activity@hzease.com</li>
                 </ul>
             </div>
             <div class="one_list">
@@ -287,6 +293,7 @@
                         </div>-->
 
                     </div>
+                    <div class="tixian_ts">注：由于活动过于火爆，提现人数过多，提现将只在工作日开放</div>
                 </div>
             </div>
         </div>
@@ -301,7 +308,7 @@
                     <img src="images/zhongjiangtitleimg.png" alt=""/>
                     <div class="jiangxiang">
                         <h1>恭喜获得</h1>
-                        <h2><!--5元现金奖励，请至后会有期APP进行提现，邀请10位好友助力可再获得一次抽奖机会--></h2>
+                        <h2><!--5元现金奖励，请至后会有期APP进行提现，邀请5位好友助力可再获得一次抽奖机会--></h2>
                     </div>
                     <input type="button" value="邀请好友" class="yaoqing_haoyou"/>
                 </div>
@@ -362,6 +369,15 @@
 <div class="keyizp"></div>
 <!--给别人助力后获取抽奖机会-->
 
+<div class="dingwei">
+    系统检测到您不在杭州市，如果你确实在杭州市，请点击确定重新定位。
+    <div class="dingwei_anniu">
+        <span>取消</span>
+        <span>确定</span>
+    </div>
+
+</div>
+
 </body>
 
 
@@ -386,6 +402,11 @@
             $(".tishi").fadeOut(500);
         }, 1500)
     }//提示框2秒后消失
+    function tishi_out_long() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        }, 2500)
+    }//提示框2秒后消失
 
     function my_zhuli_href() {
         location.href = location.href = 'https://hzease.com/activity/index.html?userId=' + localStorage.getItem("userid");
@@ -405,12 +426,13 @@
         code = getQueryString("code");
         login();//获取token
         load();//被助力着昵称-奖池剩余金额
+//        loadMap();
         get_zhuli();//获取助力的人
         getzp_tishi();
         frequency();//剩余抽奖次数
+        isInapp();
         zhuli();//点击助力
         get_ticket();//微信分享jssdk
-
     });
 
     //    获取token
@@ -425,12 +447,12 @@
                     url: ContextPath + 'view/login',
                     data: {"code": code},
                     success: function (json) {
-                        console.dir(json);
+//                        console.dir(json);
                         //获取token之后存到本地缓存
                         if (json.success) {
-                            var datas = json.data;
-                            localStorage.setItem("userid", datas.id);
-                            localStorage.setItem("token", datas.token);
+                            var data = json.data;
+                            localStorage.setItem("userid", data.id);
+                            localStorage.setItem("token", data.token);
                         }
                         if (!json.success) {
                             console.dir(json.msg);
@@ -508,6 +530,135 @@
             }
         });
     }
+
+    function loadIp(){
+        mapObj = new AMap.Map('iCenter');
+        mapObj.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                timeout: 20000,          //超过20秒后停止定位，默认：无穷大
+                maximumAge: 0
+            });
+            mapObj.addControl(geolocation);
+            geolocation.getCityInfo(function (status,result) {
+                console.dir(result);
+                console.dir(result.city);
+                var cityIp = result.city;
+                if(cityIp == '杭州市'){
+                    zp();
+                }else{
+                    loadMap();
+                }
+            });
+            AMap.event.addListener(geolocation, 'complete', function (data) {console.dir(data);});//返回定位信息
+            AMap.event.addListener(geolocation, 'error', function () {
+                loadMap();
+            });      //返回定位出错信息
+
+        })
+    }
+
+    function loadMap(){
+        mapObj = new AMap.Map('iCenter');
+        mapObj.plugin('AMap.Geolocation', function () {
+            geolocation = new AMap.Geolocation({
+                radius: 1000,
+                extensions: 'base',
+                timeout: 20000,          //超过10秒后停止定位，默认：无穷大
+                maximumAge: 0
+            });
+            mapObj.addControl(geolocation);
+            geolocation.getCurrentPosition();
+            AMap.event.addListener(geolocation, 'complete', function (data) {
+                console.dir(data)
+                var city = data.addressComponent.city;
+                localStorage.setItem("city",city);
+//                alert(city);
+                if(city){
+                    if(city == '杭州市'){
+                        zp();
+                    }else{
+                        $(".tishi_val").html('该抽奖活动仅限杭州用户参加');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                    }
+                }else{
+                    $(".tishi_val").html(city+'的朋友，目前该抽奖活动仅限杭州用户参加，其他地区将陆续开放');
+                    $(".tishi").fadeIn(500);
+                    tishi_out();
+                }
+            });//返回定位信息
+            AMap.event.addListener(geolocation, 'error', function () {
+                zp();
+                /*$(".tishi_val").html('定位失败，请先检查定位设置');
+                $(".tishi").fadeIn(500);
+                tishi_out();*/
+                console.log("定位失败");
+            });      //返回定位出错信息
+
+        })
+    }
+
+    function zp() {
+        var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
+        if(!isLogin){
+            getcode();
+            return;
+        }
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:ContextPath+'view/luckDraw',
+            data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
+            success:function(json){
+                var data = json.data;
+                console.dir(json);
+                if(json.success){
+                    window.DrawObject= data;
+                    $(".shengyu_cishu span").html(data.frequency);
+
+                    //执行转盘回调
+                    self.opts.clickCallback.call(self);
+                }else{
+                    if(json.msg == '您的抽奖次数已用完'){
+                        $(".tishi_val").html('您的抽奖次数已用完');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if(json.msg == '助力5人可再获取一次抽奖机会'){
+                        $(".tishi_val").html('邀请5人助力可获取第二次抽奖机会');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if(json.msg == '活动还未开始'){
+                        $(".tishi_val").html('活动还未开始');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if(json.msg == '活动已结束'){
+                        $(".tishi_val").html('活动已结束');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if(json.msg == '抽奖金额不足'){
+                        $(".tishi_val").html('奖池剩余金额不足');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if(json.msg == '登录失效'){
+                        getcode();
+                        return;
+                    }
+
+                }
+            }
+        });
+    }
+
 
     //获取助力的人
     function get_zhuli() {
@@ -603,15 +754,19 @@
 //                console.dir(json);
                     if (json.success) {
                         $('.shengyu_cishu').html('剩余抽奖次数<span>' + data.frequency + '</span>次');
-                        if(beizhuli_userid == localStorage.getItem("userid")){
+                        getzp_tishi(data.frequency);
+
+                       /* if(beizhuli_userid == localStorage.getItem("userid")){
                             getzp_tishi(data.frequency);
                         }else{
                             $(".cha_usernum").css("display","none");
                             $(".shengyu_cishu").css("display","none");
-                        }
+                        }*/
+
                     } else {
                         if (json.msg == '登录失效') {
-                            getcode();
+                            $(".cha_usernum").css("display","none");
+                            $(".shengyu_cishu").css("display","none");
                             return;
                         }
                     }
@@ -622,6 +777,16 @@
             });
         }
 
+    }
+
+    function isInapp() {
+        var inapp = getQueryString("inapp");
+        var appuser = getQueryString("appuser");
+        var apptoken = getQueryString("apptoken");
+        if (inapp == 'true') {
+            localStorage.setItem("userid", appuser);
+            localStorage.setItem("token", apptoken);
+        }
     }
 
     //助力
@@ -642,8 +807,9 @@
                     return;
                 } else {
                     if (localStorage.getItem("userid") == beizhuli_userid) {
-                        $(".tishi").fadeIn(500);
+                        $(".btn_help").addClass("btn_not_help");
                         $(".tishi_val").html('不能给自己助力哦');
+                        $(".tishi").fadeIn(500);
                         tishi_out();
                         return;
                     } else {
@@ -681,29 +847,31 @@
                     }
                     if (!json.success) {
                         if (json.msg == '助力已存在') {
-                            $(".tishi").fadeIn(500);
                             $(".tishi_val").html('已为TA助力过');
+                            $(".tishi").fadeIn(500);
                             tishi_out();
                             $("#btn_help").css("display","none");
                             $("#my_help").css("display","block");
                         }
                         if (json.msg == '最多助力1个人') {
-                            $(".btn_help").addClass("btn_not_help");
                             $(".tishi_val").html('只能给一人助力哦');
                             $(".tishi").fadeIn(500);
                             tishi_out();
+                            $("#btn_help").css("display","none");
+                            $("#my_help").css("display","block");
                         }
                         if (json.msg == '自己不能给自己助力') {
                             $(".btn_help").addClass("btn_not_help");
-                            $(".tishi_val").html('不能给自己助力的哦');
+                            $(".tishi_val").html('不能给自己助力哦');
                             $(".tishi").fadeIn(500);
                             tishi_out();
                         }
                         if (json.msg == '助力失败') {
-                            $(".btn_help").addClass("btn_not_help");
                             $(".tishi_val").html('已有5人为TA助力，不需要在助力啦');
                             $(".tishi").fadeIn(500);
                             tishi_out();
+                            $("#btn_help").css("display","none");
+                            $("#my_help").css("display","block");
                         }
                         if (json.msg == '登录失效') {
                             getcode();
@@ -766,10 +934,10 @@
 
                         //        分享到朋友
                         wx.onMenuShareAppMessage({
-                            title: '后会有期活动页', // 分享标题
-                            desc: '一款线下组队交友神器，来参加活动有好礼送哦', // 分享描述
+                            title: '后会有期 八月女神季', // 分享标题
+                            desc: '线下组队活动狼人杀，轻取百万现金大礼和FENDI包包', // 分享描述
                             link: shareLinkUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://hzease.com/images/logo200x200.png', // 分享图标
+                            imgUrl: 'https://hzease.com/images/share.png', // 分享图标
                             type: 'link', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -785,9 +953,9 @@
 
                         //        分享到朋友圈
                         wx.onMenuShareTimeline({
-                            title: '后会有期活动页', // 分享标题
+                            title: '后会有期，八月女神季', // 分享标题
                             link: shareLinkUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://hzease.com/images/logo200x200.png', // 分享图标
+                            imgUrl: 'https://hzease.com/images/share.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 console.dir("分享给好友成功");
@@ -886,7 +1054,7 @@
                             })
                         }
                     }else{
-                        $(".tishi_val").html('数据加载失败');
+                        $(".tishi_val").html(json.msg);
                         $(".tishi").fadeIn(500);
                         tishi_out();
                     }
@@ -1012,9 +1180,11 @@
 
             $(".zp_top h1").html('奖池剩余金额：'+data.allMoney/100+'元');
             $(".zp_top h2").html('参与人数：'+data.joinMember+'人');
-            if(beizhuli_userid == localStorage.getItem("userid")){
+            getzp_tishi(data.frequency);
+
+           /* if(beizhuli_userid == localStorage.getItem("userid")){
                 getzp_tishi(data.frequency);
-            }
+            }*/
 
 
         } //抽奖结束回调
@@ -1024,7 +1194,7 @@
 
 
 <!--魔窗-->
-<script>
+<!--<script>
     new Mlink({
         mlink: 'AcpY',//短链地址
         button: document.querySelector('a#activity_upload'),
@@ -1032,7 +1202,7 @@
         autoRedirectToDownloadUrl: true,
         downloadWhenUniversalLinkFailed: false
     });
-</script>
+</script>-->
 <!--魔窗-->
 
 
