@@ -2,724 +2,134 @@
 
 /*room*/
 .room_container{padding: 10px 15px;}
-.yq_user{
-    padding: 20px 20px;
-    background: url("../images/top_bg.png") no-repeat;
-    background-size: 100% 100%;
-    min-height: 190px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
+.yq_user{padding: 20px 20px;background: url("../images/top_bg.png") no-repeat;background-size: 100% 100%;min-height: 190px;margin-bottom: 10px;box-sizing: border-box;}
 .yq_user h1{font-size: 12px;color: #fff;margin: 0 0 7px;}
-.yq_userinfo img{
-    width: 56px;
-    border-radius: 50%;
-    margin: 0 10px 0 0;
-    float: left;
-}
-.yq_userinfo span{
-    width: calc(100% - 66px);
-    font-size: 18px;
-    color: #fff;
-    line-height: 56px;
-    float: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+.yq_userinfo img{width: 56px;border-radius: 50%;margin: 0 10px 0 0;float: left;}
+.yq_userinfo span{width: calc(100% - 66px);font-size: 18px;color: #fff;line-height: 56px;float: left;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .yq_info{padding: 0 20px;}
-.yq_info p{
-    font-size: 15px;
-    line-height: 20px;
-    color: #333333;
-}
-.yq_info h2{
-    font-size: 15px;
-    color: #CCCCCC;
-    text-align: center;
-    margin: 0 0 15px;
-    line-height: 15px;
-}
-.room_gamename{
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    float: left;
-}
-.room_gamename img{
-    width: 16px;
-    float: left;
-    margin: 0 5px 0 0;
-    position: relative;
-    top: 2px;
-}
-.room_gamename h3{
-    width: calc(100% - 21px);
-    float: left;
-    font-size: 17px;
-    color: #333333;
-    margin: 0;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 18px;
-}
-.room_xiangqing{
-    font-size: 15px;
-    color: #7f7f7f;
-    line-height: 18px;
-    margin: 15px 0 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.xingbie{
-    text-align: center;
-    display: inline-block;
-    float: right;
-}
-.nan_clo{
-    font-size: 13px;
-    color: #03b5e3;
-    display: inline-block;
-    margin: 0 5px ;
-}
-.nv_clo{
-    font-size: 13px;
-    color: #ff8373;
-    display: inline-block;
-    margin: 0 5px ;
-}
-.xingbie span img{
-    width: 12px;
-    position: relative;
-    top: 2px;
-    margin-right: 2px;
-}
-.youxi_info{
-    position: relative;
-    line-height: 20px;
-}
-.gamename2{
-    font-size: 12px;
-    color: #808080;
-    margin: 0 0 8px;
-}
-.game_time{
-    float: right;
-    font-size: 10px;
-    color: #333333;
-}
-.game_time img{
-    width: 14px;
-    margin-right: 3px;
-    position: relative;
-    top: 3px;
-}
-.adduser_tx img{
-    width: 22px;
-    margin-right: 3px;
-    border-radius: 50%;
-}
-.btn_go{
-    width: 168px;
-    height: 45px;
-    border-radius: 100px;
-    background: #3fcff1;
-    border: none;
-    display: block;
-    font-size: 22px;
-    color: #fff;
-    box-shadow: 0 4px 7px -1px #93e4f7;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    margin-left: -84px;
-    line-height: 44px;
-    text-align: center;
-}
-.bom_xiazai{
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    bottom: 0;left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 6px 0;
-    box-sizing: border-box;
-}
-.f_bg{
-    background: #fff;
-    border-radius: 25px;
-    min-height: 460px;
-    box-sizing: border-box;
-    position: relative;
-}
-.cha{
-    width: 15px;
-    margin:  9px 15px ;
-    float: left;
-    cursor: pointer;
-}
-.logo_info img{
-    width: 37px;
-    float: left;
-}
-.logo_info span{
-    float: left;
-}
-.logo_info span h3{
-    font-size: 15px;
-    color: #fff;
-    margin: 0 0 5px 5px;
-    line-height: 15px;
-}
-.logo_info span h4{
-    font-size: 12px;
-    color: #cccccc;
-    line-height: 13px;
-    margin: 0 0 0 5px;
-}
-.liji_load{
-    width: 75px;
-    height: 37px;
-    position: absolute;
-    right: 15px;
-    top: 6px;border: none;
-    border-radius: 10px;
-    background: #3fcff1;
-    font-size: 14px;
-    color: #fff;
-    line-height: 36px;
-    text-align: center;
-}
-.zanwu{
-    font-size: 15px;
-    color: #333;
-    line-height: 40px;
-    padding: 20px 0;
-    text-align: center;
-}
+.yq_info p{font-size: 15px;line-height: 20px;color: #333333;}
+.yq_info h2{font-size: 15px;color: #CCCCCC;text-align: center;margin: 0 0 15px;line-height: 15px;}
+.room_gamename{width: 50%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;float: left;}
+.room_gamename img{width: 16px;float: left;margin: 0 5px 0 0;position: relative;top: 2px;}
+.room_gamename h3{width: calc(100% - 21px);float: left;font-size: 17px;color: #333333;margin: 0;font-weight: 600;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;line-height: 18px;}
+.room_xiangqing{font-size: 15px;color: #7f7f7f;line-height: 18px;margin: 15px 0 10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.xingbie{text-align: center;display: inline-block;float: right;}
+.nan_clo{font-size: 13px;color: #03b5e3;display: inline-block;margin: 0 5px ;}
+.nv_clo{font-size: 13px;color: #ff8373;display: inline-block;margin: 0 5px ;}
+.xingbie span img{width: 12px;position: relative;top: 2px;margin-right: 2px;}
+.youxi_info{position: relative;line-height: 20px;}
+.gamename2{font-size: 12px;color: #808080;margin: 0 0 8px;}
+.game_time{float: right;font-size: 10px;color: #333333;}
+.game_time img{width: 14px;margin-right: 3px;  position: relative;top: 3px;}
+.adduser_tx img{width: 22px;margin-right: 3px;border-radius: 50%;}
+.btn_go{width: 168px;height: 45px;border-radius: 100px;background: #3fcff1;border: none;display: block;font-size: 22px;color: #fff;box-shadow: 0 4px 7px -1px #93e4f7;position: absolute;bottom: 80px;left: 50%;margin-left: -84px;line-height: 44px;text-align: center;}
+.opentishi{font-size: 12px;color: #333;text-align: center;width: 100%;position: absolute;bottom: 30px;left: 0;}
+.bom_xiazai{width: 100%;height: 50px;position: fixed;bottom: 0;left: 0;background: rgba(0, 0, 0, 0.7);padding: 6px 0;box-sizing: border-box;}
+.f_bg{background: #fff;border-radius: 25px;min-height: 460px;box-sizing: border-box;position: relative;}
+.cha{width: 15px;margin:  9px 15px ;float: left;cursor: pointer;}
+.logo_info img{width: 37px;float: left;}
+.logo_info span{float: left;}
+.logo_info span h3{font-size: 15px;color: #fff;margin: 0 0 5px 5px;line-height: 15px;}
+.logo_info span h4{font-size: 12px;color: #cccccc;line-height: 13px;margin: 0 0 0 5px;}
+.liji_load{width: 75px;height: 37px;position: absolute;right: 15px;top: 6px;border: none;border-radius: 10px;background: #3fcff1;font-size: 14px;color: #fff;line-height: 36px;text-align: center;}
+.zanwu{font-size: 15px;color: #333;line-height: 40px;padding: 20px 0;text-align: center;}
 /*room*/
-
-/*share*/
-.fenxiang_container>div>img{
-    width: 100%;
-}
-.load_div{
-    padding: 2em 0 18px;
-    width: 100%;
-}
-.one_load{
-    background: #f4fdff;
-    margin-top: -5px;
-}
-.load_div img{
-    width: 15px;
-    display: block;
-    margin: 12px auto 0;
-}
-.fx_upload{
-    display: block;
-    margin: auto;
-    width: 8em;
-    height: 2.5em;
-    border-radius: 5px;
-    background: #00b8e8;
-    font-size: 13px;
-    color: #fff;
-    text-align: center;
-    line-height: 2.5em;
-}
-.gongzhonghao{
-    padding: 14em 0 18em;
-    text-align: center;
-}
-.gongzhonghao img{
-    width: 8em!important;
-}
-.gongzhonghao h3{
-    font-size: 12px;
-    color: #333333;
-    margin: 5px 0 0;
-}
-.fenxiang_container h1{
-    font-size: 17px;
-    color: #333333;
-    text-align: center;
-    line-height: 18px;
-}
-.fenxiang_container h2{
-    font-size: 10px;
-    color: #808080;
-    line-height: 10px;
-    margin: 20px 0 35px;
-    text-align: center;
-}
-.adduser_tx{
-    height: 22px;
-}
-/*share*/
 
 
 /*yingyong_yaoqing*/
-.yyyq_container{
-    width: 100%;
-    background: url("../images/fxbg.png") no-repeat;
-    background-size: 100%;
-}
-.yyyq_container{
-    padding: 25px 0 30px;
-}
-.top_yyyq{
-    width: 80%;
-    margin: auto;
-    background: url(../images/fff_bg.png) no-repeat;
-    background-size: 100%;
-    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
-}
-.yyyq_user{
-    padding: 2.5em 0 10px;
-    position: relative;
-    overflow: hidden;
-}
-.yyyq_user_icon{
-    width: 55px;
-    margin: auto;
-    display: block;
-    border-radius: 50%;
-}
-.yuan{
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: none;
-    box-shadow: 0 0 3px #000;
-    position: relative;
-    top: -74px;
-    left: 50%;
-    margin-left: -27px;
-}
-.yyyq_user h1{
-    font-size: 14px;
-    color: #3fcff1;
-    text-align: center;
-    margin: 15px 0 6px;
-    font-weight: 400;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.yyyq_user h1 span{
-    display: inline-block;
-    margin-right: 15px;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 0px;
-    top: 4px;
-}
-.yyyq_user h2{
-    font-size: 20px;
-    color: #3fcff1;
-    text-align: center;
-    font-weight: 400;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.yyyq_user+img{
-    width: 100%;
-    display: block;
-    margin: auto;
-}
-.lingqu_container{
-    width:80%;
-    margin:auto;
-    position: relative;
-}
-.lingqu_btn{
-    width: 100%;
-    margin: auto;
-    height: 54px;
-    background: #3fcff1;
-    border: none;
-    cursor: pointer;
-}
-.lingqu{
-    display: block;
-    margin: auto;
-    width: 108px;
-}
-.lingqu img{
-    width: 30px;
-    position: relative;
-    top: 5px;
-}
-.lingqu span{
-    font-size: 18px;
-    color: #fff;
-    line-height: 54px;
-}
-.zuo_yy{
-    width: 18px;
-    position: absolute;
-    left: -18px;
-    top: -1.5em;
-}
-.you_yy{
-    width: 18px;
-    position: absolute;
-    right: -18px;
-    top: -1.5em;
-}
-.fujintuijian h1{
-    font-size: 16px;
-    color: #000000;
-    text-align: center;
-}
-.fujintuijian h1 img{
-    width: 13px;
-    margin-right: 7px;
-    position: relative;
-    top: 2px;
-}
-.tuijian{
-    width: 90%;
-    margin: 17px auto 0;
-    background: #fff;
-    border-radius: 6px;
-    padding: 10px 7px;
-}
-.game_name{
-    font-size: 15px;
-    color: #333;
-    line-height: 16px;
-    margin: 0 0 8px;
-}
-.ts_game_time{
-    top: 24px!important;
-}
-.game_img_div{
-    width: 40px;
-    height: 79px;
-    float: left;
-    padding-right: 15px;
-}
-.game_img{
-    width: 25px;
-}
-.game_info{
-    width: calc(100% - 40px);
-    float: left;
-    position: relative;
-    line-height: 20px;
-}
-.game_info h4{
-    font-size: 12px;
-    color: #808080;
-    margin: 0 0 8px;
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.phone_yanzheng_modal{
-    display: none;
-}
-.choose_way_modal{
-    display: none;
-}
-.load_gif{
-    display: block;
-    width: 30%;
-    margin: 10px auto 50px;
-}
+.adduser_tx{height: 22px;white-space: nowrap;overflow: hidden;}
+.yyyq_container{width: 100%;background: url("../images/fxbg.png") no-repeat;background-size: 100%;}
+.yyyq_container{padding: 25px 0 30px;}
+.top_yyyq{width: 80%;margin: auto;background: url(../images/fff_bg.png) no-repeat;background-size: 100%;box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);}
+.yyyq_user{padding: 2.5em 0 10px;position: relative;overflow: hidden;}
+.yyyq_user_icon{width: 55px;margin: auto;display: block;border-radius: 50%;}
+.yuan{width: 54px;height: 54px;border-radius: 50%;background: none;box-shadow: 0 0 3px #000;position: relative;top: -74px;left: 50%;margin-left: -27px;}
+.yyyq_user h1{font-size: 14px;color: #3fcff1;text-align: center;margin: 15px 0 6px;font-weight: 400;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.yyyq_user h1 span{display: inline-block;margin-right: 15px;position: relative;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width: 0;top: 4px;}
+.yyyq_user h2 {font-size: 20px;color: #3fcff1;text-align: center;font-weight: 400;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.yyyq_user+img{ width: 100%;display: block;margin: auto;}
+.lingqu_container{width:80%;margin:auto;position: relative;}
+.lingqu_btn{width: 100%;margin: auto;height: 54px;background: #3fcff1;border: none;cursor: pointer;}
+.lingqu{display: block;margin: auto;width: 108px;}
+.lingqu img{width: 30px;position: relative;top: 5px;}
+.lingqu span{font-size: 18px;color: #fff;line-height: 54px;}
+.zuo_yy{width: 18px;position: absolute;left: -18px;top: -1.5em;}
+.you_yy{width: 18px;position: absolute;right: -18px;top: -1.5em;}
+.fujintuijian h1{font-size: 16px;color: #000000;text-align: center;}
+.fujintuijian h1 img{width: 13px;margin-right: 7px;position: relative;top: 2px;}
+.tuijian{width: 90%;margin: 17px auto 0;background: #fff;border-radius: 6px;padding: 10px 7px;}
+.game_name{font-size: 15px;color: #333;line-height: 16px;margin: 0 0 8px;}
+.ts_game_time{top: 24px!important;}
+.game_img_div{width: 40px;height: 79px;float: left;padding-right: 15px;}
+.game_img{width: 25px;}
+.game_info{width: calc(100% - 40px);float: left;position: relative;line-height: 20px;}
+.game_info h4{font-size: 12px;color: #808080;margin: 0 0 8px;width: 50%;white-space: nowrap;overflow: hidden;}
+.phone_yanzheng_modal{display: none;}
+.choose_way_modal{display: none;}
+.load_gif{display: block;width: 30%;margin: 10px auto 50px;}
 
 /*login_way*/
-.login_way{
-    width: 80%;
-    min-width: 300px;
-    height: 214px;
-    margin: auto;
-    padding: 40px 0 60px;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-}
-.login_way h1{
-    font-size: 15px;
-    color: #333;
-    line-height: 16px;
-    text-align: center;
-    margin: 0 0 35px;
-}
-.all_way{
-    width: 67%;
-    margin: auto;
-}
-.all_way >div{
-    width: 50%;
-    float: left;
-    text-align: center;
-}
-.all_way >div img{
-    width: 40px;
-}
-.all_way >div h5{
-    font-size: 12px;
-    color: #333;
-    margin: 4px 0 0 0;
-}
-.close_modal{
-    width: 30px;
-    position: absolute;
-    right: 0;
-    top: -58.5px;
-}
+.login_way{width: 80%;min-width: 300px;height: 214px;margin: auto;padding: 40px 0 60px;background: #fff;border-radius: 10px;position: relative;}
+.login_way h1{font-size: 15px;color: #333;line-height: 16px;text-align: center;margin: 0 0 35px;}
+.all_way{width: 67%;margin: auto;}
+.all_way >div{width: 50%;float: left;text-align: center;}
+.all_way >div img{width: 40px;}
+.all_way >div h5{font-size: 12px;color: #333;margin: 4px 0 0 0;}
+.close_modal{width: 30px;position: absolute;right: 0;top: -58.5px;}
 /*login_way*/
+
 
 /*phone_way֤*/
-.phone_yanzheng{
-    width: 80%;
-    min-width: 300px;
-    height: 214px;
-    margin: auto;
-    padding: 30px 20px 33px;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-}
-.get_phonenum{
-    width: 54%;
-    height: 40px;
-    padding-left: 15px;
-    font-size: 15px;
-    color: #a9a9a9;
-    border: solid 1px #d1d1d1;
-    background: #f9f9f9;
-}
-.get_yzm{
-    width: calc(46% - 10px);
-    float: right;
-    height: 40px;
-    font-size: 15px;
-    color: #333333;
-    border: solid 1px #d1d1d1;
-    background: #f9f9f9;
-    cursor: pointer;outline: none;
-}
-.settime{
-    background: #dddddd!important;
-    color: #a9a9a9!important;
-}
-.shuru_yzm{
-    width: 100%;
-    height: 40px;
-    padding-left: 15px;
-    font-size: 15px;
-    color: #a9a9a9;
-    margin: 15px 0;
-    background: #f9f9f9;
-    border: solid 1px #d1d1d1;
-}
-.lingqu_libao{
-    width: 100%;
-    height: 40px;
-    border: none;
-    font-size: 15px;
-    color: #fff;
-    background: #3fcff1;
-    cursor: pointer;
-}
+.phone_yanzheng{width: 80%;min-width: 300px;height: 214px;margin: auto;padding: 30px 20px 33px;background: #fff;border-radius: 10px;position: relative;}
+.get_phonenum{width: 54%;height: 40px;padding-left: 15px;font-size: 15px;color: #a9a9a9;border: solid 1px #d1d1d1;background: #f9f9f9;}
+.get_yzm{width: calc(46% - 10px);float: right;height: 40px;font-size: 15px;color: #333333;border: solid 1px #d1d1d1;background: #f9f9f9;cursor: pointer;outline: none;}
+.settime{background: #dddddd!important;color: #a9a9a9!important;}
+.shuru_yzm{width: 100%;height: 40px;padding-left: 15px;font-size: 15px;color: #a9a9a9;margin: 15px 0;background: #f9f9f9;border: solid 1px #d1d1d1;}
+.lingqu_libao{width: 100%;height: 40px;border: none;font-size: 15px;color: #fff;background: #3fcff1;cursor: pointer;}
+/*phone_way֤*/
+
 
 /*libao*/
-.libao_modal{
-    display: none;
-}
-.libao{
-    width: 80%;
-    min-width: 300px;
-    margin: auto;
-    padding: 20px 20px 30px;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-}
-.libao p{
-    font-size: 14px;
-    color: #333333;
-    text-align: center;
-    line-height: 20px;
-    margin: 5px 0 0;
-}
-.libao_img{
-    width: 80px;
-    display: block;
-    margin: 25px auto;
-}
-.libao_loadapp{
-    width: 100%;
-    height: 40px;
-    border: none;
-    font-size: 15px;
-    color: #fff;
-    background: #3fcff1;
-    cursor: pointer;
-    display: block;
-    text-align: center;
-    line-height: 38px;
-}
+.libao_modal{display: none;}
+.libao{width: 80%;min-width: 300px;margin: auto;padding: 20px 20px 30px;background: #fff;border-radius: 10px;position: relative;}
+.libao p{font-size: 14px;color: #333333;text-align: center;line-height: 20px;margin: 5px 0 0;}
+.libao_img{width: 80px;display: block;margin: 25px auto;}
+.libao_loadapp{width: 100%;height: 40px;border: none;font-size: 15px;color: #fff;background: #3fcff1;cursor: pointer;display: block;text-align: center;line-height: 38px;}
 /*libao*/
 
 
 /*dingwei*/
-.place_container{
-    margin-bottom: 10px;
-}
-.place_info{
-    max-width: 30%;
-    float: left;
-    font-size: 12px;
-    color: #808080;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.distance_info span{
-    font-size: 14px;
-    color: #808080;
-    display: inline-block;
-    margin: 0 4px;
-}
-.distance_info{
-    float: left;
-    font-size: 12px;
-    color: #808080;
-}
+.place_container{margin-bottom: 10px;}
+.place_info{max-width: 30%;float: left;font-size: 12px;color: #808080;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.distance_info span{font-size: 14px;color: #808080;display: inline-block;margin: 0 4px;}
+.distance_info{float: left;font-size: 12px;color: #808080;}
 /*dingwei*/
-
-
+/*yingyong_yaoqing*/
 
 
 /*addFrienf*/
-.div_addFriend{
-    padding: 50px 20px;
-}
-.addF_container{
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    background: #ffffff;
-    box-sizing: border-box;
-    position: relative;
-    border-radius: 25px;
-    box-shadow: 1px 3px 9px #eeeeee;
-}
-.addF_logo{
-    position: absolute;
-    left: 12px;
-    top:12px;
-}
-.addF_logo img{
-    width: 40px;
-    float: left;
-}
-.addF_logo span{
-    display: inline-block;
-    float: left;
-    margin: 0 0 0 10px;
-    line-height: 40px;
-    font-size: 15px;
-    color: #333;
-
-}
-.adaF{
-    padding-top: 50px;
-}
-.addF_user img{
-    width: 100px;
-    display: block;
-    margin: 0 auto 10px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.addF_user h1{
-    font-size: 14px;
-    color: #333333;
-    font-weight: 100;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 24px;
-    max-width: 260px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.btn_addFriend{
-    width: 160px;
-    height: 40px;
-    margin: 40px auto 20px;
-    border-radius: 80px;
-    background: #3fcff1;
-    border: none;
-    display: block;
-    font-size: 20px;
-    color: #fff;
-    box-shadow: 0 4px 7px -1px #93e4f7;
-    line-height: 38px;
-    text-align: center;
-}
-.addF_label{
-    width: 70%;
-    margin: auto;
-    min-width: 260px;
-    padding-top: 10px;
-    max-height: 100px;
-    overflow-y: auto;
-}
+.div_addFriend{padding: 50px 20px;}
+.addF_container{width: 100%;height: 100%;margin: auto;background: #ffffff;box-sizing: border-box;position: relative;border-radius: 25px;box-shadow: 1px 3px 9px #eeeeee;}
+.addF_logo{position: absolute;left: 12px;top:12px;}
+.addF_logo img{width: 40px;float: left;}
+.addF_logo span{display: inline-block;float: left;margin: 0 0 0 10px;line-height: 40px;font-size: 15px;color: #333;}
+.adaF{padding-top: 50px;}
+.addF_user img{width: 100px;display: block;margin: 0 auto 10px;border-radius: 50%;overflow: hidden;}
+.addF_user h1{font-size: 14px;color: #333333;font-weight: 100;margin: 0 auto;text-align: center;line-height: 24px;max-width: 260px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.btn_addFriend{width: 160px;height: 40px;margin: 40px auto 20px;border-radius: 80px;background: #3fcff1;border: none;display: block;font-size: 20px;color: #fff;box-shadow: 0 4px 7px -1px #93e4f7;line-height: 38px;text-align: center;}
+.addF_label{width: 70%;margin: auto;min-width: 260px;padding-top: 10px;max-height: 100px;overflow-y: auto;}
 .addF_label::selection {background: #222 ; color: white ; text-shadow: none ; }
 .addF_label::-webkit-scrollbar-track-piece{width:2px;background-color:#f2f2f2}
 .addF_label::-webkit-scrollbar{width:2px;height:6px}
 .addF_label::-webkit-scrollbar-thumb{height:50px;background-color: rgba(99, 99, 99, 0.3);}
 .addF_label::-webkit-scrollbar-thumb:hover{background:#3fb560}
 
-.addF_label span{
-    display: inline-block;
-    width: auto;
-    color: #fff;
-    max-width: 230px;
-    margin: 0 5px 5px 0;
-    padding: 3px 6px;
-    border-radius: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.addspan0{
-    background: #ff8373;
-}
-.addspan1{
-    background: #ffc540;
-}
-.addspan2{
-    background: #ffd473;
-}
-.addspan3{
-    background: #60da7f;
-}
-.addspan4{
-    background: #6ed8f1;
-}
-
-
-
-
-
-
-
+.addF_label span{display: inline-block;width: auto;color: #fff;margin: 0 5px 5px 0;padding: 3px 6px;border-radius: 4px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 140px;}
+.addspan0{background: #ff8373;}
+.addspan1{background: #ffc540;}
+.addspan2{background: #ffd473;}
+.addspan3{background: #60da7f;}
+.addspan4{background: #6ed8f1;}
 /*addFrienf*/
 
 

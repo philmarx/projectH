@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>后会有期观影节</title>
+    <meta name="keywords" content="后会有期"/>
+    <meta name="description" content="后会有期"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--微信JSsdk-->
+    <!--魔窗-->
+    <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+
+    <!-- 接口前缀-->
+    <script src="js/key.js"></script>
+    <script src="js/common.js"></script>
+
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/cssTemp.css"/>
+</head>
+<body style="background: #000000;">
+
+<div class="activity9_container movie2">
+    <div class="zhuli_container">
+        <div class="myquan">我的观影券×0</div>
+        <img src="images/tx2.jpg" class="usericon" alt="">
+        <div class="nickname">--</div>
+        <div class="numtishi">再邀请<font color="red">10</font>位好友助力可获得1张观影券</div>
+        <div class="usericon_container">
+            <!--<span class="one_zhuliuser">
+                <img src="images/tx2.jpg" alt="">
+                <h6>李雷</h6>
+            </span>-->
+        </div>
+        <button class="btn_" id="btn_share">邀请好友助力</button>
+        <button class="btn_" id="btn_lookMe">查看我的助力</button>
+        <button class="btn_" id="btn_zhuli">为TA助力</button>
+    </div>
+
+    <div class="activity_container">
+        <img src="images/hr.png" alt="">
+        <div class="activity_detail">观影场次</div>
+        <div class="changci_title">新远下沙影城(福雷德广场店)</div>
+        <div>
+            <div class="changci_time" style="position: relative;">
+                <h1>9月16日</h1>
+                <h2>18:30<font color="red" style="font-size: 12px;">（已满）</font></h2>
+            </div>
+            <div class="changci_time" style="">
+                <h1>9月20日</h1>
+                <h2>18:30</h2>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="changci_title" style="text-align: center;">更多观影场次将陆续开放</div>
+    </div>
+
+    <div class="activity_container" id="vote_toupiao">
+        <img src="images/hr.png" alt="">
+        <div class="activity_detail">投票</div>
+        <div class="at_intro">我们会为票数高的电影安排更多的免费场次，你想看哪场电影（多选）</div>
+        <div class="movie_container">
+            <!--<div class="movie" id="id1001">-->
+            <!--<div class="checkbox"><span class="notBg"></span></div>-->
+            <!--<h1 class="movieName">星球崛起3</h1>-->
+            <!--<div class="clear"></div>-->
+            <!--</div>-->
+        </div>
+        <button class="vote" id="vote">投票</button>
+    </div>
+
+    <div class="activity_container" id="vote_zanshi">
+        <img src="images/hr.png" alt="">
+        <div class="activity_detail">投票</div>
+        <div class="at_intro">我们会为票数高的电影安排更多的免费场次，你想看哪场电影（多选）</div>
+        <div class="result_container">
+            <!--<div class="result">
+                <h1>猩球崛起3</h1>
+                <div>
+                    <div class="left_result">
+                        <div class="result_lenght"><span style=" width: 50%;"></span></div>
+                    </div>
+                    <div class="center_result">108票</div>
+                    <div class="right_result">10%</div>
+                    <div class="clear"></div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    <div class="activity_container">
+        <img src="images/hr.png" alt="">
+        <div class="activity_detail">活动详情</div>
+        <div class="at_intro">活动时间：2017年9月15日-10月31日在后会有期APP内不间断放出免费观影场次。</div>
+        <div class="at_intro">规则说明：每邀请30位好友助力即可获得1张观影券。</div>
+        <div class="at_intro">使用说明：观影券等同于实物电影票，可在后会有期APP大厅中加入免费观影房间参与各大影院的免费观影，无影片限定，每参与一场免费观影消耗一张。</div>
+    </div>
+
+    <a href="javascript:void(0);" class="btn_uploadAPP" id="btn_uploadAPP">下载每周可以免费看电影还可以没事杀个狼人打个球搭个长城撩个小哥哥小姐姐的后会有期APP</a>
+</div>
+
+<!---tishi---->
+<div class="tishi">
+    <div class="distable">
+        <div class="distabcell">
+            <div class="tishi_val">
+            </div>
+        </div>
+    </div>
+</div>
+<!---tishi---->
+
+<!---邀请助力提示---->
+<div class="all_black_bg7 zhuli_yaoqing_modal">
+    <div class="zhuli_yaoqing">
+        <img src="images/zhuliyaoqing.png" class="share_pengyou" alt=""/>
+        <img src="images/iknow.png" class="iknow" alt="">
+    </div>
+</div>
+<!---邀请助力提示---->
+</body>
+
+
+<script>
+    $(document).ready(function () {
+        if(localStorage.getItem("userid") && localStorage.getItem("userid") == url_userid){
+            $("#btn_zhuli").css("display","none");
+            $("#btn_share").css("display","block");
+            look_shengyu();
+        }
+        $("#btn_share").click(function () {
+            $(".zhuli_yaoqing_modal").fadeIn(500);
+        });
+        $(".zhuli_yaoqing_modal").click(function () {
+            $(".zhuli_yaoqing_modal").fadeOut(500);
+        });
+        $("#btn_lookMe").on('click',function () {
+            location.href = location.href = 'https://hzease.com/activity9/swordArtOnline.html?userId=' + localStorage.getItem("userid");
+        });
+
+
+        // 投票
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + '/view/findMovies',
+            success: function (json) {
+                if (json.success) {
+                    var data = json.data;
+                    var $movie_container = $(".movie_container").html('');
+                    $.each(data,function (index, obj) {
+                        $movie_container.append(' <div class="movie" id="'+obj.id+'">'+
+                            '<div class="checkbox"><span class="notBg"></span></div>'+
+                            '<h1 class="movieName">'+obj.movieName+'</h1>'+
+                            '<div class="clear"></div>'+
+                            '</div>');
+                    })
+                    window.isChoose = [];
+                    $(".movie").on('click',function () {
+                        var id = parseInt($(this).attr("id"));
+                        var flag = $(this).children(".checkbox").children("span").attr("class");
+                        if(flag == 'notBg'){// 变成选择
+                            $(this).children(".checkbox").children("span").removeClass("notBg");
+                            $(this).children(".checkbox").children("span").addClass("isBg");
+                            isChoose.push(id);
+                            console.dir(isChoose);
+                        }
+                        if(flag == 'isBg'){// 变成未选择
+                            $(this).children(".checkbox").children("span").removeClass("isBg");
+                            $(this).children(".checkbox").children("span").addClass("notBg");
+                            isChoose.remove(id);
+                            console.dir(isChoose);
+                        }
+                    });
+                } else {
+                    console.dir(json.msg);
+                }
+            },
+            error: function (e) {
+                $(".movie_container").html('<h1 class="movieName">暂无</h1>');
+            }
+        });
+
+        if(localStorage.getItem("isVote")){
+            $("#vote_toupiao").css("display","none");
+            $("#vote_zanshi").css("display","block");
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: ContextPath + '/view/findMovies',
+                success: function (json) {
+                    if (json.success) {
+                        var data = json.data;
+                        var $result_container = $(".result_container").html('');
+                        var sum = 0;
+                        for(var i=0;i<data.length;i++){
+                            sum+=data[i].vote;
+                        }
+                        $.each(data,function (index,obj) {
+                            var $clear = $('<div class="clear"></div>');
+                            var ther = obj.vote*100/sum+'';
+                            var fenshu = ther.substring(0,ther.indexOf(".") +3);
+                            $result_container.append(' <div class="result">'+
+                                '<h1>'+obj.movieName+'</h1>'+
+                                '<div>'+
+                                '<div class="left_result">'+
+                                '<div class="result_lenght"><span style=" width: '+fenshu+'%;"></span></div>'+
+                                '</div>'+
+                                '<div class="center_result">'+obj.vote+'票</div>'+
+                                '<div class="right_result">'+fenshu+'%</div>'+
+                                '<div class="clear"></div>'+
+                                '</div>'+
+                                '</div>');
+                        })
+                    } else {
+                    }
+                },
+                error: function (e) {
+                }
+            });
+        }
+        $("#vote").click(function () {
+            if(localStorage.getItem("isVote")){
+                $(".tishi_val").html('您已投过票啦');
+                $(".tishi").fadeIn(500);
+                tishi_out();
+                return;
+            }
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: ContextPath + '/view/voteForMovie',
+                data: {params:'['+isChoose+']'},
+                success: function (json) {
+                    if(json.success){
+                        localStorage.setItem("isVote","true");
+                        $("#vote_toupiao").css("display","none");
+                        $("#vote_zanshi").css("display","block");
+                        $.ajax({
+                            type: 'post',
+                            dataType: 'json',
+                            url: ContextPath + '/view/findMovies',
+                            success: function (json) {
+                                if (json.success) {
+                                    var data = json.data;
+                                    var $result_container = $(".result_container").html('');
+                                    var sum = 0;
+                                    for(var i=0;i<data.length;i++){
+                                        sum+=data[i].vote;
+                                    }
+                                    $.each(data,function (index,obj) {
+                                        var $clear = $('<div class="clear"></div>');
+                                        var ther = obj.vote*100/sum+'';
+                                        var fenshu = ther.substring(0,ther.indexOf(".") +3);
+                                        $result_container.append(' <div class="result">'+
+                                            '<h1>'+obj.movieName+'</h1>'+
+                                            '<div>'+
+                                            '<div class="left_result">'+
+                                            '<div class="result_lenght"><span style=" width: '+fenshu+'%;"></span></div>'+
+                                            '</div>'+
+                                            '<div class="center_result">'+obj.vote+'票</div>'+
+                                            '<div class="right_result">'+fenshu+'%</div>'+
+                                            '<div class="clear"></div>'+
+                                            '</div>'+
+                                            '</div>');
+                                    })
+                                } else {
+                                }
+                            },
+                            error: function (e) {
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        Array.prototype.indexOf = function(val) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == val) return i;
+            }
+            return -1;
+        };
+        Array.prototype.remove = function(val) {
+            var index = this.indexOf(val);
+            if (index > -1) {
+                this.splice(index, 1);
+            }
+        };
+
+    });
+    function tishi_out() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        }, 1500)
+    }//提示框2秒后消失
+</script>
+
+<!--load-->
+<script>
+    var code;
+    var state;
+    var url_userid = parseInt(getQueryString("userId"));
+    if(!url_userid){
+        if(localStorage.getItem("userid")){
+            url_userid = localStorage.getItem("userid");
+        } else{
+            getcode();
+        }
+    }
+    var share_nickname = url_userid;
+    var channel = getQueryString("channel");
+    $(".btn_uploadAPP").click(function () {
+        if(channel){
+            $.ajax({
+                async: false,
+                type: 'post',
+                dataType: 'json',
+                url: ContextPath + 'application/saveChannel',
+                data: {
+                    "channel": channel,
+                    "description": 'swordArtOnline-点击下载',
+                    "url": location.href
+                },
+                success: function (json) {
+                    console.dir(json);
+                },
+                error: function (e) {
+                }
+            });
+        }
+    });
+    $(function () {
+        code = getQueryString("code");
+        isInapp();
+        login();//获取token
+        load();
+        get_zhuli();//获取助力的人
+        zhuli();//点击助力
+        get_ticket();//微信分享jssdk
+    });
+    function isInapp() {
+        var inapp = getQueryString("inapp");
+        var appuser = getQueryString("appuser");
+        var apptoken = getQueryString("apptoken");
+        if (inapp) {
+            localStorage.setItem("userid", appuser);
+            localStorage.setItem("token", apptoken);
+        }
+    }
+
+    //    获取token
+    function login() {
+        if (code) {
+            var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
+            if (!isLogin) {
+                $.ajax({
+                    async: false,
+                    type: 'post',
+                    dataType: 'json',
+                    url: ContextPath + 'view/login',
+                    data: {"code": code},
+                    success: function (json) {
+                        //获取token之后存到本地缓存
+                        if (json.success) {
+                            var data = json.data;
+                            localStorage.setItem("userid", data.id);
+                            localStorage.setItem("token", data.token);
+                        }
+                        if (!json.success) {
+                            console.dir(json.msg);
+                        }
+                    },
+                    error: function (e) {
+                        console.dir('获取token失败');
+                    }
+                });
+            }
+        }
+    }
+
+    function load() {
+        if(url_userid){
+            showUser(url_userid);
+        }else if(localStorage.getItem("userid")){
+            showUser(localStorage.getItem("userid"));
+            url_userid = localStorage.getItem("userid");
+        }
+        function showUser(thisuserid) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: ContextPath + '/view/findUserInfo',
+                data: {"userId": thisuserid},
+                success: function (json) {
+                    if (json.success) {
+                        var data = json.data;
+                        var $imgsrc;
+                        if (data.avatarSignature.length == 13) {
+                            $imgsrc = '//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/' + data.id + '/avatar?x-oss-process=image/resize,m_lfit,w_200,h_200';
+                        } else {
+                            $imgsrc = data.avatarSignature;
+                        }
+                        $(".usericon").attr("src", $imgsrc);
+
+                        $(".nickname").html(data.nickname);
+
+                    } else {
+                        console.dir(json.msg);
+                    }
+                },
+                error: function (e) {
+                    location.replace(location.href);
+                }
+            });
+        }
+
+        var params_userid;
+        if(localStorage.getItem("userid")){
+            params_userid = localStorage.getItem("userid");
+        }else{
+            params_userid = url_userid;
+        }
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + 'view/findUserInfo',
+            data: {"userId": params_userid},
+            success: function (json) {
+                if (json.success) {
+                    var data = json.data;
+                    share_nickname = data.nickname;
+                } else {
+                    console.dir(json.msg);
+                }
+            },
+            error: function (e) {
+                location.replace(location.href);
+            }
+        });
+    }
+
+    // 查看剩余观影券
+    function look_shengyu() {
+        $(".myquan").css("display","block");
+        $(".numtishi").css("display","block");
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + '/prop/findProp',
+            data: {"token": localStorage.getItem("token"), "userId": localStorage.getItem("userid")},
+            success: function (json) {
+//                console.dir(json);
+                if (json.success) {
+                    $(".myquan").html('我的观影券×'+json.data.movieTicket);
+                } else {
+                    console.dir(json.msg);
+                }
+            },
+            error: function (e) {
+                location.replace(location.href);
+            }
+        });
+    }
+
+    // 查看助力的人
+    function get_zhuli() {
+        $.ajax({
+            async: false,
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + '/view/findSeptHelped',
+            data: {"movieName": 'swordArtOnline', "userId": url_userid},
+            success: function (json) {
+//                console.dir(json);
+                if (json.success) {
+                    var data = json.data;
+                    if(url_userid == localStorage.getItem("userid")){
+                        var  zaiyaoqingnum = parseInt(json.data.length)%30;
+                        $(".numtishi").css("display","block");
+                        $(".numtishi").html('再邀请<font color="red">'+parseInt(30-zaiyaoqingnum)+'</font>位好友助力可获得1张观影券');
+                    }
+                    var $usericon_container = $(".usericon_container").html('');
+                    $.each(data,function (index,obj) {
+                        var $one_zhuliuser = $('<span class="one_zhuliuser"></span>');
+                        var $src;
+                        if (obj.avatarSignature.length == 13) {
+                            $src = '//tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/' + obj.id + '/avatar?x-oss-process=image/resize,m_lfit,w_50,h_50';
+                        }
+                        else {
+                            $src = obj.avatarSignature;
+                        }
+                        $one_zhuliuser.append('<img src="'+$src+'" alt="">'+
+                            '<h6>'+obj.nickname+'</h6>');
+                        $usericon_container.append($one_zhuliuser);
+                    })
+                    if(localStorage.getItem("userid") != url_userid){
+                        for(var i=0; i<data.length; i++){
+                            if(data[i].id == localStorage.getItem("userid")){
+                                $(".tishi_val").html('已经为TA助力过了');
+                                $(".tishi").fadeIn(500);
+                                tishi_out();
+                                $("#btn_zhuli").css("display","none");
+                                $("#btn_lookMe").css("display","block");
+                            }
+                        }
+                    }
+                }
+            },
+            error: function (e) {
+                location.replace(location.href);
+            }
+        });
+    }
+
+    //助力
+    function zhuli() {
+        var now_url = getUrlParams(location.href);
+        nowstate = now_url.state;
+        if (nowstate == 'help') {
+            ajax_zhuli(nowstate);
+        }
+
+        $("#btn_zhuli").on('click', function () {
+            state = 'help';
+            var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
+            if (!isLogin) {
+                getcode();
+                return;
+            } else {
+                if(localStorage.getItem("userid") == url_userid){
+                    $("#btn_zhuli").addClass("btn_not_help");
+                    $("#btn_zhuli").attr("disabled","true");
+                    $(".tishi_val").html('不能给自己助力哦');
+                    $(".tishi").fadeIn(500);
+                    tishi_out();
+                    return;
+                }
+                else{
+                    ajax_zhuli(state);
+                }
+            }
+        });
+    }
+    function ajax_zhuli(state) {
+        if (state == 'help') {
+            var param = {
+                "helperId": parseInt(url_userid),
+                "movieName": "swordArtOnline",
+                "token": localStorage.getItem("token"),
+                "userId": localStorage.getItem("userid")
+            };
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: ContextPath + 'view/septHelp',
+                data: param,
+                success: function (json) {
+//                    console.dir(json);
+                    if (json.success) {
+                        $(".tishi_val").html('助力成功');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        $("#btn_zhuli").css("display","none");
+                        $("#btn_lookMe").css("display","block");
+                        get_zhuli();
+                    }
+                    if (!json.success) {
+                        if (json.msg == '已经助力过了') {
+                            $(".tishi_val").html('已经为TA助力过了');
+                            $(".tishi").fadeIn(500);
+                            tishi_out();
+                            $("#btn_zhuli").css("display","none");
+                            $("#btn_lookMe").css("display","block");
+                        }
+                        if (json.msg == '助力人不存在') {
+                            $(".tishi_val").html('助力人不存在');
+                            $(".tishi").fadeIn(500);
+                            tishi_out();
+                            $("#btn_zhuli").css("display","none");
+                            $("#btn_lookMe").css("display","block");
+                        }
+                        if (json.msg == '自己不能给自己助力') {
+                            $(".btn_help").addClass("btn_not_help");
+                            $(".tishi_val").html('不能给自己助力哦');
+                            $(".tishi").fadeIn(500);
+                            tishi_out();
+                            $("#btn_zhuli").css("display","none");
+                            $("#btn_share").css("display","block");
+                        }
+                        if (json.msg == '活动还未开始或已结束') {
+                            $(".tishi_val").html('活动还未开始或已结束');
+                            $(".tishi").fadeIn(500);
+                            tishi_out();
+                            $("#btn_zhuli").css("display","none");
+                            $("#btn_lookMe").css("display","block");
+                        }
+                        if (json.msg == '登录失效') {
+                            getcode();
+                            return;
+                        }
+                        if (json.msg == '用户ID不存在') {
+                            getcode();
+                            return;
+                        }
+                    }
+                },
+                error: function (e) {
+                    location.replace(location.href);
+                }
+            })
+        }
+    }
+
+    //微信分享jssdk
+    function get_ticket() {
+        var signature;
+        var noncestr;
+        var timestamp;
+        var urlurl;
+        var nowurl = location.href;
+
+        if (nowurl.indexOf('#') == -1) {
+            urlurl = nowurl;
+        }
+        if (nowurl.indexOf('#') !== -1) {
+            urlurl = get_urlurl(url);
+        }
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: ContextPath + '/view/getWXSignature',
+            data: {"url": urlurl},
+            success: function (json) {
+                if (json.success) {
+//                    console.dir(json);
+                    signature = json.data.signature;
+                    noncestr = json.data.noncestr;
+                    timestamp = json.data.timestamp;
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wx59b691c92ccb58e1', // 必填，公众号的唯一标识
+                        timestamp: timestamp, // 必填，生成签名的时间戳
+                        nonceStr: noncestr, // 必填，生成签名的随机串
+                        signature: signature,// 必填，签名，见附录1
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+                    wx.ready(function(){
+                        // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+                        var shareLinkUrl = 'https://hzease.com/activity9/swordArtOnline.html';
+                        if (localStorage.getItem("userid")) {
+                            shareLinkUrl = 'https://hzease.com/activity9/swordArtOnline.html?userId=' + localStorage.getItem("userid");
+                        } else if (url_userid) {
+                            shareLinkUrl = 'https://hzease.com/activity9/swordArtOnline.html?userId=' + url_userid;
+                        }
+
+                        //        分享到朋友
+                        wx.onMenuShareAppMessage({
+                            title: '刀剑神域免费观影', // 分享标题
+                            desc: share_nickname+'正在参加刀剑神域免费观影活动，快来帮TA助力吧！', // 分享描述
+                            link: shareLinkUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://hzease.com/activity9/banner/share3.png', // 分享图标
+                            type: 'link', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                                console.dir('分享给朋友成功');
+                                location.href = shareLinkUrl;
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                                console.dir('分享给朋友失败');
+                            }
+                        });
+
+                        //        分享到朋友圈
+                        wx.onMenuShareTimeline({
+                            title: '刀剑神域免费观影', // 分享标题
+                            link: shareLinkUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://hzease.com/activity9/banner/share3.png', // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                                console.dir("分享给好友成功");
+                                location.href = shareLinkUrl;
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                                console.dir("分享给好友失败");
+                            }
+                        });
+                    });
+                    wx.error(function(res){
+                        // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                        console.dir(res)
+                    });
+                } else {
+                    console.dir(json.msg);
+                }
+
+            }
+        });
+    }
+
+    //    获取code
+    function getcode() {
+        localStorage.clear();
+        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=' + state + '#wechat_redirect';
+//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state='+state+'#wechat_redirect';
+        location.href = url_code;
+    }
+
+    function returnJson() {
+        return '{"title":"刀剑神域免费观影",' +
+            '"message":"我正在参加刀剑神域免费观影活动，快来帮我助力吧！",' +
+            '"url":"https://hzease.com/activity9/swordArtOnline.html",' +
+            '"image":"https://hzease.com/activity9/banner/share3.png"}'
+    }
+
+    function returnJson(type) {
+        var s = '{"title":"刀剑神域免费观影","message":"我正在参加刀剑神域免费观影活动，快来帮我助力吧！","url":"https://hzease.com/activity9/swordArtOnline.html","image":"https://hzease.com/activity9/banner/share3.png"}';
+        if (type == 'ios')
+            return s;
+        else
+            return JSON.parse(s);
+    }
+</script>
+<!--load-->
+
+<!--魔窗-->
+<script>
+    new Mlink({
+        mlink: 'AcpY',//短链地址
+        button: document.querySelector('a#btn_uploadAPP'),
+        autoLaunchApp: false,
+        autoRedirectToDownloadUrl: true,
+        downloadWhenUniversalLinkFailed: false
+    });
+</script>
+<!--魔窗-->
+
+</html>

@@ -1,0 +1,258 @@
+::-webkit-scrollbar-track-piece{width:0;background-color:#f2f2f2}
+::-webkit-scrollbar{width:0;height:6px}
+.appInnerShare_container{
+    width: 100%;
+    background: url("../images/bg3.png");
+    background-size: 100% 100%;
+}
+.cj_info_container{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+.cj_chance{
+    font-size: 13px;
+    color: #ff5959;
+    text-align: center;
+    margin: 0 0 15px;
+}
+.cj_tishi{
+    font-size: 13px;
+    color: #ff5959;
+    text-align: center;
+}
+.jilu_container{
+    width: 90%;
+    height: 16px;
+    padding: 2px;
+    border: solid 1px #e7e7e7;
+    border-radius: 4px;
+    margin: 10px auto 50px;
+}
+.juli_span{
+    width: 33.32%;
+    height: 10px;
+    float: left;
+    padding: 0 1px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.juli_span div{
+    width: 100%;
+    height: 100%;
+    background: #7ee67e;
+}
+.btn_anniu{
+    width: 150px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: #ff6666;
+    color: #fff;
+    font-size: 14px;
+    margin: 0 auto 12px;
+    display: block;
+}
+
+.zhongjiangjilu_modal {
+    display: none;
+}
+.zhongjiangjilu {
+    width: 78%;
+    margin: auto;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    padding: 50px 0 15px;
+    min-height: 140px;
+}
+.zhongjiangjilu h1{
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+}
+.zhongjiangjilu_list{
+    max-height: 300px;
+    overflow-y: auto;
+}
+.zhongjiangjilu img {
+    width: 90%;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: -16px;
+    left: 5%;
+}
+.zj_jilu {
+    width: 70%;
+    margin: auto;
+    min-width: 210px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: dashed 1px #ccc;
+}
+.zhongjiang_time {
+    float: left;
+}
+.zhongjiang_jine {
+    float: right;
+}
+/*zj_tishi*/
+.zj_tishi{
+    width: 250px;
+    background: #ff6666;
+    border-radius: 15px;
+    height: 300px;
+    padding: 30px 0;
+    text-align: center;
+    margin: auto;
+}
+.zj_tishi img{
+    width: 70px;
+    margin: 0 auto 25px;
+}
+.gongxi{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+.prize{
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+.btn_lingqu{
+    width: 150px;
+    height: 40px;
+    border-radius: 6px;
+    background: #ffcf48;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    line-height: 38px;
+    margin-top: 24px;
+}
+.zhongjiang_modal{
+    display: none;
+}
+
+.zhuli_yaoqing_modal{
+    display: none;
+    z-index: 99999;
+}
+.zhuli_yaoqing{
+    position: relative;
+}
+.share_pengyou{
+    width: 13em;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+.iknow{
+    position: absolute;
+    width: 150px;
+    left: 50%;
+    margin-left: -75px;
+    top: 300px;
+}
+
+
+/*zhuanpan*/
+.zp {
+    width: 18rem;
+    height: 18rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.zp .outer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+
+.zp .outer img {
+    width: 100%;
+}
+
+.zp .inner {
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: url(../images/arrow.png)no-repeat;
+    background-size: 100%;
+}
+
+.zp .inner.start:active {
+    -webkit-transform: translate(-50%, -50%) scale(.95);
+    -moz-transform: translate(-50%, -50%) scale(.95);
+    -ms-transform: translate(-50%, -50%) scale(.95);
+    -o-transform: translate(-50%, -50%) scale(.95);
+    transform: translate(-50%, -50%) scale(.95);
+}
+
+.zp .inner.start {
+    background-position: 0 0;
+}
+
+.zp .inner.no-start {
+    background-position: -5rem 0;
+}
+
+.zp .inner.completed {
+    background-position: -10rem 0;
+}
+
+/*tishi*/
+.tishi{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 999999999999;
+    display: none;
+}
+.tishi_val{
+    width: 60%;
+    margin: auto;
+    padding: 30px 15px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    font-weight: 100;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+}
+/*tishi*/

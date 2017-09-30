@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>后会有期</title>
+    <meta name="keywords" content="后会有期"/>
+    <meta name="description" content="后会有期"/>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- 接口前缀-->
+    <script src="../js/key.js"></script>
+    <script src="../js/common.js"></script>
+
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/appInnerShare.css"/>
+
+</head>
+<body>
+
+<div class="appInnerShare_container">
+    <div id="zp" class="zp">
+        <div class="outer KinerLottery KinerLotteryContent"><img src="../images/zzsc.png"></div>
+        <div class="inner KinerLotteryBtn start"></div>
+    </div>
+    <div class="cj_info_container">
+        <div class="cj_chance"><!--remainDraw--></div>
+        <!--再邀请一位好友，即可获得一次抽奖机会-->
+        <div class="cj_tishi"><!--再邀请一位好友，即可获得一次抽奖机会--></div>
+        <div class="jilu_container">
+            <div class="juli_span">
+                <div></div>
+            </div>
+            <div class="juli_span">
+                <div></div>
+            </div>
+            <div class="juli_span">
+                <div></div>
+            </div>
+        </div>
+        <button class="btn_anniu" id="btn_jilu">中奖记录</button>
+        <button class="btn_anniu" id="btn_share">分享给好友</button>
+    </div>
+</div>
+
+<!---中奖记录-->
+<div class="all_black_bg7 zhongjiangjilu_modal">
+    <div class="distable">
+        <div class="distabcell">
+            <div class="zhongjiangjilu">
+                <img src="../images/zhongjiangjilu_title.png" alt=""/>
+                <!--<h1>暂无记录</h1>-->
+                <div class="zhongjiangjilu_list">
+
+                    <div class="zj_jilu">
+                        <div class="zhongjiang_time">2017-07-20 14:24</div>
+                        <div class="zhongjiang_jine">中奖100元</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="zj_jilu">
+                        <div class="zhongjiang_time">2017-07-20 14:24</div>
+                        <div class="zhongjiang_jine">中奖100元</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="zj_jilu">
+                        <div class="zhongjiang_time">2017-07-20 14:24</div>
+                        <div class="zhongjiang_jine">中奖100元</div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---中奖记录 -->
+
+<!---中奖奖品提示-->
+<div class="all_black_bg7 zhongjiang_modal">
+    <div class="distable">
+        <div class="distabcell">
+            <div class="zj_tishi">
+                <img src="../images/juli035188.png" alt="">
+                <div class="gongxi">恭喜你中奖了</div>
+                <div class="prize"></div>
+                <button class="btn_lingqu">立即领取</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!---中奖奖品提示 -->
+
+<!--分享提醒-->
+<div class="all_black_bg7 zhuli_yaoqing_modal">
+    <div class="zhuli_yaoqing">
+        <img src="../images/zhuliyaoqing.png" class="share_pengyou" alt=""/>
+        <img src="../images/iknow.png" class="iknow" alt="">
+    </div>
+</div>
+<!--分享提醒-->
+
+<!---tishi---->
+<div class="tishi">
+    <div class="distable">
+        <div class="distabcell">
+            <div class="tishi_val">
+                <!--对不起，您的抽奖次数已用完-->
+            </div>
+        </div>
+    </div>
+</div>
+<!---tishi---->
+</body>
+<script>
+    $(document).ready(function () {
+        $(".appInnerShare_container").height($(window).height());
+        $("#btn_jilu").click(function () {
+            $(".zhongjiangjilu_modal").fadeIn(500);
+        });
+        $(".zhongjiangjilu_modal").click(function () {
+            $(".zhongjiangjilu_modal").fadeOut(500);
+        });
+        $(".btn_lingqu").on('click', function () {
+            $(".zhongjiang_modal").fadeOut(500);
+        });
+        $("#btn_share").click(function () {
+            $(".zhuli_yaoqing_modal").fadeIn(500);
+        });
+        $(".zhuli_yaoqing_modal").click(function () {
+            $(".zhuli_yaoqing_modal").fadeOut(500);
+        })
+    });
+    function tishi_out() {
+        setTimeout(function () {
+            $(".tishi").fadeOut(500);
+        }, 1500)
+    }//提示框2秒后消失
+</script>
+
+<script>
+    $(function () {
+        isInapp();
+        load();
+    });
+
+    function isInapp() {
+        var inapp = getQueryString("inapp");
+        var appuser = getQueryString("appuser");
+        var apptoken = getQueryString("apptoken");
+        if (inapp == 'true') {
+            localStorage.setItem("userid", appuser);
+            localStorage.setItem("token", apptoken);
+        }
+    }
+
+    function load() {
+        // 剩余抽奖机会
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + 'view/findSeptLuckDrawFrequence',
+            data: {"userId": localStorage.getItem("userid"), "token": localStorage.getItem("token")},
+            success: function (json) {
+//                console.dir(json);
+                var data = json.data;
+                $(".cj_chance").html('您有' + data.remainDraw + '次抽奖机会');
+                $(".cj_tishi").html('再邀请' + data.remainRecommend + '位好友，即可获得一次抽奖机会');
+
+                var divlength = 3 - data.remainRecommend;
+                var $jilu_container = $(".jilu_container").html('');
+                for (var i = 0; i < divlength; i++) {
+                    $jilu_container.append('<div class="juli_span"><div></div></div>');
+                }
+            }
+        });
+
+
+        // 中奖记录
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + 'view/listSeptLuckDraw',
+            data: {"userId": localStorage.getItem("userid"), "token": localStorage.getItem("token")},
+            success: function (json) {
+                console.dir(json);
+                var data = json.data;
+                if (data.length == 0) {
+                    $(".zhongjiangjilu").html('<img src="../images/zhongjiangjilu_title.png" alt=""/><h1>暂无记录</h1>');
+                } else {
+                    var $zhongjiangjilu_list = $(".zhongjiangjilu_list").html('');
+                    $.each(data, function (index, obj) {
+                        var $zj_jilu = $('<div class="zj_jilu"></div>');
+                        var $clear = $('<div class="clear"></div>');
+                        var $zhongjiang_time = $('<div class="zhongjiang_time"></div>');
+                        var $zhongjiang_jine = $('<div class="zhongjiang_jine"></div>');
+                        $zhongjiang_time.html(getDate(obj.drawTime));
+                        var prize;
+                        if (obj.money == -1) {
+                            prize = '观影券';
+                        } else {
+                            prize = parseInt(obj.money / 100) + '元';
+                        }
+                        $zhongjiang_jine.html(prize);
+                        $zj_jilu.append($zhongjiang_time);
+                        $zj_jilu.append($zhongjiang_jine);
+                        $zj_jilu.append($clear);
+                        $zhongjiangjilu_list.append($zj_jilu);
+                    })
+                }
+            }
+        })
+    }
+
+    function zp() {
+        var isLogin = (localStorage.getItem("token") && localStorage.getItem("userid"));
+        if (!isLogin) {
+            alert('请先登录');
+            return;
+        }
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: ContextPath + 'view/septluckDraw',
+            data: {"token": localStorage.getItem("token"), "userId": localStorage.getItem("userid")},
+            success: function (json) {
+//                console.dir(json);
+                if (json.success) {
+                    window.zpData = json.data;
+                    load();
+                    //执行转盘回调
+                    self.opts.clickCallback.call(self);
+                } else {
+                    if (json.msg == '您没有抽奖机会') {
+                        $(".tishi_val").html('您没有抽奖机会');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if (json.msg == '活动已结束') {
+                        $(".tishi_val").html('活动已结束');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if (json.msg == '登录失效') {
+                        alert('登录失效');
+                        return;
+                    }
+
+                }
+            }
+        });
+    }
+
+    function getDate(tm) {
+        function getMinute(minute) {
+            var str = minute + '';
+            if (str.length === 1) {
+                str = '0' + str;
+            }
+            return str;
+        }
+
+        var date = new Date(tm);
+        var today = new Date();
+        var dateString = null;
+        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + " " + date.getHours() + ":" + getMinute(date.getMinutes());
+        return dateString;
+    }
+
+    function returnJson(type) {
+        var s = '{"title":"后会有期官网","message":"我们的目标是拯救死宅！让我们成为好朋友吧！（通过此链接进入可直接成为蓝色好友）","url":"https://hzease.com/index.html","image":"https://hzease.com/images/logo.png"}';
+        if (type == 'ios')
+            return s;
+        else
+            return JSON.parse(s);
+    }
+</script>
+
+<!-----转盘---->
+<script src="../js/zepto.min.js"></script>
+<script src="../js/appInnerShare.js"></script>
+<script>
+
+    //------旋转角度
+    var whichAward = function (deg) {
+        if ((deg > 337 && deg <= 360) || (deg > 0 && deg <= 22)) { //10M流量
+            return "888元";
+        } else if ((deg > 22 && deg <= 67)) { //50元
+            return "50元";
+        } else if (deg > 67 && deg <= 112) { //10元
+            return "10元";
+        } else if (deg > 112 && deg <= 157) { //100元
+            return "100元";
+        } else if (deg > 157 && deg <= 202) { //1元
+            return "观影券";
+        } else if (deg > 202 && deg <= 247) { //3元
+            return "3元";
+        } else if (deg > 247 && deg <= 292) { //8888元
+            return "1元";
+        } else if (deg > 292 && deg <= 337) { //5元
+            return "5元";
+        }
+    };
+    var whichJiaodu = function (jiangpin) {
+        if (jiangpin == 100) { //  1元
+            return 270;
+        }
+        if (jiangpin == 300) { //  3元
+            return 225;
+        }
+        if (jiangpin == 500) {//  5元
+            return 315;
+        }
+        if (jiangpin == -1) {//  观影券
+            return 180;
+        }
+        if (jiangpin == 5000) { //  50元
+            return 45;
+        }
+        if (jiangpin == 10000) {//  100元
+            return 114;
+        }
+    };
+    var KinerLottery = new KinerLottery({
+        rotateNum: 8, //转盘转动圈数
+        body: "#zp", //大转盘整体的选择符或zepto对象
+        direction: 1, //0为顺时针转动,1为逆时针转动
+
+        clickCallback: function () {
+            //此处访问接口获取奖品
+            var data = window.zpData;
+            var jiaodu = whichJiaodu(data.money);
+            this.goKinerLottery(jiaodu);
+        }, //点击抽奖按钮,再次回调中实现访问后台获取抽奖结果,拿到抽奖结果后显示抽奖画面
+
+        KinerLotteryHandler: function (deg) {
+            var data = window.DrawObject;
+            $(".prize").html(whichAward(deg));
+            $(".zhongjiang_modal").fadeIn(500);//弹出奖品
+            load();
+        } //抽奖结束回调
+    });
+</script>
+<!-----转盘---->
+
+</html>

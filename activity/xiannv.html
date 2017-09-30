@@ -159,7 +159,6 @@
     function load() {
         var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
         if(!isLogin){
-            alert('请先登陆');
             getcode();
             return;
         }
@@ -173,7 +172,6 @@
                 if(!json.success){
                     console.dir(json.msg);
                     if(json.msg == '登录失效'){
-                        alert(json.msg);
                         getcode();
                         return;
                     }
@@ -199,7 +197,7 @@
                                                     '<h1>'+obj.nickname+'</h1>'+
                                                     '<div class="clear"></div>');
 
-                        var $fenshu = $('<div class="nvshen_fenshu">'+obj.order+'</div>');
+                        var $fenshu = $('<div class="nvshen_fenshu">'+obj.point+'</div>');
                         $nvshen_paihang.append($nvshen_paihang_paixu);
                         $nvshen_paihang.append($nvshen_paihang_user);
                         $nvshen_paihang.append($fenshu);
@@ -230,8 +228,8 @@
 
     function getcode() {
         localStorage.clear();
-//        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
-        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+        var url_code = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1455b640ec310a00&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
+//        var url_code = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx1455b640ec310a00&redirect_uri='+location.href+'&response_type=code&scope=snsapi_login&state=1#wechat_redirect';
         location.href = url_code;
     }
 </script>

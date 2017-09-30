@@ -63,57 +63,6 @@
                 loadIp();
             }
 
-            /*var isLogin= (localStorage.getItem("token") && localStorage.getItem("userid"));
-            if(!isLogin){
-                getcode();
-                return;
-            }
-            $.ajax({
-                type:'post',
-                dataType:'json',
-                url:ContextPath+'view/luckDraw',
-                data: {"token":localStorage.getItem("token"),"userId":localStorage.getItem("userid")},
-                success:function(json){
-                    var data = json.data;
-                    console.dir(json);
-                    if(json.success){
-                        window.DrawObject= data;
-                        $(".shengyu_cishu span").html(data.frequency);
-
-                        //执行转盘回调
-                        self.opts.clickCallback.call(self);
-                    }else{
-                        if(json.msg == '您的抽奖次数已用完'){
-                            $(".tishi_val").html('您的抽奖次数已用完');
-                            $(".tishi").fadeIn(500);
-                            tishi_out();
-                            return;
-                        }
-                        if(json.msg == '助力5人可再获取一次抽奖机会'){
-                            $(".tishi_val").html('邀请5人助力可获取第二次抽奖机会');
-                            $(".tishi").fadeIn(500);
-                            tishi_out();
-                            return;
-                        }
-                       /!* if(json.msg == '仅限杭州用户'){
-                            $(".tishi_val").html('该活动仅限杭州用户');
-                            $(".tishi").fadeIn(500);
-                            tishi_out();
-                            return;
-                        }*!/
-                        if(json.msg == '登录失效'){
-                            getcode();
-                            return;
-                        }
-                        if(json.msg == '活动还未开始'){
-                            $(".tishi_val").html('活动还未开始');
-                            $(".tishi").fadeIn(500);
-                            tishi_out();
-                            return;
-                        }
-                    }
-                }
-            });*/
         });
 
 

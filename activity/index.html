@@ -47,7 +47,6 @@
             </div>
         </div>
 
-
         <!-- card1  -------->
         <div class="swiper-slide">
             <div class="card_container card_container1">
@@ -57,7 +56,6 @@
             </div>
         </div>
         <!-- card1  -->
-
 
         <!-- card2 ----转盘抽奖---->
         <div class="swiper-slide">
@@ -75,7 +73,7 @@
                 <button class="acivity_xiangqing">活动详情</button>
                 <div class="zp_bom">
                     <div class="cha_usernum">
-                        再邀请<span>5</span>人助力可获得一次抽奖机会
+                        <!--再邀请<span>-</span>人助力可获得一次抽奖机会-->
                     </div>
                     <div class="shengyu_cishu">
                         剩余抽奖次数<span>-</span>次
@@ -86,7 +84,6 @@
             </div>
         </div>
         <!-- card2 --------转盘抽奖-->
-
 
         <!-- card3----仙女榜---->
         <div class="swiper-slide">
@@ -102,7 +99,6 @@
         </div>
         <!-- card3----仙女榜---->
 
-
         <!-- card4 -达人榜-->
         <div class="swiper-slide">
             <div class="card_container card_container4">
@@ -117,7 +113,6 @@
         </div>
         <!-- card4 -->
 
-
         <!-- card5 -每日女神-->
         <div class="swiper-slide">
             <div class="card_container card_container5">
@@ -125,7 +120,6 @@
             </div>
         </div>
         <!-- card5 -->
-
 
         <div class="swiper-slide">
             <div class="a1" style="background: transparent!important;"></div>
@@ -270,11 +264,11 @@
 
 <!---邀请助力---->
 <div class="all_black_bg7 zhuli_yaoqing_modal">
-        <div class="zhuli_yaoqing">
-            <img src="images/zhuliyaoqing.png" class="share_pengyou" alt=""/>
-            <img src="images/iknow.png" class="iknow" alt="">
-        </div>
+    <div class="zhuli_yaoqing">
+        <img src="images/zhuliyaoqing.png" class="share_pengyou" alt=""/>
+        <img src="images/iknow.png" class="iknow" alt="">
     </div>
+</div>
 <!---邀请助力---->
 
 <!---中奖记录-->
@@ -375,7 +369,6 @@
         <span>取消</span>
         <span>确定</span>
     </div>
-
 </div>
 
 </body>
@@ -517,7 +510,6 @@
             url: ContextPath + '/view/allPrizeInfo',
             success: function (json) {
                 if (json.success) {
-//                    console.dir(json.data);
                     var datas = json.data;
                     $(".zp_top h1").empty().append('奖池剩余金额：' + datas.allMoney/100 + '元');
                     $(".zp_top h2").empty().append('参与人数：' + datas.joinMember + '人');
@@ -589,9 +581,6 @@
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', function () {
                 zp();
-                /*$(".tishi_val").html('定位失败，请先检查定位设置');
-                $(".tishi").fadeIn(500);
-                tishi_out();*/
                 console.log("定位失败");
             });      //返回定位出错信息
 
@@ -625,8 +614,14 @@
                         tishi_out();
                         return;
                     }
-                    if(json.msg == '助力5人可再获取一次抽奖机会'){
-                        $(".tishi_val").html('邀请5人助力可获取第二次抽奖机会');
+                    if(json.msg == '助力10人可获取一次抽奖机会'){
+                        $(".tishi_val").html('邀请10人助力可获取一次抽奖机会');
+                        $(".tishi").fadeIn(500);
+                        tishi_out();
+                        return;
+                    }
+                    if(json.msg == '助力25人可再获取一次抽奖机会'){
+                        $(".tishi_val").html('邀请25人助力可获取第二次抽奖机会');
                         $(".tishi").fadeIn(500);
                         tishi_out();
                         return;
@@ -659,7 +654,6 @@
         });
     }
 
-
     //获取助力的人
     function get_zhuli() {
         $.ajax({
@@ -669,15 +663,12 @@
             url: ContextPath + '/view/findHelped',
             data: {"userId": beizhuli_userid},
             success: function (json) {
+                console.dir(json);
                 if (json.success) {
                     var data = json.data;
-                    zp_tishi = data.length;
-//                    console.dir(json);
                     $(".zhuli_num").empty().append('<h2>已有<font color="#00b8e8">' + data.length + '</font>位玩家给TA助力</h2>');
-
                     var $zhuli_user = $('.zhuli_user').html('');
                     var $clear = $('<div class="clear"></div>');
-
                     $.each(data, function (index, obj) {
                         if (obj.id == localStorage.getItem("userid")) {
                             $(".tishi_val").html('已助力');
@@ -703,7 +694,6 @@
                         $zhuli_user.append($clear);
 
                     });
-
                 }
             },
             error: function (e) {
@@ -714,20 +704,24 @@
 
     //转盘提示
     function getzp_tishi(Frequency) {
+        //Frequency剩余抽奖次数
         if(Frequency == 0){
-            if(zp_tishi>=5){
+            if(zp_tishi>=25){
                 $(".cha_usernum").empty().append('每人最多有两次抽奖机会');
             }
-            if(zp_tishi<5){
-                $(".cha_usernum").empty().append('再邀请<span>' + parseInt(5-zp_tishi) + '</span>人助力可获得第二次抽奖机会');
+            if(zp_tishi>=10 && zp_tishi<25){
+                $(".cha_usernum").empty().append('再邀请<span>' + parseInt(25-zp_tishi) + '</span>人助力可获得第二次抽奖机会');
+            }
+            if(zp_tishi<10){
+                $(".cha_usernum").empty().append('再邀请<span>' + parseInt(10-zp_tishi) + '</span>人助力可获得一次抽奖机会');
             }
         }
         else if(Frequency == 1){
-            if(zp_tishi>=5){
+            if(zp_tishi>=25){
                 $(".cha_usernum").empty().append('恭喜你获得第二次抽奖机会');
             }
-            if(zp_tishi<5){
-                $(".cha_usernum").empty().append('再邀请<span>' + parseInt(5-zp_tishi) + '</span>人助力可获得第二次抽奖机会');
+            if(zp_tishi>=10 && zp_tishi<25){
+                $(".cha_usernum").empty().append('恭喜你获得一次抽奖机会');
             }
         }
         else if(Frequency == 2){
@@ -751,18 +745,11 @@
                 data: {"token": localStorage.getItem("token"), "userId": localStorage.getItem("userid")},
                 success: function (json) {
                     var data = json.data;
-//                console.dir(json);
+                    console.dir(json);
                     if (json.success) {
                         $('.shengyu_cishu').html('剩余抽奖次数<span>' + data.frequency + '</span>次');
+                        zp_tishi = data.helpCount;
                         getzp_tishi(data.frequency);
-
-                       /* if(beizhuli_userid == localStorage.getItem("userid")){
-                            getzp_tishi(data.frequency);
-                        }else{
-                            $(".cha_usernum").css("display","none");
-                            $(".shengyu_cishu").css("display","none");
-                        }*/
-
                     } else {
                         if (json.msg == '登录失效') {
                             $(".cha_usernum").css("display","none");
@@ -867,13 +854,17 @@
                             tishi_out();
                         }
                         if (json.msg == '助力失败') {
-                            $(".tishi_val").html('已有5人为TA助力，不需要在助力啦');
+                            $(".tishi_val").html('已有足够的人为TA助力，不需要在助力啦');
                             $(".tishi").fadeIn(500);
                             tishi_out();
                             $("#btn_help").css("display","none");
                             $("#my_help").css("display","block");
                         }
                         if (json.msg == '登录失效') {
+                            getcode();
+                            return;
+                        }
+                        if (json.msg == '用户ID不存在') {
                             getcode();
                             return;
                         }
@@ -908,7 +899,7 @@
             data: {"url": urlurl},
             success: function (json) {
                 if (json.success) {
-//                    console.dir(json);
+                    console.dir(json);
                     signature = json.data.signature;
                     noncestr = json.data.noncestr;
                     timestamp = json.data.timestamp;
@@ -1181,10 +1172,6 @@
             $(".zp_top h1").html('奖池剩余金额：'+data.allMoney/100+'元');
             $(".zp_top h2").html('参与人数：'+data.joinMember+'人');
             getzp_tishi(data.frequency);
-
-           /* if(beizhuli_userid == localStorage.getItem("userid")){
-                getzp_tishi(data.frequency);
-            }*/
 
 
         } //抽奖结束回调

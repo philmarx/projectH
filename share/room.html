@@ -28,6 +28,8 @@
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script>
     <!--高德地图-->
 
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--微信JSsdk-->
+    <srcipt src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></srcipt><!--微信JSsdk-->
     <script src="../js/key.js"></script>
     <script src="../js/common.js"></script>
 
@@ -81,6 +83,7 @@
             </div>
 
             <a href="" class="btn_go" id="goroom">进入房间</a>
+            <div class="opentishi">如在微信内进入房间失败 - 请右上角在浏览器中打开</div>
 
         </div>
     </div>
@@ -106,13 +109,13 @@
 
 
 <script>
+    var userId  = getQueryString("userId");
+    var roomId  = getQueryString("roomId");
     $(function () {
         $(".f_bg").height($(window).height()-70);
         load();
+        get_ticket();
     });
-
-    var userId  = getQueryString("userId");
-    var roomId  = getQueryString("roomId");
 
     //ajax调接口
     function load() {
@@ -138,8 +141,14 @@
                     $(".room_xiangqing").append(data.room.description);//活动详情
 
 
+                    var allUserNum;
+                    if(data.room.memberCount == 0){
+                        allUserNum = '无限';
+                    }else{
+                        allUserNum = data.room.memberCount;
+                    }
                     if(data.room.manCount == 0 && data.room.womanCount == 0){
-                        $(".nan_clo").empty().append('<span class="man_num">'+data.room.joinMember+'/'+data.room.memberCount+'</span>');//房间总人数
+                        $(".nan_clo").empty().append('<span class="man_num">'+data.room.joinMember+'/'+allUserNum+'</span>');//房间总人数
                         $(".nv_clo").css("display","none");
                     } else{
                         $(".man_num").empty().append(data.room.joinManMember+"/"+data.room.manCount);//房间男生总人数
@@ -173,42 +182,9 @@
         });
     }
 
-/*
-    //高德获取位置
+
+ //经纬度定位
     function loadMap(longitude,latitude){
-        var xzuobiao = longitude;
-        var yzuobiao = latitude;
-
-        mapObj = new AMap.Map('iCenter');
-        mapObj.plugin('AMap.Geolocation', function () {
-            geolocation = new AMap.Geolocation({
-                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 600000
-            });
-            mapObj.addControl(geolocation);
-            geolocation.getCityInfo(function (status,result) {
-                console.dir(result);
-                var getzuobiao  = {"longitude":result.center[0],"latitude":result.center[1]};
-                var juli = getjuli(xzuobiao,yzuobiao,getzuobiao.longitude,getzuobiao.latitude);
-                $(".distance_info").empty().append('<span> · </span>'+juli+"km");
-            });
-            AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
-            AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
-        })
-    }
-
-    function onComplete(result) {
-        console.dir(result);
-    }
-    function onError(error) {
-        console.log("定位失败");
-        $(".distance_info").empty().append('<span> · </span>定位失败');
-    }
-*/
-
-
- //原本经纬度定位
-        function loadMap(longitude,latitude){
         var xzuobiao = longitude;
         var yzuobiao = latitude;
         mapObj = new AMap.Map('iCenter');
@@ -236,6 +212,87 @@
         })
     }
 
+    //微信分享jssdk
+    function get_ticket() {
+        var signature;
+        var noncestr;
+        var timestamp;
+        var urlurl;
+        var nowurl = location.href;
+        if (nowurl.indexOf('#') == -1) {
+            urlurl = nowurl;
+        }
+        if (nowurl.indexOf('#') !== -1) {
+            urlurl = get_urlurl(url);
+        }
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: ContextPath + '/view/getWXSignature',
+            data: {"url": urlurl},
+            success: function (json) {
+                if (json.success) {
+                    console.dir(json);
+                    signature = json.data.signature;
+                    noncestr = json.data.noncestr;
+                    timestamp = json.data.timestamp;
+                    wx.config({
+                        debug: false,
+                        appId: 'wx59b691c92ccb58e1',
+                        timestamp: timestamp,
+                        nonceStr: noncestr,
+                        signature: signature,
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ]
+                    });
+                    wx.ready(function(){
+                        var shareLinkUrl = 'https://hzease.com/share/share.html';
+                        if (localStorage.getItem("userid")) {
+                            shareLinkUrl = 'https://hzease.com/share/share.html?userId=' + localStorage.getItem("userid");
+                        } else if (userId) {
+                            shareLinkUrl = 'https://hzease.com/share/share.html?userId=' + userId;
+                        }
+
+                        wx.onMenuShareAppMessage({
+                            title: '后会有期', // 分享标题
+                            desc: '一款火爆组队APP',
+                            link: shareLinkUrl,
+                            imgUrl: 'https://hzease.com/images/logo.png',
+                            type: 'link',
+                            dataUrl: '',
+                            success: function () {
+                            },
+                            cancel: function () {
+                            }
+                        });
+                        wx.onMenuShareTimeline({
+                            title: '后会有期',
+                            link: shareLinkUrl,
+                            imgUrl: 'https://hzease.com/images/logo.png',
+                            success: function () {
+                            },
+                            cancel: function () {
+                            }
+                        });
+                    });
+                    wx.error(function(res){
+                        console.dir(res)
+                    });
+                } else {
+                    console.dir(json.msg);
+                }
+
+            }
+        });
+    }
+
+    //去掉链接里‘#’后面 部分
+    function get_urlurl(url) {
+        var m = url.match(/[^#]+(?=[#])/g);
+        return m[0];
+    }
 </script>
 
 <!--定义魔窗深链接-->

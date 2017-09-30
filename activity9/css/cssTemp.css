@@ -1,0 +1,351 @@
+::-webkit-scrollbar-track-piece{width:0;background-color:#f2f2f2}
+::-webkit-scrollbar{width:0;height:6px}
+
+
+.activity9_container{
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 202px;
+}
+.movie1{
+    background: url("../images/bg5.png") no-repeat;
+    background-size: 100%;
+}
+.movie2{
+    background: url("../images/bg6.png") no-repeat;
+    background-size: 100%;
+}
+.movie3{
+    background: url("../images/movie3Bg.png") no-repeat;
+    background-size: 100%;
+}
+.movie4{
+    background: url("../images/movie4Bg.png") no-repeat;
+    background-size: 100%;
+}
+.topimg_container{
+    width: 100%;
+    position: relative;
+}
+.topimg{
+    width: 100%;
+
+}
+.zhuli_container{
+    position: relative;
+    width: 92%;
+    margin: auto;
+    background: #d4d9df;
+    padding: 15px 15px 35px;
+    border-radius: 6px;
+}
+.myquan{
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+    display: none;
+}
+.usericon{
+    width: 70px;
+    display: block;
+    margin: 5px auto 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.nickname{
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin: 0 auto 30px;
+    font-size: 15px;
+    color: #333;
+}
+.numtishi{
+    width: 92%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin: 0 auto 15px;
+    font-size: 15px;
+    color: #333;
+    display: none;
+}
+.one_zhuliuser{
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+    padding: 10px 1% 0 0;
+}
+.one_zhuliuser img{
+    width: 28px;
+    border-radius: 50%;
+}
+.one_zhuliuser h6{
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+.btn_{
+    width: 130px;
+    height: 35px;
+    background: #eb5037;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: 20px auto 0;
+    outline: none;
+}
+#btn_share{
+    display: none;
+}
+.activity_container{
+    width: 92%;
+    background: #d4d9df;
+    border-radius: 6px;
+    margin: 10px auto;
+    padding: 20px;
+    position: relative;
+}
+.activity_container img{
+    width: 100%;
+    max-width: 500px;
+    height: 14px;
+    display: block;
+    margin: 0 auto 25px;
+}
+.activity_detail{
+    font-size: 16px;
+    color: #333;
+    line-height: 18px;
+    position: absolute;
+    top: 18px;
+    width: 80px;
+    left: 50%;
+    margin-left: -40px;
+    text-align: center;
+    background: #d0d8da;
+}
+.at_intro{
+    font-size: 13px;
+    color: #333;
+    line-height: 18px;
+    margin: 5px 0;
+}
+.zhuli_yaoqing {
+    position: relative;
+}
+.zhuli_yaoqing_modal {
+    display: none;
+    z-index: 99999;
+}
+.share_pengyou {
+    width: 13em;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+.iknow {
+    position: absolute;
+    width: 150px;
+    left: 50%;
+    margin-left: -75px;
+    top: 300px;
+}
+.btn_not_help{
+    background: #555!important;
+    color: #999!important;
+}
+/*tishi*/
+.tishi{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 999999999999;
+    display: none;
+}
+.tishi_val{
+    width: 60%;
+    margin: auto;
+    padding: 30px 15px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    font-weight: 100;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+}
+/*tishi*/
+#btn_lookMe{
+    display: none;
+}
+.btn_uploadAPP{
+    width: 240px;
+    padding: 17px 35px 27px;
+    display: block;
+    margin: 20px auto;
+    background: url(../images/big_btn.png) no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    font-size: 12px;
+    color: #fff;
+    line-height: 16px;
+    outline: none;
+}
+.changci_title{
+    font-size: 13px;
+    color: #333;
+    margin: 10px 0;
+}
+.changci_time{
+    background: #fff;
+    padding: 10px 0;
+    width: 40%;
+    text-align: center;
+    margin: 0 10px 0 0;
+    float: left;
+}
+.changci_time h1{
+    font-size: 13px;
+    color: #333;
+    font-weight: bold;
+    margin: 0 ;
+}
+.changci_time h2{
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    font-weight: 100;
+}
+.usericon_container{
+    width: 100%;
+    max-height: 305px;
+    overflow-y: auto;
+}
+
+/*toupiao+++*/
+.movie_container{
+    padding: 10px 0;
+}
+.movie{
+    padding: 4px 0;
+}
+.checkbox{
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: solid 1px #b5b5b5;
+    float: left;
+    margin-right: 8px;
+    padding: 2px;
+}
+.checkbox span{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.notBg{
+    background: transparent!important;
+}
+.isBg{
+    background: #03b5e3;
+}
+.vote{
+    background: #eb5037;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: 35px;
+    border-radius: 4px;
+
+}
+.movieName{
+    float: left;
+    line-height: 22px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+}
+.result_container{
+    width: 100%;
+    padding: 10px 0;
+}
+.result{
+    padding-bottom: 10px;
+}
+.left_result{
+    width: 60%;
+    float: left;
+    padding-right: 10px;
+}
+.center_result{
+    width: 20%;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+    line-height: 14px;
+}
+.right_result{
+    width: 20%;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+    line-height: 14px;
+}
+.result h1{
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    margin: 0 0 3px 0;
+}
+.result_lenght{
+    width: 100%;
+    height: 4px;
+    background: #bdbdbd;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+}
+.result_lenght span{
+    display: inline-block;
+    height: 4px;
+    float: left;
+    background: #03b5e3;
+}
+#vote_zanshi{
+    display: none;
+}
+/*toupiao---*/
+
+
+
+
+@media(min-width: 1200px){
+    .activity9_container{
+        display: none;
+    }
+}

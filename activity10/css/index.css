@@ -1,0 +1,293 @@
+::-webkit-scrollbar-track-piece{width:0;background-color:#f2f2f2}
+::-webkit-scrollbar{width:0;height:6px}
+
+.activity10_container{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.zhuli_yaoqing {
+    position: relative;
+}
+.zhuli_yaoqing_modal {
+    display: none;
+    z-index: 99999;
+}
+.share_pengyou {
+    width: 13em;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+.iknow{
+    position: absolute;
+    width: 150px;
+    left: 50%;
+    margin-left: -75px;
+    top: 300px;
+}
+/*tishi*/
+.tishi{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 999999999999;
+    display: none;
+}
+.tishi_val{
+    width: 60%;
+    margin: auto;
+    padding: 30px 15px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    font-weight: 100;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+}
+/*tishi*/
+.btn_uploadAPP{
+    width: 150px;
+    height: 35px;
+    border-radius: 25px;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+    background: #9f5b26;
+    border: none;
+    font-size: 12px;
+    color: #fff;
+    line-height: 35px;
+}
+#btn_share{
+    width: 100px;
+    height: 30px;
+    border-radius: 25px;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background: #9f5b26;
+    border: none;
+    font-size: 12px;
+    color: #fff;
+    line-height: 28px;
+    outline: none;
+}
+
+
+
+
+/*new*/
+.sec1_jine {
+    font-size: 30px;
+    font-weight: 600;
+    color: #f7c989;
+    text-align: center;
+    line-height: 35px;
+    margin: 5px 0;
+}
+.index_sec{
+    position: relative;
+}
+.index_sec1{
+    /*padding: 20px;*/
+    background: url("../images/sec1bg.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.indexsec_pad{
+    padding: 20px 0 50px;
+}
+.indexsec_pad2{
+    padding: 45px 0 50px;
+}
+.scroll_container{
+    background: #4e342d;
+    border: solid 2px #59433f;
+    width: 250px;
+    height: 250px;
+    border-radius: 6px;
+    margin: 40px auto 30px;
+}
+.zuixinjl{
+    font-size: 14px;
+    color: #fff;
+    background: #a16e82;
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 28px;
+    margin: 12px auto;
+}
+#demo_1{
+    overflow-y: auto;
+    height: 180px;
+    width: 92%;
+    margin: auto;
+}
+#demo_1::-webkit-scrollbar-track-piece{width:0;background-color:#f2f2f2}
+#demo_1::-webkit-scrollbar{width:0;height:6px}
+#demo4{
+    margin-top: -5px;
+}
+.scroll_container ul li{
+    line-height: 16px;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 15px 0;
+    color: #ccc;
+}
+/*.scroll_container ul li span{*/
+    /*display: inline-block;*/
+    /*font-size: 12px;*/
+    /*width: 50px;*/
+    /*background: red;*/
+/*}*/
+.btn_tab1{
+    width: 85px;
+    height: 25px;
+    color: #fff;
+    background: url("../images/one1.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right: 20px;
+    float: left;
+}
+.hover1_bg{
+    background: url("../images/one2.png")!important;
+    background-size: 100% 100%!important;
+}
+.btn_tab2{
+    width: 85px;
+    height: 25px;
+    color: #fff;
+    background: url("../images/two1.png") no-repeat;
+    background-size: 100% 100%;
+    float: left;
+}
+.hover2_bg{
+    background: url("../images/two2.png")!important;
+    background-size: 100% 100%!important;
+}
+.btn_con{
+    width: 190px;
+    margin: 0 auto 40px;
+}
+.index_sec2{
+    width: 100%;
+    background: url("../images/secbg.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.TabHide2{
+    width: 80%;
+    margin: auto;
+}
+#TabShow1 h6{
+    font-size: 13px;
+    color: #f3f3f3;
+    line-height: 22px;
+    font-weight: 400;
+}
+#TabShow1 h5{
+    position: relative;
+    font-size: 13px;
+    color: #f3f3f3;
+    line-height: 22px;
+    font-weight: 400;
+    padding-left: 50px;
+}
+#TabShow1 h5 span{
+    position: absolute;
+    left: 20px;
+}
+.TabHide2_container{
+    font-size: 183px;
+    color: #f3f3f3;
+    text-align: center;
+    font-weight: 100;
+}
+.index_sec3{
+    width: 100%;
+    background: url("../images/secbg.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+.myacity{
+    font-size: 16px;
+    color: #f3f3f3;
+    text-align: center;
+    margin: 0 0 25px;
+}
+.act_container{
+    width: 85%;
+    margin: auto;
+}
+.act_container h5{
+    font-size: 14px;
+    color: #f3f3f3;
+    text-align: center;
+    font-weight: 200;
+}
+.hrhr{
+    width: 80%;
+    margin: auto;
+    border-top: dashed 1px #ccc;
+
+}
+.l_act{
+    font-size: 14px;
+    color: #f3f3f3;
+    float: left;
+    width: calc(100% - 100px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+.r_act{
+    font-size: 12px;
+    color: #ccc;
+    float: right;
+    width: 70px;
+    text-align: center;
+    line-height: 20px;
+}
+.onestate{
+    font-size: 12px;
+    color: #ccc;
+    line-height: 24px;
+}
+.oneact{
+    padding-bottom: 20px;
+}
+.lingqu{
+    width: 70px;
+    height: 20px;
+    font-size: 12px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 20px;
+    background: #a16e82;
+    border-radius: 10px;
+}
+.btnjt{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -12px;
+}
+
+
+
+
+
+
+
+
+

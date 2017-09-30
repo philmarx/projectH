@@ -23,8 +23,9 @@
     <script src="../js/key.js" ></script><!-- 定义的 接口前缀-->
     <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script><!--魔窗-->
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=9ec731c426036a64c93d46f920b47d69"></script> <!--高德地图-->
-    <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script><!--微信授权登录-->
 
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><!--微信JSsdk-->
+    <srcipt src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></srcipt><!--微信JSsdk-->
 
     <link rel="stylesheet" href="../css/common.css"/>  <!-- 公共样式---要放在高德API的后面----不然有html,body---height:100%的问题-->
 </head>
@@ -170,8 +171,7 @@
         load();
         loadMap();
         login();
-        //微信登录获取到code后重定向会刷新页面，所以获取code要放在页面一加载就执行的函数里面
-
+        get_ticket();
     });
 
     //set传后app的参数
@@ -349,71 +349,8 @@
         location.href = url_1;
     }
 
-    //高德获取位置
-/*    function loadMap(longitude,latitude){
-        mapObj = new AMap.Map('iCenter');
-        mapObj.plugin('AMap.Geolocation', function () {
-            geolocation = new AMap.Geolocation({
-                timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-                maximumAge: 600000
-            });
-            mapObj.addControl(geolocation);
-            geolocation.getCityInfo(function (status,result) {
-                console.dir(result);
-//                alert("经度："+result.center[0]+"+纬度："+result.center[1]+"+城市："+result.city);
-                var params={"gameId":0,"longitude":result.center[0],"latitude":result.center[1],"page":0,"size":10,"state":0};
-                $.ajax({
-                    type:'post',
-                    dataType:'json',
-                    url:ContextPath+'/room/findRoomsByGameOrder',
-                    data:params,
-                    success:function(json){
-                        if(json.success){
-                            var datas = json.data;
-                            var $tuijianContainer=$('#tuijian_container').html('');
-
-                            $.each(datas, function (index,obj) {
-
-                                var $tuijian=$('<div class="tuijian"><div class="game_img_div"><div class="distable"><div class="distabcell"><img src="../images/game/'+obj.game.id+'.png" class="game_img"/></div></div></div></div>');
-
-                                var $gameInfo=$(' <div class="game_info">'+
-                                    '<h5 class="game_name">'+obj.name+'</h5>'+
-                                    '<div class="place_container">'+
-                                    '<div class="place_info">'+obj.place+'</div>'+
-                                    '<div class="distance_info"><span> · </span>'+getjuli(obj.latitude,obj.longitude,result.center[1],result.center[0])+'km</div>'+
-                                    '<div class="game_time">'+(obj.locked?'<img src="../images/mi.png" alt=""/>':'')+(obj.money>0?'<img src="../images/bao.png" alt=""/>':'')+
-                                    obj.beginTime+'</div><div class="clear"></div></div>');
-                                var $imgContainer=  $('<div class="adduser_tx"></div>');
-                                $.each(obj.joinMembers,function(index,obj){
-                                    var $img=$('<img src="'+'https://tomeet-app-files.oss-cn-hangzhou.aliyuncs.com/user/'+ obj.id+'/avatar'+'" alt=""/>');
-                                    $imgContainer.append($img);
-                                });
-                                $gameInfo.append($imgContainer);
-                                $tuijian.append($gameInfo);
-                                var $clear=$('<div class="clear"></div>');
-                                $tuijian.append($clear);
-                                $tuijianContainer.append($tuijian);
-                            })
-                        }else{
-                            $('#tuijian_container').html('<div class="zanwu">暂无</div>');
-                        }
-                    }
-                });
-            });
-            AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
-            AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
-        })
-    }
-    function onComplete(result) {
-        console.dir(result);
-    }
-    function onError(error) {
-        console.dir(error.message);
-        $('#tuijian_container').html('<div class="zanwu">暂无</div>');
-    }*/
-
-    //原本经纬度定位
-        function loadMap(){
+    //经纬度定位
+    function loadMap(){
         mapObj = new AMap.Map('iCenter');
         mapObj.plugin('AMap.Geolocation', function () {
             geolocation = new AMap.Geolocation({
@@ -469,6 +406,87 @@
         })
     }
 
+    //微信分享jssdk
+    function get_ticket() {
+        var signature;
+        var noncestr;
+        var timestamp;
+        var urlurl;
+        var nowurl = location.href;
+        if (nowurl.indexOf('#') == -1) {
+            urlurl = nowurl;
+        }
+        if (nowurl.indexOf('#') !== -1) {
+            urlurl = get_urlurl(url);
+        }
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: ContextPath + '/view/getWXSignature',
+            data: {"url": urlurl},
+            success: function (json) {
+                if (json.success) {
+                    console.dir(json);
+                    signature = json.data.signature;
+                    noncestr = json.data.noncestr;
+                    timestamp = json.data.timestamp;
+                    wx.config({
+                        debug: false,
+                        appId: 'wx59b691c92ccb58e1',
+                        timestamp: timestamp,
+                        nonceStr: noncestr,
+                        signature: signature,
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ]
+                    });
+                    wx.ready(function(){
+                        var shareLinkUrl = 'https://hzease.com/share/share.html';
+                        if (localStorage.getItem("userid")) {
+                            shareLinkUrl = 'https://hzease.com/share/share.html?userId=' + localStorage.getItem("userid");
+                        } else if (userId) {
+                            shareLinkUrl = 'https://hzease.com/share/share.html?userId=' + userId;
+                        }
+
+                        wx.onMenuShareAppMessage({
+                            title: '后会有期', // 分享标题
+                            desc: '一款火爆组队APP',
+                            link: shareLinkUrl,
+                            imgUrl: 'https://hzease.com/images/logo.png',
+                            type: 'link',
+                            dataUrl: '',
+                            success: function () {
+                            },
+                            cancel: function () {
+                            }
+                        });
+                        wx.onMenuShareTimeline({
+                            title: '后会有期',
+                            link: shareLinkUrl,
+                            imgUrl: 'https://hzease.com/images/logo.png',
+                            success: function () {
+                            },
+                            cancel: function () {
+                            }
+                        });
+                    });
+                    wx.error(function(res){
+                        console.dir(res)
+                    });
+                } else {
+                    console.dir(json.msg);
+                }
+
+            }
+        });
+    }
+
+    //去掉链接里‘#’后面 部分
+    function get_urlurl(url) {
+        var m = url.match(/[^#]+(?=[#])/g);
+        return m[0];
+    }
 </script>
 
 <!--魔窗-->

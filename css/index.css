@@ -1,0 +1,85 @@
+
+@media (min-width: 1080px){
+    .index_container{display: none;}
+    .pc_container{
+        width: 100%;
+       background: url("../images/index_bg.png")no-repeat;
+        background-size: 100% 100%;
+    }
+    .pc_container_div{
+        width: 900px;
+        margin: auto;
+    }
+    .phoneimg{
+        width: 310px;
+        float: left;
+    }
+    .right_container{
+        width: 210px;
+        float: left;
+        margin-top: 160px;
+        margin-left: 200px;
+    }
+    .logoimg{
+        width: 60px;
+        float: left;
+    }
+    .logo_right{
+        float: left;
+        margin-left: 25px;
+    }
+    .logo_right h1{
+        font-size: 25px;
+        color: #fff;
+        line-height: 30px;
+        font-weight: 500;
+    }
+    .logo_right h2{
+        font-size: 14px;
+        color: #fff;
+        margin: 7px 0 0 0;
+        font-weight: 500;
+    }
+    .uploadBtn{
+        display: block;
+        width: 190px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #fff;
+        background: #03b5e3;
+        margin: 50px auto 0;
+    }
+    .ewm_img{
+        width: 110px;
+        display: block;
+        margin: 50px auto 0;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+@media (max-width: 1080px){
+    .pc_container{display: none;}
+    .index_container>div>img{width: 100%;}
+    .load_div{padding: 2em 0 18px;width: 100%;}
+    .one_load{background: #f4fdff;margin-top: -5px;}
+    .load_div img{width: 15px;display: block;margin: 12px auto 0;}
+    .fx_upload{display: block;margin: auto;width: 8em;height: 2.5em;border-radius: 5px;background: #00b8e8;font-size: 13px;color: #fff;text-align: center;line-height: 2.5em;}
+    .fx_upload2{display: block;margin: auto;width: 8em;height: 2.5em;border-radius: 5px;background: #00b8e8;font-size: 13px;color: #fff;text-align: center;line-height: 2.5em;}
+    .gongzhonghao{padding: 14em 0 18em;text-align: center;}
+    .gongzhonghao img{width: 8em!important;}
+    .gongzhonghao h3{font-size: 12px;color: #333333;margin: 5px 0 0;}
+    .index_container h1{font-size: 17px;color: #333333;text-align: center;line-height: 18px;}
+    .index_container h2{font-size: 10px;color: #808080;line-height: 10px;margin: 20px 0 35px;text-align: center;}
+}

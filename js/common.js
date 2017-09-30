@@ -136,6 +136,25 @@ function dateTimeFormat(dateNum){
     return dateString;
 }
 
+function getDate(tm){
+    function getMinute(minute){
+        var str=minute+'';
+        if(str.length===1){
+            str='0'+str;
+        }
+        return str;
+    }
+    var date=new Date(dateNum);
+    var today=new Date();
+    var dateString=null;
+    if(date.getFullYear()==today.getFullYear()&&date.getMonth()==today.getMonth()){
+        dateString=date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+getMinute(date.getMinutes());
+    }else{
+        dateString=date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+getMinute(date.getMinutes());
+    }
+    return dateString;
+}
+
 $(document).ready(function () {
 
         //最下方浮动块点击关闭按钮隐藏
